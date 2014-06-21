@@ -5,16 +5,9 @@
         <header>
                 <h2 id="site-title"><a href="/">{{ site.name }}</a></h2>
         </header>
-        <div id="article">
-            <h1 id='article-title'>
-                {{ page.summary }}
-            </h1>
-
-            <div id="article-content">
+        <section id="article">
                 {{ content }}
-            </div>
-        {% include metadata.html %}
-        </div>
+        </section>
         {% include footer.html %}
 </body>
 </html>

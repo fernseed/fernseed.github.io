@@ -1,6 +1,7 @@
 name: fernseed
+url: http://git.fernseed.org
 markdown: redcarpet
-permalink: /:categories/:title/
+permalink: /:title/
 
 redcarpet:
     extensions: ['smart']

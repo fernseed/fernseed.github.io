@@ -1,17 +1,17 @@
 ---
-layout: base
+layout: index
 title:  fernseed
 ---
 
 <div id="site-history">
     <ol>
-    	{% for post in site.posts %}
+    {% for post in site.categories.the-second-room %}
             <li>
             	<span>
-            		<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            		<a href="{{ post.url }}" title="{{ post.summary }}">{{ post.title | downcase }}</a>
             	</span>
             	<span>
-            		<a href="{{ post.url }}">{{ post.summary }}</a>
+            		<a href="{{ post.url }}" title="{{ post.title | downcase }}">{{ post.summary }}</a>
             	</span>
             </li>
         {% endfor %}
