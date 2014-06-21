@@ -17,7 +17,9 @@ title:  fernseed
         {{ site.categories.the-second-room.first.date | date_to_string }}
     </span>
     <span id='taglist'>
-        {{ site.categories.the-second-room.first.tags }}
+        {% for tag in site.categories.the-second-room.first.tags %}
+            {{ tag }}
+        {% endfor %}
     </span>
 </div>
 
