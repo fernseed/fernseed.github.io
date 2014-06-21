@@ -3,6 +3,25 @@ layout: index
 title:  fernseed
 ---
 
+<!-- Latest Post -->
+<h1 id="article-title">
+    <a href="/{{ site.categories.the-second-room.first.url }}">
+        {{ site.categories.the-second-room.first.summary }}
+    </a>
+</h1>
+<article id="article-content">
+    {{ site.categories.the-second-room.first.content }}
+</article>
+<div id="article-meta">
+    <span id='date'>
+        {{ site.categories.the-second-room.first.date | date_to_string }}
+    </span>
+    <span id='taglist'>
+        {{ site.categories.the-second-room.first.tags }}
+    </span>
+</div>
+
+<!-- Older Posts -->
 <div id="site-history">
     <ol>
     {% for post in site.categories.the-second-room %}
