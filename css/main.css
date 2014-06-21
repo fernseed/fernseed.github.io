@@ -131,7 +131,12 @@ h1, h2, h3 {
     font-weight: 400;
     font-style: normal;
     text-align: center;
-    letter-spacing: .107em
+    letter-spacing: .107em;
+    -moz-font-feature-settings: "liga" 0;
+    -ms-font-feature-settings: "liga" 0;
+    -webkit-font-feature-settings: "liga" 0;
+    -o-font-feature-settings: "liga" 0;
+    font-feature-settings: "liga" 0
 }
 
 dd, dt {
@@ -160,7 +165,12 @@ ol li:before {
 ol span:first-child {
     background: #fff;
     padding-right: .214em;
-    letter-spacing: .107em
+    letter-spacing: .107em;
+    -moz-font-feature-settings: "liga" 0;
+    -ms-font-feature-settings: "liga" 0;
+    -webkit-font-feature-settings: "liga" 0;
+    -o-font-feature-settings: "liga" 0;
+    font-feature-settings: "liga" 0
 }
 
 ol span+span {

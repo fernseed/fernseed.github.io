@@ -3,18 +3,33 @@
 {% include header.html %}
 <body>
         <header>
-                <h2 id="site-title"><a href="/">{{ site.name }}</a></h2>
+            <h2 id="site-title"><a href="/">{{ site.name }}</a></h2>
         </header>
-        <div id="article">
-            <h1 id='article-title'>
-                {{ page.summary }}
-            </h1>
-
-            <div id="article-content">
-                {{ content }}
+        <section id="content">
+            <div id="article">
+                <h1 id="article-title">
+                    <a href="{{ page.url }}">
+                        {{ page.summary }}
+                    </a>
+                </h1>
+                <div id="article-content">
+                    {{ content }}
+                </div>
+            {% include metadata.html %}
             </div>
-        {% include metadata.html %}
+        </section>
+
+        <!--Navigation-->
+        <div id="article-neighbour">
+            {% if page.previous %}
+                <span style="float: left;"><a href="{{ page.previous.url}}">previous</a></span>
+            {% endif %}
+            {% if page.next %}
+                <span style="float: right;"><a href="{{ page.next.url}}">continue</a></span>
+            {% endif %}
         </div>
+
         {% include footer.html %}
+
 </body>
 </html>

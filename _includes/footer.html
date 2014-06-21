@@ -1,6 +1,4 @@
----
----
-<footer id="navigation">
+<section id="navigation">
     <nav>
     {% for post in site.categories.meta %}
         <a href="{{ post.url }}">{{ post.title | downcase }}</a>
@@ -19,4 +17,4 @@
         <input type="text" name="q" id="search-box" maxlength="50" placeholder=""/>
         <input type="submit" value="search" style="visibility: hidden;" />
     </form>
-</footer>
+</section>
