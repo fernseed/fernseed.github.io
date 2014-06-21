@@ -26,7 +26,8 @@ title:  fernseed
 <!-- Older Posts -->
 <div id="site-history">
     <ol>
-    {% for post in site.categories.the-second-room %}
+        {% for post in site.categories.the-second-room %}
+            {% unless forloop.first %}
             <li>
             	<span>
             		<a href="{{ post.url }}" title="{{ post.summary }}">{{ post.title | downcase }}</a>
@@ -35,6 +36,7 @@ title:  fernseed
             		<a href="{{ post.url }}" title="{{ post.title | downcase }}">{{ post.summary }}</a>
             	</span>
             </li>
+            {% endunless %}
         {% endfor %}
     </ol>
 </div>
