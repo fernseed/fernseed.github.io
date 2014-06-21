@@ -1,0 +1,19 @@
+---
+layout: base
+---
+<h1 id='article-title'>
+	{{ page.summary }}
+</h1>
+
+<article id="article-content">
+	{{ content }}
+</article>
+
+<footer id="article-meta">
+	<span id='date'>
+		{{ page.date | date_to_string }}
+	</span>
+	<span id='taglist'>
+		{{ page.tags }}
+	</span>
+</footer>

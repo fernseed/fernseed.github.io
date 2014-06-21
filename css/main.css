@@ -1,0 +1,297 @@
+#pagination, #site-history {
+    font-family: "Hoefler Text Smallcaps A", "Hoefler Text Smallcaps B";
+    font-weight: 400;
+    font-style: normal
+}
+
+#content, #pagination, #site-history-continued {
+    padding-top: 2em
+}
+
+#taglist {
+    float: right;
+    font-family: "Hoefler Text Smallcaps A", "Hoefler Text Smallcaps B";
+    font-weight: 400;
+    font-style: normal
+}
+
+#navigation {
+    position: absoulte;
+    bottom: 0
+}
+
+#search-box {
+    border-radius: 20px;
+    text-align: center
+}
+
+#search {
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
+    height: 35px;
+    width: 200px
+}
+
+#search, #pagination, #article-neighbour {
+    text-align: center
+}
+
+#article-neighbour, #site-history, #tag-cloud, #navigation {
+    padding-top: 8em;
+    font-family: "Hoefler Text Smallcaps A", "Hoefler Text Smallcaps B";
+    font-weight: 400;
+    font-style: normal
+}
+
+#tag-cloud {
+    padding-top: 2em;
+    font-family: "Hoefler Text Smallcaps A", "Hoefler Text Smallcaps B";
+    font-weight: 400;
+    font-style: normal
+}
+
+#counter {
+    display: none
+}
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    width: 640px;
+    color: #000;
+    font-size: 1.802em;
+    line-height: 2em;
+    font-family: "Hoefler Text A", "Hoefler Text B";
+    font-weight: 400;
+    font-style: normal;
+    text-align: justify;
+    word-break: break-word;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+    text-rendering: optimizelegibility;
+    -moz-font-feature-settings: "kern";
+    -ms-font-feature-settings: "kern";
+    -webkit-font-feature-settings: "kern";
+    -o-font-feature-settings: "kern";
+    font-feature-settings: "kern";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+    padding-top: 8em;
+    margin: 0 auto
+}
+
+header {
+    font-size: 4.624em
+}
+
+footer {
+    padding-top: 2em
+}
+
+nav {
+    text-align: center
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: #777
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-indent: 2em
+}
+
+p:first-of-type {
+    text-indent: 0
+}
+
+p:first-of-type:first-line {
+    font-family: "Hoefler Text Swashes A", "Hoefler Text Swashes B", "Hoefler Text A", "Hoefler Text B";
+    -moz-font-feature-settings: "swsh";
+    -ms-font-feature-settings: "swsh";
+    -webkit-font-feature-settings: "swsh";
+    -o-font-feature-settings: "swsh";
+    font-feature-settings: "swsh"
+}
+
+h1, h2, h3 {
+    font-family: "Hoefler Text Smallcaps A", "Hoefler Text Smallcaps B";
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    letter-spacing: .107em
+}
+
+dd, dt {
+    padding: 0;
+    margin: auto
+}
+
+ol {
+    padding: 0;
+    margin: auto;
+    font-family: "Hoefler Text Smallcaps A", "Hoefler Text Smallcaps B";
+    font-weight: 400;
+    font-style: normal;
+    overflow-x: hidden;
+    list-style: none;
+    line-height: 2em
+}
+
+ol li:before {
+    float: left;
+    width: 0;
+    white-space: nowrap;
+    content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . "
+}
+
+ol span:first-child {
+    background: #fff;
+    padding-right: .214em;
+    letter-spacing: .107em
+}
+
+ol span+span {
+    float: right;
+    padding-left: .214em;
+    background: #fff
+}
+
+ul {
+    list-style: none;
+    width: 640px;
+    padding: 0;
+    margin: auto;
+    text-align: center
+}
+
+ul li {
+    display: inline-block;
+    vertical-align: middle;
+    padding: .214em
+}
+
+.category-title .article-title {
+    text-transform: uppercase;
+    font-size: 3.653em
+}
+
+.category-link {
+    text-transform: lowercase
+}
+
+.fancy {
+    -moz-font-feature-settings: "ss02";
+    -ms-font-feature-settings: "ss02";
+    -webkit-font-feature-settings: "ss02";
+    -o-font-feature-settings: "ss02";
+    font-feature-settings: "ss02";
+    -moz-font-feature-settings: "dlig";
+    -ms-font-feature-settings: "dlig";
+    -webkit-font-feature-settings: "dlig";
+    -o-font-feature-settings: "dlig";
+    font-feature-settings: "dlig";
+    font-family: "Hoefler Text Swashes A", "Hoefler Text Swashes B", "Hoefler Text A", "Hoefler Text B";
+    -moz-font-feature-settings: "swsh" 2;
+    -ms-font-feature-settings: "swsh" 2;
+    -webkit-font-feature-settings: "swsh" 2;
+    -o-font-feature-settings: "swsh" 2;
+    font-feature-settings: "swsh" 2
+}
+
+.tag-2 {
+    font-size: 1.802em
+}
+
+.tag-1 {
+    font-size: 3.653em
+}
+
+.tag-0 {
+    font-size: 4.624em
+}
+
+.fleuron {
+    font-family: "Hoefler Text Fleur A", "Hoefler Text Fleur B";
+    font-weight: 400;
+    font-style: normal;
+    text-align: center
+}
+
+em {
+    font-style: italic
+}
+
+strong {
+    font-family: "Hoefler Text Smallcaps A", "Hoefler Text Smallcaps B";
+    font-weight: 400;
+    font-style: normal
+}
+
+hr {
+    padding-top: 2em;
+    border: none
+}
+
+@media only screen and (max-width:704px) {
+    body {
+        width: 90%;
+        color: #000;
+        font-size: 1em;
+        line-height: 2em;
+        font-family: "Hoefler Text A", "Hoefler Text B";
+        font-weight: 400;
+        font-style: normal;
+        text-align: justify;
+        word-break: break-word;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        -o-hyphens: auto;
+        hyphens: auto;
+        text-rendering: optimizelegibility;
+        -moz-font-feature-settings: "kern";
+        -ms-font-feature-settings: "kern";
+        -webkit-font-feature-settings: "kern";
+        -o-font-feature-settings: "kern";
+        font-feature-settings: "kern";
+        -moz-font-feature-settings: "liga";
+        -ms-font-feature-settings: "liga";
+        -webkit-font-feature-settings: "liga";
+        -o-font-feature-settings: "liga";
+        font-feature-settings: "liga";
+        padding-top: 2em;
+        margin: 0 auto
+    }
+
+    header {
+        font-size: 3.653em
+    }
+
+    ul {
+        list-style: none;
+        width: 90%;
+        padding: 0;
+        margin: auto;
+        text-align: center
+    }
+
+    #article-neighbour, #site-history, #tag-cloud, #navigation {
+        padding-top: 2em;
+        font-family: "Hoefler Text Smallcaps A", "Hoefler Text Smallcaps B";
+        font-weight: 400;
+        font-style: normal
+    }
+}

@@ -1,0 +1,9 @@
+name: fernseed
+markdown: redcarpet
+permalink: /:categories/:title/
+
+redcarpet:
+    extensions: ['smart']
+
+sass:
+    sass_dir: _sass

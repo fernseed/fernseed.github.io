@@ -1,0 +1,16 @@
+---
+layout: base
+title:  what is this?
+date: 2013-04-24
+category: Meta
+tags: introduction
+---
+
+So, what on earth is going on?  This is an experiment in serialised prose fiction, more like an ongoing, open-ended and regularly-updated webcomic than a traditional serial with a predefined scope and conclusion.  Updates currently come twice-weekly on Tuesdays and Thursdays.
+
+The story is a mystery, its genre is [slipstream][1], and it is written in the second person. These may be reasons enough to stop reading.
+
+You may harass the author about these or other matters via [Twitter][2].
+
+[1]: http://en.wikipedia.org/wiki/Slipstream_(genre)
+[2]: https://twitter.com/dmcgk

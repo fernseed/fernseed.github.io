@@ -1,0 +1,16 @@
+---
+layout: article
+serial: The Second Room
+summary: impressions are formed
+tags: a-nook, light, impressions, memory, other-people
+---
+
+In the light: cloudsign. A feel of increasing lateness that may be just a camouflage of the weather. You can still feel the start of what will eventually be a full headache, the tiny but constant weight of the light resting on the front of your brain, straining the optic nerve, pulling your eyeball tight against the skull.  Having to process day and night in alternation is surprisingly tiring.
+
+The movement of light and the sounds of sluicing give you flashes of being underwater, not serene but choking, your throat on fire, lungs feeling invaded and heavy.  The nook is an aquarium and you are someone's turbot.  Do they keep turbot in aquaria?  You do not know for sure what a turbot is, could not distinguish it from any other flatfish if pressed.  Are turbot flatfish? You do not believe you can swim, you cannot imagine having the bravery to leap into deep waters and heave yourself through them, or the grace to balance and suspend yourself appropriately.  If you are on a boat or a barge then it belongs to someone else, it is not your own.
+
+Watersound over watersound: something gurgles, something runs, all against the backwash of a liquid atmosphere. Something drips and something streams a short distance away, as though a child was hunched and peeing inside the walls, the slap of water against stone.  There is no stone here, another flash from somewhen else then.  That child was vicious, feral, not a memory of yourself.  Maybe just a ghost here, casting shadows against the light.  Or grown into an adult.  Or adult-shaped but still child-sized, sitting on the table, or stalking outside the curtain.
+
+Your hair catches on wood, firepins of burning as a hair or two, not even a tuft, are ripped out by the root, you keep your head turned to the right, where your light-attuned eye lives, and feel the wood there on your cheek.  It does not feel rough.  Perhaps you have splintered something underneath you in your exertions, some small amount of skelfing where you have smashed yourself against an edge or a corner with your head.  You rub your cheek on the wood, cool and smooth, vaguely unreal, varnished or treated in some way; sealed.
+
+The light from under the curtain is a field of flags.

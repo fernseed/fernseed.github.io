@@ -1,0 +1,19 @@
+---
+layout: base
+title:  fernseed
+---
+
+<div id="site-history">
+    <ol>
+    	{% for post in site.posts %}
+            <li>
+            	<span>
+            		<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+            	</span>
+            	<span>
+            		<a href="{{ post.url }}">{{ post.summary }}</a>
+            	</span>
+            </li>
+        {% endfor %}
+    </ol>
+</div>
