@@ -22,10 +22,11 @@
         <!--Navigation-->
         <div id="article-neighbour">
             {% if page.previous %}
-                <span style="float: left;"><a href="{{ page.previous.url}}">back</a></span>
+                <span><a href="{{ page.previous.url}}">back</a></span>
+                {% if page.next %}&nbsp;&middot;&nbsp;{% endif %}
             {% endif %}
             {% if page.next %}
-                <span style="float: right;"><a href="{{ page.next.url}}">continue</a></span>
+                <span><a href="{{ page.next.url}}">continue</a></span>
             {% endif %}
         </div>
 
