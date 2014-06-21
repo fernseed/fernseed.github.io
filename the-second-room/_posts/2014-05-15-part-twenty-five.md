@@ -5,7 +5,7 @@ summary: seeding is contemplated
 tags: dark, falling-asleep
 ---
 
-You wonder what you might become yourself given sufficient time, enboxed here upon your back, in darkness except for a crack--still visible--at the other short-end of the room.  Some floor-oriented shape; some human matting. Perhaps, bamboolike, you will find yourself slowly shooting towards it; your legs extending outwards with rhubarb-forcing cracks, or with new shoots forming, budding out of the heel and soles of your husk. 
+You wonder what you might become yourself given sufficient time, enboxed here upon your back, in darkness except for a crack---still visible---at the other short-end of the room.  Some floor-oriented shape; some human matting. Perhaps, bamboolike, you will find yourself slowly shooting towards it; your legs extending outwards with rhubarb-forcing cracks, or with new shoots forming, budding out of the heel and soles of your husk. 
 
 You have been a seed all along perhaps, with all the rest of humanity, none ever finding the correct conditions of being locked immobile in a dark place for years, a small source of light visible to grow towards. 
 
