@@ -21,11 +21,11 @@
 
         <!--Navigation-->
         <div id="article-neighbour">
-            {% if page.previous %}
+            {% if page.previous and page.previous.categories contains "the-second-room" %}
                 <span><a href="{{ page.previous.url}}">back</a></span>
                 {% if page.next %}&nbsp;&middot;&nbsp;{% endif %}
             {% endif %}
-            {% if page.next %}
+            {% if page.next and page.next.categories contains "the-second-room"  %}
                 <span><a href="{{ page.next.url}}">continue</a></span>
             {% endif %}
         </div>
