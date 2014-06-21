@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: dolls are debunked
-tags: dark, memory, invention, the-chessmen
+tags: dark, memory, invention, the chessmen
 ---
 
 That day is a clutter, long in the recollection, with a twisting in its growth over time.  You could not possibly have lived it for as long as you recall, could not have taken so many and so contrary a set of actions.

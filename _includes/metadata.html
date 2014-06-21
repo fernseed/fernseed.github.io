@@ -1,8 +1,10 @@
 <div id="article-meta">
     <span id='date'>
-        {{ page.date | date_to_string }}
+        <a href="{{ page.url }}">{{ page.date | date_to_string }}</a>
     </span>
     <span id='taglist'>
-        {{ page.tags }}
+        {% for tag in page.tags %}
+            {{ tag }}
+        {% endfor %}
     </span>
 </div>

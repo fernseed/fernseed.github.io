@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: seeding is contemplated
-tags: dark, falling-asleep
+tags: dark, falling asleep
 ---
 
 You wonder what you might become yourself given sufficient time, enboxed here upon your back, in darkness except for a crack---still visible---at the other short-end of the room.  Some floor-oriented shape; some human matting. Perhaps, bamboolike, you will find yourself slowly shooting towards it; your legs extending outwards with rhubarb-forcing cracks, or with new shoots forming, budding out of the heel and soles of your husk. 

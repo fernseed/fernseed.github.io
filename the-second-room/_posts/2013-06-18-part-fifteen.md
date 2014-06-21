@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: a nook is examined
-tags: a-nook, boxes, light, dark
+tags: a nook, boxes, light, dark
 ---
 
 It is dark, but not pitch, with no shadow of movement from the curtain-bottom. Since the imagined window gutter is low and near, any interuptions in its illumination will be visible only when something is close-pressed against you. Your body beyond the curtain tingles with exposure, but your head is safe. You wink to your still dark-attuning eye, keeping your head tilted woundwards and away from the line of light. The dark slowly turns gritty, the grain of old film stock.  You wink back and check for shadows in the light.  None.
@@ -15,6 +15,6 @@ In the darkness: the boxes appear to be dog-sized and straight-sided, probably w
 
 In the light: a smokey drift.  Clouds overhead, perhaps.
 
-In the darkness: everything beyond three-square-boxes is a spinning mess of specks and black. Your breathing normalises. Faintly audible somewhere off to your right is a long _click scratch_, closer than the rain, a wood-on-wood sound, with a ricketing or ratcheting behind it.  You wonder if there is some path towards it from this new space. All the while you listen for a chase, perhaps the entity-from-the-table is now the entity-just-beyond-the-curtain, observing your headless torso and limbs.  You self-consciously act out your movements, your breathing and fidgeting under strict control, as though you are being watched, as though you are trying to communicate to that audience.
+In the darkness: everything beyond three-square-boxes is a spinning mess of specks and black. Your breathing normalises. Faintly audible somewhere off to your right is a long _click scratch_, closer than the rain, a wood-on-wood sound, with a ricketing or ratcheting behind it.  You wonder if there is some path towards it from this new space. All the while you listen for a chase, perhaps the entity-from-the table is now the entity-just-beyond-the-curtain, observing your headless torso and limbs.  You self-consciously act out your movements, your breathing and fidgeting under strict control, as though you are being watched, as though you are trying to communicate to that audience.
 
 In the light: nothing.

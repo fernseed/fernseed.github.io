@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: a journey is concluded
-tags: a-nook, being-followed, celebration, damage
+tags: a nook, being followed, celebration, damage
 ---
 
 The skin of your shoulders is a continuous burn down through your muscle to your bones, which feel small and fragile and popped. The rear of your head is wet underneath your sweating: the sticky and underhair wet of blood or some small wound.  You cannot move your fingers.  The palms of your hands are cramping.  Your lower back and abdomen are a single hard girdle, all the small pieces of yourself through which you have force-marched this distance are fused and immobile. You will not be moving again in the same manner, not for some time at least, but you still have the majority of your ankle and toe and foot strength as a reserve.

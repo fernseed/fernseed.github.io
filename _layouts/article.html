@@ -22,7 +22,7 @@
         <!--Navigation-->
         <div id="article-neighbour">
             {% if page.previous %}
-                <span style="float: left;"><a href="{{ page.previous.url}}">previous</a></span>
+                <span style="float: left;"><a href="{{ page.previous.url}}">back</a></span>
             {% endif %}
             {% if page.next %}
                 <span style="float: right;"><a href="{{ page.next.url}}">continue</a></span>
@@ -30,6 +30,5 @@
         </div>
 
         {% include footer.html %}
-
 </body>
 </html>
