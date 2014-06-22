@@ -27,15 +27,15 @@ function searchFor(searchString) {
 }
 
 function setResults() {
-    resultMenu = $("#search-results");
-    resultMenu.html("");
-    resultMenu.html(function() {
+    resultBox = $("#search-results");
+    resultBox.html("");
+    resultBox.html(function() {
         if (results.length == 0) {
-            resultMenu.append('<li><a href="#">No results found</a></li>');
+            resultBox.append('<li>no matches</li>');
         }
         else {
             $.each(results, function(index, item) {
-                resultMenu.append('<li><a href="' + item[0] + '">' + item[1] + '</a></li>');
+                resultBox.append('<li><a href="' + item[0] + '">' + item[1] + '</a></li>');
             });
         }
     });
