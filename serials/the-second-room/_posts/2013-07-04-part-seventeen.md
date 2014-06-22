@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: impressions are formed
-tags: a nook, light, impressions, memory, other people
+tags: [a nook, light, memory]
 ---
 
 In the light: cloudsign. A feel of increasing lateness that may be just a camouflage of the weather. You can still feel the start of what will eventually be a full headache, the tiny but constant weight of the light resting on the front of your brain, straining the optic nerve, pulling your eyeball tight against the skull.  Having to process day and night in alternation is surprisingly tiring.

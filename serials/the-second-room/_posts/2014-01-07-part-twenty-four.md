@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: people are shaped
-tags: dark, intuition, memory, people-watching
+tags: [memory, dialogue]
 ---
 
 You can recall only two members of that dialogue, bulb-lit or otherwise. It was the only one you had with that group of people, you are sure of it---some of these sureties are intuitions as much as memory---as though you are sometimes able to see a counter or tag associated with a given event in your internal catalogue which shows at a glance its number or relevance, regardless of the content recalled. Memory metadata. It is not an outcome of repetition; this was a single occurrence more clearly intuited than those with many. The thin lady and the one with a hat: the combination of impressions associated with them are significant enough to unconsciously mesh with your own sawtoothed internals.

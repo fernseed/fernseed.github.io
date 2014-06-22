@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: a partial turning is enacted
-tags: dark, torso, legs, taking action, tremors
+tags: [dark, a nook]
 ---
 
 You need to shift your weight, it is too painful to continue to lie on those parts of yourself that you have so abused to get here.  You attempt a roll: your shoulders and the muscles of your upper back are fatigued, so instead you slide your elbow, your right-hand elbow---perhaps you are right-handed?---upwards a little, in the direction of your head, until your head and torso begin naturally to tilt to the left.  The pain is significantly greater in this interim position; your upper arm trembles with spasms that appear to require no deliberate effort on your part.  You bear the pain and increase the angle and stress untill the tremor becomes a shimmy, the shimmy a full palsy.  You pull leftwards with your head, fail and rock back.  You pull leftwards with your head, fail and rock back.  You pull leftwards with your head until your upper torso twists enough, your arms splayed, to bring your forehead into contact with the wood of the floor, fighting the pounding blood of the onset of unconsciousness and keeping yourself awake.

@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: an enboxing occurs
-tags: dark, boxes, bipeds, tongue
+tags: [dark, a nook, movement]
 ---
 
 Over all else, the inundation continues; the layering of noise is as though you are in a much larger room with a hundred loud conversations taking place simultaneously and you have lost the facility to selectively bring into focus just that which is directed toward you.  Some long-instilled behaviour insists that you attempt to decode it, you can feel the associated mental weariness spinning up, but you stop yourself from nodding or shaking your head in faux comprehension.

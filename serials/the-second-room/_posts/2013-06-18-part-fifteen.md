@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: a nook is examined
-tags: a nook, boxes, light, dark
+tags: [a nook, light, dark]
 ---
 
 It is dark, but not pitch, with no shadow of movement from the curtain-bottom. Since the imagined window gutter is low and near, any interuptions in its illumination will be visible only when something is close-pressed against you. Your body beyond the curtain tingles with exposure, but your head is safe. You wink to your still dark-attuning eye, keeping your head tilted woundwards and away from the line of light. The dark slowly turns gritty, the grain of old film stock.  You wink back and check for shadows in the light.  None.

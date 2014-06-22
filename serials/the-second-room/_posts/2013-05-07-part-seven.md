@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: you do not move
-tags: hearing, waters, self-control
+tags: [the room, hearing, time]
 ---
 
 Current-time, discounting your waste, seems river-like and fetid, some water-rotten collection of outflow.  It seems city-bound rather than rural, some industrial subtext sensed but not comprehended. So thinking, you re-categorise yourself as being within a boat or upon a barge, the occasional swelling-upwards and dislocation that you experience is likely a true motion after all and not some vertigo.  Since neither your body nor the items in the room give any appearance of sliding, at least not in relation to one another, you make assumptions both that the craft you are within is large and stable and that the water route it traverses is calm. 

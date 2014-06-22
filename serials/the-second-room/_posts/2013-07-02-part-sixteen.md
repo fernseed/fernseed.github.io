@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: memories are probed
-tags: a nook, dark, memories, dialogue, other people
+tags: [a nook, dark, memories, dialogue]
 ---
 
 In the darkness: box edges merge with box edges, merge with empty space.  You roll your head and eye, memorising the impression of shape and volume, the fading lines of contrast against the increasing flat noise.  Your pocket of visibility beyond the curtain is shrinking now, not obviously so, but you feel the decrease in granularity. The rain is noticeably loud, bleeding into and over the scraping of wood, sound and vision becoming a single lulling white-noise.  

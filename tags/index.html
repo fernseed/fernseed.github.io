@@ -1,0 +1,14 @@
+---
+layout: index
+---
+<div id="tag-cloud">
+    <ul>
+    {% for tag in site.tags %}
+        <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | times: 5 | plus: 100 }}%">
+            <a href="/tag/{{ tag | first | replace: " ", "-" }}/">
+                {{ tag | first }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: a journey is continued
-tags: obstructions, movement, the table, above the table, memory
+tags: [the room, movement, the table, memory]
 ---
 
 _Shuffle, heave, scrape,_ you caterpillar across the floor, sinuously now, call it that, adding a small and inefficient kick to your right as you convulse onwards, trying to avoid collision.  The thing-with-drawers is almost certainly not close enough to be an actual impediment but you fear that you might snag against it and cause some movement or shunting, drawing attention to it or to you and forcing another improvised exchange of noises.  The least exhausting option is to make allowance, to detour slightly in your continuing high-activity, low-speed shuffle.

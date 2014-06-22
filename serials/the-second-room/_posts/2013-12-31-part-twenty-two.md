@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: prior mood is lacking
-tags: dark, mood, memory
+tags: [dark, a nook, memories]
 ---
 
 The only memories you are able to invoke---which are invoked regardless of your intent---are broad and flat and saggy. Your behaviour and your circumstances are recalled, but never the mood. Detached from any actual experience of the time, they are at most re-imagined with the temperament that you bring to them now.  

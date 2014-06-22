@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: a journey is planned
-tags: hearing, waters, vision, movement, the table, furnishings
+tags: [the room, hearing, movement, the table]
 ---
 
 Eventually, finally, you can hear waters. From directly upwards and from one side you can hear what you believe to be the impact of a dense rain.  It does not directly touch the shell of the room you are within, feeling more than one space removed from that. You are not on the top or outermost rooms of this structure.

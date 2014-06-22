@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: a man is lost
-tags: the room, the table, the man, blindness, strategies, unconsciousness
+tags: [the room, the table, the man, blindness, unconsciousness]
 ---
 
 You wailed and tipped backwards as you ran, falling heavily---throwing yourself, in fact, from upright to supine upon the ground---choking on air and tongue.  You lost sight of the man as you continued to slide forward, below the level of the table; you could see only the broad, heavy beams holding the central horizontal plane above you.

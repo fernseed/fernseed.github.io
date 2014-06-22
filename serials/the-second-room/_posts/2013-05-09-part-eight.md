@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: you may have moved
-tags: paralysis, speculation, planning, self-control
+tags: [the room, paralysis]
 ---
 
 You allow yourself to relax into your paralysis.  You could be comfortable here, for as long as it lasts, some small time no doubt. Release your too-tight grip and surely all those long and life-formed habits will reassert, just as breathing must. Are you truly even paralysed?  Were not your arms arrayed in some form when you fell and now distinctly otherwise?  Surely your legs and feet could not have been so unnaturally placed?

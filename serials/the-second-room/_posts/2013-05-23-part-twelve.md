@@ -2,7 +2,7 @@
 layout: article
 serial: The Second Room
 summary: a journey is begun
-tags: vision, movement, furnishings
+tags: [the room, vision, movement]
 ---
 
 _Shuffle, heave, scrape,_ you inch and centimetre through the area between the table and the first table-span distance from it, full of wonder, it being broadly the same as the area you have left behind yet from your new vantage so very differently angled and aspected.  
