@@ -25,16 +25,22 @@
     text-align: center
 }
 
-#search {
+#search-input {
     margin-top: 0;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 0;
     height: 35px;
-    width: 200px
+    width: 200px;
+    text-align: center
 }
 
-#search, #pagination, #article-neighbour {
+#search-output {
+    height: 35px;
+    text-align: center    
+}
+
+#searchinput, #search-output #pagination, #article-neighbour {
     text-align: center
 }
 

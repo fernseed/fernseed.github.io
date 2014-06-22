@@ -1,4 +1,7 @@
 <section id="navigation">
+<div id="search-output">
+    <ul id="search-results" style="max-height: 40px; overflow: auto;"></ul>
+</div>
 <nav>
     {% for post in site.categories.meta %}
         <a href="{{ post.url }}">{{ post.title | downcase }}</a>&nbsp;&middot;&nbsp;
@@ -7,13 +10,7 @@
         &nbsp;&middot;&nbsp;
         <a href="/complete/">complete</a>
 </nav>
-<form id="search" method="get" action="http://duckduckgo.com/">
-    <input type="hidden" name="sites" value="{{ site.url }}"/>
-    <input type="hidden" name="ko" value="-1"/>
-    <input type="hidden" name="kr" value="-1"/>
-    <input type="hidden" name="k1" value="-1"/>
-    <input type="hidden" name="k4" value="-1"/>
-    <input type="text" name="q" id="search-box" maxlength="50" placeholder=""/>
-    <input type="submit" value="search" style="display: none;" />
-</form>
+<div id="search-input">
+    <input id="search-box" type="text" placeholder="Search" autocomplete="off" onkeyup="showResults();"/>
+</div>
 </section>
