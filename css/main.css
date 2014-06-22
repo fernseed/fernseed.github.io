@@ -40,6 +40,11 @@
     text-align: center    
 }
 
+#search-results {
+    max-height: 35px;
+    overflow: hidden;
+}
+
 #searchinput, #search-output #pagination, #article-neighbour {
     text-align: center
 }

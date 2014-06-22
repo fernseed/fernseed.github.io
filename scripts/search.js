@@ -23,10 +23,11 @@ function searchFor(searchString) {
             }
         });
     }
-    setResults();
+
+    showSearchResults();
 }
 
-function setResults() {
+function showSearchResults() {
     resultBox = $("#search-results");
     resultBox.html("");
     resultBox.html(function() {
@@ -41,24 +42,12 @@ function setResults() {
     });
 }
 
-function showResults() {
-    if ($('#search-box').val() != '') {
-        $('#search-results').show();
-    }
-    else {
-        $('#search-results').hide();
-    }
-}
-
-$(document).mouseup(function (inputField) {
-    container = $("#search-results");
-    if (!container.is(inputField.target) && container.has(inputField.target).length === 0) {
-        container.hide();
-    }
-});
-
 $(document).ready(function() {
+    results = [];
+    searchableItemList = [];
+
     getSearchableItems();
+
     $("#search-box").keyup(function() {
         searchString = $(this).val().toLowerCase();
         searchFor(searchString);
