@@ -1,10 +1,10 @@
-<div id="article-meta">
+<footer id="article-meta">
     <span id='date'>
         <a href="{{ page.url }}">{{ page.date | date_to_string }}</a>
     </span>
     <span id='taglist'>
         {% for tag in page.tags %}
-            {{ tag }}
+            <a href="/tags/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
     </span>
-</div>
+</footer>
