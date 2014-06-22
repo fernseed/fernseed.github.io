@@ -1,5 +1,5 @@
 name: fernseed
-url: http://git.fernseed.org
+url: http://fernseed.org
 markdown: redcarpet
 permalink: /:title/
 
