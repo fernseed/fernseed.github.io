@@ -7,11 +7,7 @@
       "tags"     : "{{ post.tags | join: ", " }}",
       "url"      : "{{ post.url }}",
       "excerpt"  : "{{ post.excerpt | strip_html | strip_newlines }}",
-      "date"     : {
-         "day"   : "{{ post.date | date: "%d" }}",
-         "month" : "{{ post.date | date: "%B" }}",
-         "year"  : "{{ post.date | date: "%Y" }}"
-      }
+      "date"     : "{{ post.date | date: "%F" }}"
     },{% endfor %}
     {% for post in site.categories.serials %}{
       "title"    : "{{ post.title }}",
@@ -19,10 +15,6 @@
       "tags"     : "{{ post.tags | join: ", " }}",
       "url"      : "{{ post.url }}",
       "excerpt"  : "{{ post.excerpt | strip_html | strip_newlines }}",
-      "date"     : {
-         "day"   : "{{ post.date | date: "%d" }}",
-         "month" : "{{ post.date | date: "%B" }}",
-         "year"  : "{{ post.date | date: "%Y" }}"
-      }
+      "date"     : "{{ post.date | date: "%F" }}"
     }{% unless forloop.last %},{% endunless %}{% endfor %}
 ]

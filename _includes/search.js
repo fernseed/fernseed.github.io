@@ -12,14 +12,16 @@ function searchFor(searchString) {
             title   = item['title']  .toLowerCase();
             summary = item['summary'].toLowerCase();
             tags    = item['tags']   .toLowerCase();
+            date    = item['date']   .toLowerCase();
             excerpt = item['excerpt'].toLowerCase();
             url     = item['url'];
 
             if (title  .indexOf(searchString) != -1 ||
                 summary.indexOf(searchString) != -1 ||
                 tags   .indexOf(searchString) != -1 ||
+                date   .indexOf(searchString) != -1 ||
                 excerpt.indexOf(searchString) != -1) {
-                    results.push([url, title]);
+                    results.push([url, date, title, summary]);
             }
         });
     }
@@ -36,7 +38,10 @@ function showSearchResults() {
         }
         else {
             $.each(results, function(index, item) {
-                resultBox.append('<li><a href="' + item[0] + '">' + item[1] + '</a></li>');
+                resultBox.append('<li><a href="' + item[0] + '">' + item[1] + ': ' + item[3] + '</a></li>');
+                if (index < results.length-1) {
+                    resultBox.append('&nbsp;&middot;&nbsp;');
+                }
             });
         }
     });

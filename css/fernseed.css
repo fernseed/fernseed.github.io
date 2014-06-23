@@ -36,12 +36,12 @@
 }
 
 #search-output {
-    height: 35px;
+    height: 80px;
     text-align: center    
 }
 
 #search-results {
-    max-height: 35px;
+    max-height: 80px;
     overflow: hidden;
 }
 
