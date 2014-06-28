@@ -1,0 +1,47 @@
+---
+---
+<html>
+<head>
+<title>analytics exclusion</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="{{ page.summary }}" />
+<meta name="keywords" content="{{ page.tags | join: ", " }}" />
+
+<link rel="stylesheet" type="text/css" href="/css/fernseed.css">
+<link rel="stylesheet" type="text/css" href="//cloud.typography.com/7010432/619502/css/fonts.css" />
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="/scripts/fernseed.js"></script>
+
+<!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body onLoad="ga('set', 'dimension1', 'Excluded');">
+<header>
+<h2 id="site-title"><a href="/">{{ site.name }}</a></h2>
+</header>
+<section id="article">
+<h1>analytics exclusion</h1>
+<p>Your activity will no longer be tracked (for a period of two years or until you manually delete the cookies associated with this site).</p>
+</section>
+<section id="navigation">
+<div id="search-output">
+<ul id="search-results"></ul>
+</div>
+<nav>
+<a href="http://twitter.com/dmcgk">&copy;2014 dmcgk</a>&nbsp;&middot;&nbsp;
+{% for post in site.categories.meta %}
+<a href="{{ post.url }}">{{ post.title | downcase }}</a>&nbsp;&middot;&nbsp;
+{% endfor %}
+<a href="/feed/">feed</a>&nbsp;&middot;&nbsp;
+<a href="/tags/">tags</a>&nbsp;&middot;&nbsp;
+<a href="/complete/">complete</a>
+</nav>
+<div id="search-input">
+<input id="search-box" type="text" placeholder="search" autocomplete="off" />
+</div>
+</section>
+</body>
+</html>

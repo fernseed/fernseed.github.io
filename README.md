@@ -1,11 +1,27 @@
-# About
+### Meta
 
-So, what on earth is going on?  This is an experiment in serialised prose fiction, more like an ongoing, open-ended and regularly-updated webcomic than a traditional serial with a predefined scope and conclusion.  Updates currently come twice-weekly on Tuesdays and Thursdays.
+So, what on earth is going on?  This is an experiment in serialised prose fiction, more like an ongoing, open-ended and regularly-updated webcomic than a traditional serial with a predefined scope and conclusion.  Updates currently come weekly, published at midnight each Sunday (GMT).
 
-The [story][1] is a mystery, its genre is [slipstream][2], and it is written in the second person. These may be reasons enough to stop reading.
+The [story][archives] is a second-person mystery loosely falling within the [slipstream][genre] genre.
 
-You may harass the author about these or other matters via [Twitter][3].
+### Technology
 
-[1]: http://fernseed.org/complete/
-[2]: http://en.wikipedia.org/wiki/Slipstream_(genre)
-[3]: https://twitter.com/dmcgk
+Each [update][posts] is written in the [Markdown][markdown] plain text syntax and conversion into HTML is handled by [Jekyll][jekyll]. Hosting is by [GitHub Pages][github] which also provides access to the complete [source code][source] for the site along with its [update history][commits].
+
+Cookies are used for anonymous [analytics][google] purposes only and you may choose to [opt out][cookies] of their collection.
+
+### Contact
+
+You may harass the author about these or other matters via [Twitter][twitter].
+
+[archives]: {{ site.url }}/complete/
+[cookies]:  {{ site.url }}/do-not-track/
+[twitter]:  https://twitter.com/dmcgk
+[genre]:    http://en.wikipedia.org/wiki/Slipstream_(genre)
+[markdown]: http://daringfireball.net/projects/markdown/
+[jekyll]:   http://jekyllrb.com/docs/home/
+[github]:   https://pages.github.com
+[source]:   https://github.com/fernseed/fernseed.github.io
+[commits]:  https://github.com/fernseed/fernseed.github.io/commits/master
+[posts]:    https://github.com/fernseed/fernseed.github.io/tree/master/serials/the-second-room/_posts
+[google]:   https://www.google.com/analytics

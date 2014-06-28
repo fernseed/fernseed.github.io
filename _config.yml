@@ -5,6 +5,3 @@ permalink: /:title/
 
 redcarpet:
     extensions: ['smart']
-
-sass:
-    sass_dir: _sass
