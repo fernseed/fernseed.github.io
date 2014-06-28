@@ -14,8 +14,8 @@ Cookies are used for anonymous [analytics][google] purposes only and you may cho
 
 You may harass the author about these or other matters via [Twitter][twitter].
 
-[archives]: {{ site.url }}/complete/
-[cookies]:  {{ site.url }}/do-not-track/
+[archives]: http://fernseed.org/complete/
+[cookies]:  http://fernseed.org/do-not-track/
 [twitter]:  https://twitter.com/dmcgk
 [genre]:    http://en.wikipedia.org/wiki/Slipstream_(genre)
 [markdown]: http://daringfireball.net/projects/markdown/
