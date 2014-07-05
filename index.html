@@ -4,26 +4,31 @@ title:  fernseed
 ---
 
 <!-- Latest Post -->
-<h1 id="article-title">
-    <a href="{{ site.categories.the-second-room.first.url }}">
-        {{ site.categories.the-second-room.first.summary }}
-    </a>
-</h1>
-<article id="article-content">
-    {{ site.categories.the-second-room.first.content }}
-</article>
-<footer id="article-meta">
-    <span id='date'>
+<div id="article" itemscope itemtype="http://schema.org/Article">
+    <h1 id="article-title">
         <a href="{{ site.categories.the-second-room.first.url }}">
-            {{ site.categories.the-second-room.first.date | date_to_string }}
+            <span itemprop="name">
+                {{ site.categories.the-second-room.first.summary }}
+            </span>
         </a>
-    </span>
-    <span id='taglist'>
-        {% for tag in site.categories.the-second-room.first.tags %}
-            <a href="/tags/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-    </span>
-</footer>
+    </h1>
+    <meta itemprop="wordCount" content="{{ site.categories.the-second-room.first.content | number_of_words }}" />
+    <article id="article-content" itemprop="articleBody">
+        {{ site.categories.the-second-room.first.content }}
+    </article>
+    <footer id="article-meta">
+        <span id='date' itemprop="datePublished" content="{{ site.categories.the-second-room.first.date | date_to_xmlschema }}">
+            <a href="{{ site.categories.the-second-room.first.url }}">
+                {{ site.categories.the-second-room.first.date | date_to_string }}
+            </a>
+        </span>
+        <span id='taglist'>
+            {% for tag in site.categories.the-second-room.first.tags %}
+                <a href="/tags/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+        </span>
+    </footer>
+</div>
 
 <!-- Older Posts -->
 <div id="site-history">

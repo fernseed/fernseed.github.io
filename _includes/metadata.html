@@ -1,6 +1,8 @@
 <footer id="article-meta">
-    <span id='date'>
-        <a href="{{ page.url }}">{{ page.date | date_to_string }}</a>
+    <span id='date' itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">
+        <a href="{{ page.url }}">
+                {{ page.date | date_to_string }}
+        </a>
     </span>
     <span id='taglist'>
         {% for tag in page.tags %}

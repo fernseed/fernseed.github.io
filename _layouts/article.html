@@ -6,13 +6,16 @@
             <h2 id="site-title"><a href="/">{{ site.name }}</a></h2>
         </header>
         <section id="content">
-            <div id="article">
+            <div id="article" itemscope itemtype="http://schema.org/Article">
                 <h1 id="article-title">
                     <a href="{{ page.url }}">
-                        {{ page.summary }}
+                        <span itemprop="name">
+                            {{ page.summary }}
+                        </span>
                     </a>
                 </h1>
-                <div id="article-content">
+                <meta itemprop="wordCount" content="{{ page.content | number_of_words }}" />
+                <div id="article-content" itemprop="articleBody">
                     {{ content }}
                 </div>
             {% include metadata.html %}
