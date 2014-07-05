@@ -35,13 +35,15 @@ title:  fernseed
     <ol>
         {% for post in site.categories.the-second-room %}
             {% unless forloop.first %}
-            <li>
+            <li itemscope itemtype="http://schema.org/Article">
             	<span>
             		<a href="{{ post.url }}" title="{{ post.summary }}">{{ post.title | downcase }}</a>
             	</span>
             	<span>
-            		<a href="{{ post.url }}" title="{{ post.title | downcase }}">{{ post.summary }}</a>
+            		<a href="{{ post.url }}" title="{{ post.title | downcase }}" itemprop="name">{{ post.summary }}</a>
             	</span>
+                <meta itemprop="wordCount" content="{{ post.content | number_of_words }}" />
+                <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}" />
             </li>
             {% endunless %}
         {% endfor %}
