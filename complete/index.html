@@ -14,11 +14,12 @@ title: the story so far
                 </div>
                 <div id="article-{{forloop.index}}-link" class="fleuron">
                     <a href="{{ post.url }}" rel="bookmark" title="{{ post.title }}">
-                        {%if forloop.last %}&hellip;{% else %}#{% endif %}
+                        {%if forloop.last %}{% assign published = post.date %}&hellip;{% else %}#{% endif %}
                     </a>
                 </div>
             {% endfor %}
         </div>
         <meta itemprop="wordCount" content="{{ words }}" />
+        <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
     </div>
 </section>
