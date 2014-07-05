@@ -40,8 +40,10 @@ title:  fernseed
             		<a href="{{ post.url }}" title="{{ post.summary }}">{{ post.title | downcase }}</a>
             	</span>
             	<span>
-            		<a href="{{ post.url }}" title="{{ post.title | downcase }}" itemprop="name">{{ post.summary }}</a>
+            		<a href="{{ post.url }}" title="{{ post.title | downcase }}">{{ post.summary }}</a>
             	</span>
+                <meta itemprop="url" content="{{ site.url }}{{ post.url }}" />
+                <meta itemprop="name" content="{{ post.summary }}" />
                 <meta itemprop="wordCount" content="{{ post.content | number_of_words }}" />
                 <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}" />
             </li>
