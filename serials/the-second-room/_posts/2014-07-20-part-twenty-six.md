@@ -1,0 +1,29 @@
+---
+layout: article
+serial: The Second Room
+summary: a chair is improvised
+tags: [boxes, sitting, a nook]
+arc: the nook
+---
+
+You rouse yourself. You limber up, as best you are able, bouncing and jiggling yourself in place, still supine, still sore. You walk yourself using shoulders and back so that you move in a little pinwheel, reorienting yourself within the nook. It is tiring and hideous but not unmanageable. You wheel yourself to your left, to your right then back again, as fast as you can manage, enjoying the sense of motion.
+
+You manoeuvre yourself so that your shoulder and head are abutting one of the boxes to your right and slowly, in occasional pangs of enormous and burning pain, farting and groaning all the while, make use of your back-motion and neck leverage until you are sitting upright, one hand tucked awkwardly underneath yourself. You spin and buckle internally at the change in orientation and altitude. The room seems even taller now that you are sitting upright within it and looking out across the short width of it. Your body is awkwardly cramped into the southeast---could it be southeast?---corner of the room, most of your legs still at an angle to yourself which juts them out underneath the curtain.
+
+The box immediately behind you is shallow in height and offset slightly from the box more deeply placed above it. You lean and shunt your way slowly further upwards until your buttocks catch and you are able to improvise a chair.
+
+The boxes within the nook are of a multitude of shapes and sizes, you realise, not uniformly large and person or mammal-sized as you were assumed while on your back, but containing a smaller assortment too: head-sized; nose-sized.
+
+The collection is ever more closely and haphazardly stacked the higher you look. You ponder your circumstances. Then:
+
+_Heave, judder_, you rock yourself until something tinkles, something clatters. There is a gap behind the wall of boxes you lean against and something, or some set of somethings, have been dislodged and have fallen.
+
+_Heave, judder_, you writhe as best you can until which a _whack_ and _clatter_, one of the boxes above falls against your shoulder then lap. It is cardboard rather than wood, and it has come open.
+
+You let your head fall in a downwardly facing flop, chin to chest. The box is something which has been delivered---whether to here or somewhere else and then brought here, you cannot say---its exterior heavily labelled.
+
+Springs are the contents, springs of various lengths and tightness of coil. There appears to be no interior packaging or container for the springs and so you believe they have been placed in this box at a point sometime after its original contents have been removed. Perhaps those original contents were also springs, but you do not believe that this set now visible, arrayed as they are, represents the true original state of the innards of the package, the state within which it had been delivered, somewhere, sometime in the past.
+
+You rock and wobble yourself again into another rain of boxes. Nothing lands directly upon you, but close enough that in the minimal light you can seen screws and nails and washers and nuts, each category of things in its own box, each just as clearly, to you, replaced within or added to the box at some point after its initial opening.
+
+Clearly something has been under construction here, or would soon be so. Or perhaps nothing would be constructed at all and the person or people here who had stored these items were merely hoarders, or may had had some plan in the past, now discarded, or put on hold or otherwise not enacted.
