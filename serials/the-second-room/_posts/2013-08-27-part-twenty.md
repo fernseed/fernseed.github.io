@@ -13,8 +13,8 @@ You wait until the next set of trembling begins, this time in your lower buttock
 
 Your current state: the disposition of your legs is unknown, one is clearly on top of the other, but you have lost track.  Your face is left-cheeked on the floor, most of your front upper-mass resting likewise. Your left arm is wholly underneath you, your right forearm resting in the small of your back.  It will do, it does not currently hurt, although you know that it will not last.  Gather your strength, move again later when you must, however much later that might be.  What have you learned?
 
-The floor looks rougher than it feels.  
+The floor looks rougher than it feels.
 
-You are so acclimatised to lying on your back that your head swims when you change orientation.  
+You are so acclimatised to lying on your back that your head swims when you change orientation.
 
 There appears to be a gap in the boxes which had been behind you, which still are, but that you now consider directly ahead, more or less.  You believe that if you could shuffle or crawl yourself into that hollow then only your feet would be protuding back out into the room.  There would be boxes above you which, while having the possibility of crushing failure, would also provide some sense of security from any attack from above.
