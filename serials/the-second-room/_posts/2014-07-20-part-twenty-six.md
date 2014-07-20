@@ -18,7 +18,7 @@ The collection is ever more closely and haphazardly stacked the higher you look.
 
 _Heave, judder_, you rock yourself until something tinkles, something clatters. There is a gap behind the wall of boxes you lean against and something, or some set of somethings, have been dislodged and have fallen.
 
-_Heave, judder_, you writhe as best you can until which a _whack_ and _clatter_, one of the boxes above falls against your shoulder then lap. It is cardboard rather than wood, and it has come open.
+_Heave, judder_, you writhe as best you can until with a _whack_ another of the boxes above clatters against your shoulder, then lap. It is cardboard rather than wood, and it has come open.
 
 You let your head fall in a downwardly facing flop, chin to chest. The box is something which has been delivered---whether to here or somewhere else and then brought here, you cannot say---its exterior heavily labelled.
 
