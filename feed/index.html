@@ -15,7 +15,9 @@
         <updated>{{ post.date | date_to_xmlschema }}</updated>
         <id>{{ site.url }}{{ post.url }}</id>
         <summary type="html">
-            {{ post.excerpt | strip_html | strip_newlines }}
+            <![CDATA[
+                {{ post.excerpt | strip_html | strip_newlines }}
+            ]]>
         </summary>
     </entry>
     {% endfor %}
