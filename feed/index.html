@@ -2,19 +2,20 @@
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title type="text/plain" xml:lang="en">fernseed</title>
+    <title type="text" xml:lang="en">fernseed</title>
     <link type="application/atom+xml" href="http://fernseed.org/feed/" rel="self"/>
     <link type="text/html" href="http://fernseed.org/" rel="alternate"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
-    <id>{{ site.url }}</id>
+    <id>{{ site.url }}/</id>
     <rights>Copyright (c) 2014 Darren McGuicken</rights>
     {% for post in site.categories.the-second-room %}
     <entry>
         <title>{{ post.title | downcase }}</title>
+        <author>Darren McGuicken</author>
         <link href="{{ site.url }}{{ post.url }}"/>
         <updated>{{ post.date | date_to_xmlschema }}</updated>
         <id>{{ site.url }}{{ post.url }}</id>
-        <summary type="text/html">
+        <summary type="html">
             <![CDATA[
                 {{ post.excerpt | strip_html | strip_newlines }}
             ]]>
