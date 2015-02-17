@@ -1,4 +1,5 @@
 ---
+layout: data
 ---
 User-agent: *
 Disallow:
