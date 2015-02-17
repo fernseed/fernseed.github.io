@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: you do not move
+title: 7
+tagline: You Do Not Move
+redirect_from: /part-seven/
 tags: [the room, hearing, time]
 ---
 

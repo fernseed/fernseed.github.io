@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: impressions are formed
+title: 17
+tagline: Impressions are Formed
+redirect_from: /part-seventeen/
 tags: [a nook, light, memory]
 ---
 

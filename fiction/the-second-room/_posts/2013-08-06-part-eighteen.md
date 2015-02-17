@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: dolls are debunked
+title: 18
+tagline: Dolls are Debunked
+redirect_from: /part-eighteen/
 tags: [memory, the chessmen]
 ---
 

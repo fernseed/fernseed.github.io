@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: a chair is improvised
+title: 26
+tagline: A Chair is Improvised
+redirect_from: /part-twenty-six/
 tags: [boxes, sitting, a nook]
 arc: the nook
 ---

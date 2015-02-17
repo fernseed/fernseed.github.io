@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: a partial turning is enacted
+title: 20
+tagline: A Partial Turning is Enacted
+redirect_from: /part-twenty/
 tags: [dark, a nook]
 ---
 

@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: a journey is concluded
+title: 14
+tagline: A Journey is Concluded
+redirect_from: /part-fourteen/
 tags: [a nook, movement]
 ---
 

@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: prior mood is lacking
+title: 22
+tagline: Prior Mood is Lacking
+redirect_from: /part-twenty-two/
 tags: [dark, a nook, memories]
 ---
 

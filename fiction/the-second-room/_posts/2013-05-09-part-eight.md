@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: you may have moved
+title: 8
+tagline: You May Have Moved
+redirect_from: /part-eight/
 tags: [the room, paralysis]
 ---
 

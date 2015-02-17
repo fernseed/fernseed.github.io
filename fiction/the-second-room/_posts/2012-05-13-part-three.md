@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: a man is lost
+title: 3
+tagline: A Man is Lost
+redirect_from: /part-three/
 tags: [the room, the table, the man, blindness, unconsciousness]
 ---
 

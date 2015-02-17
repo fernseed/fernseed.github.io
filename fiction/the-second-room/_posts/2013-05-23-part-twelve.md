@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: a journey is begun
+title: 12
+tagline: A Journey is Begun
+redirect_from: /part-twelve/
 tags: [the room, vision, movement]
 ---
 

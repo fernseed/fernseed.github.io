@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: seeding is contemplated
+title: 25
+tagline: Seeding is Contemplated
+redirect_from: /part-twenty-five/
 tags: [a nook, dark]
 ---
 

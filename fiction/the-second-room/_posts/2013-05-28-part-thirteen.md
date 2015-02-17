@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: a journey is continued
+title: 13
+tagline: A Journey is Continued
+redirect_from: /part-thirteen/
 tags: [the room, movement, the table, memory]
 ---
 

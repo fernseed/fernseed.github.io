@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: a journey is planned
+title: 11
+tagline: A Journey is Planned
+redirect_from: /part-eleven/
 tags: [the room, hearing, movement, the table]
 ---
 

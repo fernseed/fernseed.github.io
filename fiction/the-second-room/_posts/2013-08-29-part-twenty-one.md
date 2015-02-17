@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: an enboxing occurs
+title: 21
+tagline: An Enboxing Occurs
+redirect_from: /part-twenty-one/
 tags: [dark, a nook, movement]
 ---
 

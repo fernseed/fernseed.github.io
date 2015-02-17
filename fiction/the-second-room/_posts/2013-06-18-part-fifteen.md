@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: a nook is examined
+title: 15
+tagline: A Nook is Examined
+redirect_from: /part-fifteen/
 tags: [a nook, light, dark]
 ---
 

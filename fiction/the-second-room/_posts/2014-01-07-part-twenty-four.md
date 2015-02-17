@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: people are shaped
+title: 24
+tagline: People are Shaped
+redirect_from: /part-twenty-four/
 tags: [memory, dialogue]
 ---
 

@@ -1,7 +1,7 @@
 ---
-layout: default
-serial: The Second Room
-summary: memories are probed
+title: 16
+tagline: Memories are Probed
+redirect_from: /part-sixteen/
 tags: [a nook, dark, memories, dialogue]
 ---
 
