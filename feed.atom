@@ -8,7 +8,7 @@ layout: data
     <link type="text/html" href="http://fernseed.org/" rel="alternate"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>{{ site.url }}/</id>
-    <rights>Copyright &copy; {{ site.time | date: '%Y' }} Darren McGuicken</rights>
+    <rights>Copyright {{ site.time | date: '%Y' }} Darren McGuicken</rights>
     {% for post in site.posts %}
     {% include atom/post_list.atom %}
     {% endfor %}
