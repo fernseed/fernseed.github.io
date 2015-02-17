@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: games are sieved
 tags: [memory, the chessmen]

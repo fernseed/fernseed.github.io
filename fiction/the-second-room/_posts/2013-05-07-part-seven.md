@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: you do not move
 tags: [the room, hearing, time]

@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: prior mood is lacking
 tags: [dark, a nook, memories]

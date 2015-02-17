@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: seeding is contemplated
 tags: [a nook, dark]

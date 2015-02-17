@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: impressions are formed
 tags: [a nook, light, memory]

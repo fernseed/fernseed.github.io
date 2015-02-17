@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: a nook is examined
 tags: [a nook, light, dark]

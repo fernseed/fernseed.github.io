@@ -1,0 +1,10 @@
+---
+layout: index
+title:  fiction
+categories: [fiction]
+---
+<div class="posts">
+  {% for post in site.categories.fiction %}
+  {% include html/post-loop.html %}
+  {% endfor %}
+</div>

@@ -1,26 +1,60 @@
 ---
 layout: index
-title: Archive
-summary: the story so far
+title: The Story So Far
+tagline: The Second Room
+categories: [fiction, the-second-room]
 ---
 
+{% for post in site.categories.the-second-room %}
+{% capture words %}{{ post.content | number_of_words | plus: words }}{% endcapture %}
+{% endfor %}
+
 <section id="content">
+    <div class="post fiction">
     <div id="article" itemscope itemtype="http://schema.org/Article">
-        <meta itemprop="name" content="the story so far" />
-        <div id="article-content" itemprop="articleBody">
-            {% for post in site.categories.the-second-room reversed %}
-                {% capture words %}{{ post.content | number_of_words | plus: words }}{% endcapture %}
-                <div id="article-{{forloop.index}}-content">
-                    {{ post.content }}
-                </div>
-                <div id="article-{{forloop.index}}-link" class="fleuron">
-                    <a href="{{ post.url }}" rel="bookmark" title="{{ post.title }}">
-                        {%if forloop.last %}{% assign published = post.date %}&hellip;{% else %}#{% endif %}
-                    </a>
-                </div>
-            {% endfor %}
+    <meta itemprop="name" content="the story so far" />
+    <h6 class="post-title"></h6>
+    <h1 class="post-title">
+        The Second Room
+    </h1>
+    {% include html/reading-time.html %}
+    <hr />
+    <article id="article-content" itemprop="articleBody">
+        {% for post in site.categories.the-second-room reversed %}
+        <div id="article-{{forloop.index}}-content">
+            {{ post.content }}
         </div>
-        <meta itemprop="wordCount" content="{{ words }}" />
-        <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
+        <div class="fleuron">
+            <p>
+                <sup id="fnref:second-room-{{forloop.index}}">
+                    <a href="#fn:second-room-{{forloop.index}}" rel="footnote"></a>
+                </sup>
+            </p>
+        </div>
+        <div class="footnotes">
+            <li class="footnote" id="fn:second-room-{{forloop.index}}">
+                <p><em><a href="{{post.url}}">Part {{forloop.index}}</a></em>&mdash;
+                    {{ post.date | date: "%A" }},
+                    {% assign d = post.date | date: "%-d" %}
+                    {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} 
+                    {{ post.date | date: "%B" }},
+                    {{ post.date | date: "%Y" }}
+                </p>
+            </li>
+        </div>
+        {%if forloop.last %}{% assign published = post.date %}{% endif %}
+        {% endfor %}
+    </article>
     </div>
+    <meta itemprop="wordCount" content="{{ words }}" />
+    <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
+</div>
 </section>
+<hr />
+<span class="post-date offset">
+    {{ published | date: "%A" }},
+    {% assign d = published | date: "%-d" %}
+    {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} 
+    {{ published | date: "%B" }},
+    {{ published | date: "%Y" }}
+</span>

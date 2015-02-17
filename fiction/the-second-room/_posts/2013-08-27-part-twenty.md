@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: a partial turning is enacted
 tags: [dark, a nook]

@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: a man is lost
 tags: [the room, the table, the man, blindness, unconsciousness]

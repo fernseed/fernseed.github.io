@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: an enboxing occurs
 tags: [dark, a nook, movement]

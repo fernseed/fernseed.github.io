@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: dolls are debunked
 tags: [memory, the chessmen]

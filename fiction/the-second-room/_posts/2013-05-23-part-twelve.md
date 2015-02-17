@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: a journey is begun
 tags: [the room, vision, movement]

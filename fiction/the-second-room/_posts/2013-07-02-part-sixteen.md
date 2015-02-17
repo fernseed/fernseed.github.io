@@ -1,5 +1,5 @@
 ---
-layout: article
+layout: default
 serial: The Second Room
 summary: memories are probed
 tags: [a nook, dark, memories, dialogue]
