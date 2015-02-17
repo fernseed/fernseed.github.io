@@ -1,7 +1,54 @@
-name: fernseed
-url: http://fernseed.org
-markdown: redcarpet
-permalink: /:title/
+# Site settings
+version: 3
+title: 'fernseed'
+url: 'http://fernseed.org'
+history_url: 'https://github.com/fernseed/fernseed.github.io/commits/master/'
+permalink: /:categories/:title/
+description: 'Weird fiction, weird technology and weird thinking.'
+standards: 'HTML5, CSS3'
 
-redcarpet:
-    extensions: ['smart']
+# Site contact information
+contact:
+    name: 'Darren McGuicken'
+    twitter: '@dmcgk'
+    github: '@dmcgk'
+    email: 'feedback@fernseed.org'
+    location: 'Northern Ireland, UK'
+
+# Build settings
+environment: production
+markdown: kramdown
+highlighter: pygments
+future: false
+sass:
+    sass_dir: _sass
+    style: :compressed
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "errors"
+    values:
+      layout: "index"
+      sitemap: false
+
+# GitHub Pages compatible plugins
+gems:
+    - jekyll-mentions
+    - jekyll-redirect-from
+    - jekyll-sitemap
+
+# Plugin settings
+jekyll-mentions:
+    base_url: 'https://twitter.com'
+compress_html:
+    clippings: all
+    comments: ["<!-- ", " -->"]
+    endings: all
+kramdown:
+  auto_ids: true
+  toc_levels: 1..6

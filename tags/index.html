@@ -3,33 +3,10 @@ layout: index
 title: Tags
 summary: tag cloud
 ---
-<div id="tag-history">
-    <h1 id="tag-header"></h1>
-    <ol>
-        {% for post in site.categories.the-second-room %}
-            {% unless forloop.first %}
-            <li class="tag-entry" style="display: none;">
-                <span>
-                    <a href="{{ post.url }}" title="{{ post.summary }}">{{ post.title | downcase }}</a>
-                </span>
-                <span>
-                    <a href="{{ post.url }}" title="{{ post.title | downcase }}">{{ post.summary }}</a>
-                </span>
-                <span style="display: none;">
-                    {{ post.tags | join:"," | replace:" ","-" }}
-                </span>
-            </li>
-            {% endunless %}
-        {% endfor %}
-    </ol>
+<div class="tag-history">
+    <h6 id="tag-subheader" class="post-subtitle"></h6>
+    <h1 id="tag-header" class="post-title">Tag Cloud</h1>
+    {% include html/tag_content.html %}
 </div>
-
-<div id="tag-cloud">
-    <ul>
-    {% for tag in site.tags %}
-        <li onclick='filterTags("{{ tag | first | replace:" ","-" }}");' style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | times: 5 | plus: 100 }}%">
-                <a href="#">{{ tag | first }}</a>
-        </li>
-    {% endfor %}
-    </ul>
-</div>
+<hr />
+{% include html/tag_cloud.html %}

@@ -1,0 +1,19 @@
+<div class="tag-cloud offset">
+    <script>
+        var initialTag = getUrlParameter('tag');
+
+        if (initialTag) {
+            filterTags(initialTag);
+        }
+    </script>
+    <ul>
+    <span class="base">
+    {% for tag in site.tags %}
+        <li onclick='filterTags("{{ tag | first | replace:" ","-" }}");' style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | times: 5 | plus: 100 }}%">
+                <a href="#">{{ tag | first }}</a>
+        </li>
+        {% unless forloop.last %} &nbsp; {% endunless %}
+    {% endfor %}
+    </span>
+    </ul>
+</div>

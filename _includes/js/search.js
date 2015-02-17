@@ -1,6 +1,6 @@
 function getSearchableItems() {
-    $.getJSON("/search.json", function(data) {
-        searchableItemList = data;
+    $.getJSON('/data/search-content.json', function(searchData) {
+        searchableItemList = searchData;
     });
 }
 
@@ -14,14 +14,17 @@ function searchFor(searchString) {
             tags    = item['tags']   .toLowerCase();
             date    = item['date']   .toLowerCase();
             excerpt = item['excerpt'].toLowerCase();
+            tagline = item['tagline'].toLowerCase();
             url     = item['url'];
+
+            if (tagline != "") title = tagline;
 
             if (title  .indexOf(searchString) != -1 ||
                 summary.indexOf(searchString) != -1 ||
                 tags   .indexOf(searchString) != -1 ||
                 date   .indexOf(searchString) != -1 ||
                 excerpt.indexOf(searchString) != -1) {
-                    results.push([url, date, title, summary]);
+                    results.push([url, date, title]);
             }
         });
     }
@@ -30,31 +33,20 @@ function searchFor(searchString) {
 }
 
 function showSearchResults() {
+
+    resultHeader = $("#search-header");
+    resultHeader.html("Search Results:");
+
     resultBox = $("#search-results");
     resultBox.html("");
     resultBox.html(function() {
         if (results.length == 0) {
-            resultBox.append('<li>no matches</li>');
+            resultBox.html("No Matches");
         }
         else {
             $.each(results, function(index, item) {
-                resultBox.append('<li><a href="' + item[0] + '">' + item[1] + ': ' + item[3] + '</a></li>');
-                if (index < results.length-1) {
-                    resultBox.append('&nbsp;&middot;&nbsp;');
-                }
+                resultBox.append('<li><a href="' + item[0] + '">' + item[1] + ': ' + item[2] + '</a></li>');
             });
         }
     });
 }
-
-$(document).ready(function() {
-    results = [];
-    searchableItemList = [];
-
-    getSearchableItems();
-
-    $("#search-box").keyup(function() {
-        searchString = $(this).val().toLowerCase();
-        searchFor(searchString);
-    });
-});

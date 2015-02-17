@@ -1,0 +1,19 @@
+<article>
+<dl>
+    {% for post in site.posts %}
+        <div class="tag-entry" style="display: none">
+        <dt>
+            <em>{% if post.categories %}<span class="{{ post.categories | first }}">{% endif %}<a href="{{ post.url }}">{% if post.tagline %}{{ post.tagline }}{% else %}{{ post.title }}{% endif %}</a>{% if post.categories %}</span>{% endif %}</em>&mdash;{{ post.date | date: "%A" }}, {% assign d = post.date | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ post.date | date: "%B" }}, {{ post.date | date: "%Y" }}
+        </dt>
+        <dd>
+            <span>
+                {% if post.summary %}{{ post.summary }}{% else %}<blockquote>{{ post.excerpt }}</blockquote>{% endif %}
+            </span>
+            <span style="display: none;">
+                {{ post.tags | join:"," | replace:" ","-" }}
+            </span>
+        </dd>
+        </div>
+    {% endfor %}
+</dl>
+</article>

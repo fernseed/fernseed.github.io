@@ -1,0 +1,4 @@
+<span class="post-date">
+	{% capture use_hours %}{{ words | divided_by:180 | minus:60 }}{% endcapture %}
+  ~{% if use_hours contains "-" %}{{ words | divided_by:180 }} minute {% else %}{{ words | divided_by:180 | divided_by:60 }} hour {% endif %} read
+</span>
