@@ -1,5 +1,5 @@
 # Site settings
-version: 2
+version: 2.1
 title: 'fernseed'
 url: 'http://fernseed.org'
 history_url: 'https://github.com/fernseed/fernseed.github.io/commits/master/'
