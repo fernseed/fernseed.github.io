@@ -1,0 +1,22 @@
+---
+layout: data
+---                        
+/* TEAM */
+
+Contact: {{ site.contact.name }}
+Location: {{ site.contact.location }} 
+Email: {{ site.contact.email }}                 
+Twitter: {{ site.contact.twitter }} 
+GitHub: {{ site.contact.github }} 
+							
+/* THANKS */
+{% for project in site.data.dependencies %}
+Project: {{ project.name }}
+By: {{ project.contact }}
+Site: {{ project.url }}
+{% endfor %}
+/* SITE */
+
+Updated: {{ site.time | date: '%F' }} 
+Standards: {{ site.standards }}
+Software: {% for project in site.data.dependencies %}{% if project.type == "software" %}{{ project.name }}{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %}
