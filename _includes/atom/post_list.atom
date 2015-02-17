@@ -1,5 +1,5 @@
     <entry>
-        <title>{{ post.title }}</title>
+        <title>{% if post.tagline %}{{ post.tagline }}{% else %}{{ post.title }}{% endif %}</title>
         <author>
             <name>Darren McGuicken</name>
             <uri>https://twitter.com/dmcgk</uri>
@@ -9,7 +9,7 @@
         <id>{{ site.url }}{{ post.url }}</id>
         <summary type="html">
             <![CDATA[
-                {{ post.excerpt | strip_html | strip_newlines }}
+                {% if post.summary %}{{ post.summary }}{% else %}{{ post.excerpt | strip_html | strip_newlines }}{% endif %}
             ]]>
         </summary>
     </entry>
