@@ -85,7 +85,6 @@ $break-large: 1200px;
 /* Define the scale */
 
 html { font-size: 19px; }
-p    { font-size: 1rem; }
 
 @import 'modular-scale';
 
@@ -99,7 +98,7 @@ $large-size:      ms(2);
 $very-large-size: ms(4);
 
 $small-line-height:  ms(1);
-$normal-line-height: ms(3);
+$normal-line-height: ms(2);
 $large-line-height:  ms(4);
 
 @mixin all-headings($from: 1, $to: 6){
@@ -122,11 +121,21 @@ $large-line-height:  ms(4);
 
 small                  { font-size: $very-small-size; }
 h6                     { font-size: $small-size;      }
-body                   { font-size: $normal-size;     }
-.post-date             { font-size: $normal-size;     }
-.masthead-title        { font-size: $normal-size;     line-height: $small-line-height; }
-@include sub-headings(){ font-size: $normal-size;     line-height: $large-line-height; }
-h1, .post-title        { font-size: $very-large-size; line-height: $large-line-height;  padding-top: 0; }
+body                   { font-size: $small-size;      line-height: $small-line-height; }
+.post-date             { font-size: $small-size;      line-height: $small-line-height; }
+.masthead-title        { font-size: $small-size;      line-height: $small-line-height; }
+@include sub-headings(){ font-size: $small-size;      line-height: $normal-line-height; }
+h1, .post-title        { font-size: $large-size;      line-height: $normal-line-height;  padding-top: 0; }
+
+@media (min-width: 36em) {
+  small                  { font-size: $very-small-size; }
+  h6                     { font-size: $small-size;      }
+  body                   { font-size: $normal-size;     line-height: $normal-line-height; }
+  .post-date             { font-size: $normal-size;     line-height: $normal-line-height; }
+  .masthead-title        { font-size: $normal-size;     line-height: $normal-line-height; }
+  @include sub-headings(){ font-size: $normal-size;     line-height: $large-line-height; }
+  h1, .post-title        { font-size: $very-large-size; line-height: $large-line-height;  padding-top: 0; }
+}
 
 .tag-cloud li {
   font-family: $heading-font;
@@ -176,17 +185,36 @@ $max-content-width: $max-width - $sidebar-width - $logo-width - (2*$logo-margin)
 }
 
 article {
-  width: $article-width;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
+@media (min-width: 56em) {
+  article {
+    width: $article-width;
+  }
+}
+
 .post-title,
-.post-subtitle,
-.masthead-title {
-  width: $max-content-width;
+.post-subtitle {
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.masthead-title {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 56em) {
+  .post-title,
+  .post-subtitle,
+  .masthead-title {
+    width: $max-content-width;
+  }
 }
 
 hr {
@@ -289,35 +317,6 @@ h6,
   hyphens: none;
 }
 
-/*
-a {
-    position: relative;
-    text-decoration: none;
-}
-
-a:hover {
-    position: relative;
-    text-decoration: none;
-}
-
-.post > a:before,
-.masthead-title > a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.2s ease-in-out 0s;
-  transition: all 0.2s ease-in-out 0s;
-}
-
-*/
-
 .light a:before {
   background-color: black;
 }
@@ -326,15 +325,6 @@ a:hover {
   background-color: white;
 }
 
-/*
-
-a:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-}
-
-*/
 p {
     margin-top: 0;
     margin-bottom: 0;
@@ -351,6 +341,7 @@ p + p {
 .container {
     padding-left: 35px;
     padding-right: 35px;
+    max-width: 100%;
 }
 
 @media (min-width: 30.1em) {
@@ -469,14 +460,6 @@ span.meta a:before,
     background-color: $meta;
 }
 
-/*
-.masthead a:before {
-    width: 93%;
-}
-*/
-
-
-
 ol,
 ul {
     padding: $normal-size;
@@ -515,6 +498,8 @@ dl {
   margin-bottom: $very-large-size;
 }
 
+
+
 .progress-chart text {
     font-family: $heading-font;
 }
@@ -541,30 +526,13 @@ ol li:before {
     content: counters(item, ".") ") "; counter-increment: item
 }
 
-/*
-
-.footnotes {
-  padding: 1rem;
-  padding-right: 0;
-  margin: 1rem;
-  margin-right: 0;
-}
-
-*/
-
 .footnotes ol { 
   counter-reset: footnote-item;
 }
 
 .footnotes ol li {
-
   margin-bottom: $normal-size;
-  /*
-    margin: 1rem;
-    margin-right: 0;
-    */
 }
-
 
 .footnotes ol li:before { 
     font-weight: 700;
@@ -581,50 +549,6 @@ ol li:before {
 .gist .line-number {
  width: 1rem;
 }
-
-/*
-ol {
-  list-style-type: none;
-  counter-reset: item;
-  margin: 0;
-  padding: 0;
-}
-
-ol > li {
-  display: table;
-  counter-increment: item;
-}
-
-ol > li:before {
-  content: counters(item, ".") ") ";
-  display: table-cell;   
-  padding-right: 1rem;
-}
-
-li ol > li {
-  margin: 0;
-}
-*/
-
-/*
-ol {
-    counter-reset: item;
-}
-
-ol li {
-    display: block;
-    position: relative;
-}
-
-ol li:before {
-    content: counters(item, ".")") ";
-    counter-increment: item;
-    position: absolute;
-    margin-right: 100%;
-    right: 1rem; 
-}
-
-*/
 
 .tex sub, .latex sub, .latex sup {
   text-transform: uppercase;
@@ -672,8 +596,6 @@ div .tag-entry {
 }
 
 .masthead-title {
-  /*letter-spacing: 1rem;
-  margin-right: -1rem;*/
   padding-top: $small-size;
   font-weight: normal;
 }
@@ -779,7 +701,7 @@ blockquote {
   word-break: normal;
 }
 
-@media (min-width: 30em) {
+@media (min-width: 56em) {
   blockquote {
   padding-left: $normal-size;
   padding-right: $normal-size;
@@ -817,11 +739,8 @@ blockquote {
   font-family: "Source Code Pro";
 }
 
-
-
 .sidebar {
     font-family: "Source Sans Pro";
-    /* text-align: left; */
 }
 
 .sidebar-item-header {
@@ -869,26 +788,6 @@ blockquote {
   border-bottom-width: 0;
 }
 
-/*
-
-@media (min-width: 30.1em) {
-  .sidebar-toggle:before {
-    padding: 0;
-    border: 0;
-    margin: 0;
-  }
-    .sidebar-toggle {
-      top:  0;
-      left: 0;
-      padding: 0;
-      padding-top: .5rem;
-      margin: 0.5rem;
-      margin-top: 0.5rem;
-      border-radius: 30px;
-    }
-}
-*/
-
 ul ul,
 ol ol {
     padding: 0;
@@ -902,9 +801,6 @@ ol ol {
     white-space: nowrap;
     content: "";
     list-style-type: none;
-    /*
-    content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . "
-    */
 }
 
 #search-box {
@@ -930,139 +826,6 @@ ol ol {
     text-align: center
 }
 
-/*
-#pagination, #site-history, #tag-history {
-    font-family: "alegreya-sc";
-    font-weight: 400;
-    font-style: normal
-}
-
-#content, #pagination, #site-history-continued {
-    padding-top: 2em
-}
-
-#taglist {
-    float: right;
-    font-family: "alegreya-sc";
-    font-weight: 400;
-    font-style: normal
-}
-
-#navigation {
-    position: absoulte;
-    bottom: 0
-}
-
-#search-box {
-    border-radius: 20px;
-    text-align: center
-}
-
-#search-input {
-    margin-top: 0;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 0;
-    height: 35px;
-    width: 200px;
-    text-align: center
-}
-
-#search-output {
-    height: 80px;
-    text-align: center    
-}
-
-#search-results {
-    max-height: 80px;
-    overflow: hidden;
-}
-
-#searchinput, #search-output #pagination, #article-neighbour {
-    text-align: center
-}
-
-#article-neighbour, #site-history, #tag-cloud, #navigation {
-    padding-top: 8em;
-    font-family: "alegreya-sc";
-    font-weight: 400;
-    font-style: normal
-}
-
-#tag-cloud, #tag-history {
-    padding-top: 2em;
-    font-family: "alegreya-sc";
-    font-weight: 400;
-    font-style: normal
-}
-
-#counter {
-    display: none
-}
-
-html {
-    font-size: 62.5%
-}
-
-body {
-    width: 640px;
-    color: #000;
-    font-size: 1.802em;
-    line-height: 2em;
-    font-family: "adobe-garamond-pro";
-    font-weight: 400;
-    font-style: normal;
-    text-align: justify;
-    word-break: break-word;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -webkit-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
-    text-rendering: optimizelegibility;
-    -moz-font-feature-settings: "kern";
-    -ms-font-feature-settings: "kern";
-    -webkit-font-feature-settings: "kern";
-    -o-font-feature-settings: "kern";
-    font-feature-settings: "kern";
-    -moz-font-feature-settings: "liga";
-    -ms-font-feature-settings: "liga";
-    -webkit-font-feature-settings: "liga";
-    -o-font-feature-settings: "liga";
-    font-feature-settings: "liga";
-    padding-top: 8em;
-    margin: 0 auto
-}
-
-header {
-    font-size: 4.624em
-}
-
-footer {
-    padding-top: 2em;
-    font-family: "alegreya-sc";
-}
-
-nav {
-    text-align: center
-}
-
-a, a:visited {
-    text-decoration: none;
-    color: #777
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 0;
-    text-indent: 2em
-}
-
-p:first-of-type {
-    text-indent: 0
-}
-
-*/
 p:first-of-type:first-line {
    -moz-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
     -ms-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
@@ -1070,84 +833,6 @@ p:first-of-type:first-line {
     -o-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
     font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
 }
-/*
-
-h1, h2, h3 {
-    font-family: "alegreya-sc";
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    letter-spacing: .107em;
-    -moz-font-feature-settings: "liga" 0;
-    -ms-font-feature-settings: "liga" 0;
-    -webkit-font-feature-settings: "liga" 0;
-    -o-font-feature-settings: "liga" 0;
-    font-feature-settings: "liga" 0
-}
-
-dd, dt {
-    padding: 0;
-    margin: auto
-}
-
-ol {
-    padding: 0;
-    margin: auto;
-    font-family: "alegreya-sc";
-    font-weight: 400;
-    font-style: normal;
-    overflow-x: hidden;
-    list-style: none;
-    line-height: 2em
-}
-
-ol li:before {
-    float: left;
-    width: 0;
-    white-space: nowrap;
-    content: ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . " ". . . . . . . . . . . . . . . . . . . . "
-}
-
-ol span:first-child {
-    background: #fff;
-    padding-right: .214em;
-    letter-spacing: .107em;
-    -moz-font-feature-settings: "liga" 0;
-    -ms-font-feature-settings: "liga" 0;
-    -webkit-font-feature-settings: "liga" 0;
-    -o-font-feature-settings: "liga" 0;
-    font-feature-settings: "liga" 0
-}
-
-ol span+span {
-    float: right;
-    padding-left: .214em;
-    background: #fff
-}
-
-ul {
-    list-style: none;
-    width: 640px;
-    padding: 0;
-    margin: auto;
-    text-align: center
-}
-
-ul li {
-    display: inline-block;
-    vertical-align: middle;
-    padding: .214em
-}
-
-.category-title .article-title {
-    text-transform: uppercase;
-    font-size: 3.653em
-}
-
-.category-link {
-    text-transform: lowercase
-}
-*/
 
 .fancy {
     -moz-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
@@ -1156,90 +841,3 @@ ul li {
     -o-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
     font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
 }
-
-/*
-.tag-2 {
-    font-size: 1.802em
-}
-
-.tag-1 {
-    font-size: 3.653em
-}
-
-.tag-0 {
-    font-size: 4.624em
-}
-
-.fleuron {
-    font-family: "Hoefler Text Fleur A", "Hoefler Text Fleur B";
-    font-weight: 400;
-    font-style: normal;
-    text-align: center
-}
-
-em {
-    font-style: italic;
-}
-
-strong {
-    font-family: "alegreya-sc";
-    font-weight: 400;
-    font-style: normal
-}
-
-hr {
-    padding-top: 2em;
-    border: none
-}
-
-@media only screen and (max-width:704px) {
-    body {
-        width: 90%;
-        color: #000;
-        font-size: 1em;
-        line-height: 2em;
-        font-family: "adobe-garamond-pro";
-        font-weight: 400;
-        font-style: normal;
-        text-align: justify;
-        word-break: break-word;
-        -moz-hyphens: auto;
-        -ms-hyphens: auto;
-        -webkit-hyphens: auto;
-        -o-hyphens: auto;
-        hyphens: auto;
-        text-rendering: optimizelegibility;
-        -moz-font-feature-settings: "kern";
-        -ms-font-feature-settings: "kern";
-        -webkit-font-feature-settings: "kern";
-        -o-font-feature-settings: "kern";
-        font-feature-settings: "kern";
-        -moz-font-feature-settings: "liga";
-        -ms-font-feature-settings: "liga";
-        -webkit-font-feature-settings: "liga";
-        -o-font-feature-settings: "liga";
-        font-feature-settings: "liga";
-        padding-top: 2em;
-        margin: 0 auto
-    }
-
-    header {
-        font-size: 3.653em
-    }
-
-    ul {
-        list-style: none;
-        width: 90%;
-        padding: 0;
-        margin: auto;
-        text-align: center
-    }
-
-    #article-neighbour, #site-history, #tag-history, #tag-cloud, #navigation {
-        padding-top: 2em;
-        font-family: "alegreya-sc";
-        font-weight: 400;
-        font-style: normal
-    }
-}
-*/
