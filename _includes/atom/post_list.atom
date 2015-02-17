@@ -1,5 +1,5 @@
     <entry>
-        <title>{{ post.title | downcase }}</title>
+        <title>{{ post.title }}</title>
         <author>
             <name>Darren McGuicken</name>
             <uri>https://twitter.com/dmcgk</uri>

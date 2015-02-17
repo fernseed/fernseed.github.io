@@ -9,20 +9,6 @@
     <id>{{ site.url }}/</id>
     <rights>Copyright {{ site.time | date: '%Y' }} Darren McGuicken</rights>
     {% for post in site.categories.meta %}
-    <entry>
-        <title>{{ post.title | downcase }}</title>
-        <author>
-            <name>Darren McGuicken</name>
-            <uri>https://twitter.com/dmcgk</uri>
-        </author>
-        <link href="{{ site.url }}{{ post.url }}"/>
-        <updated>{{ post.date | date_to_xmlschema }}</updated>
-        <id>{{ site.url }}{{ post.url }}</id>
-        <summary type="html">
-            <![CDATA[
-                {{ post.excerpt | strip_html | strip_newlines }}
-            ]]>
-        </summary>
-    </entry>
+    {% include atom/post_list.atom %}
     {% endfor %}
 </feed>
