@@ -1,3 +1,10 @@
+var reportPeriod = 0;
+
+function setPeriod(period) {
+    reportPeriod = period;
+    drawChart();
+}
+
 function getUrlParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
