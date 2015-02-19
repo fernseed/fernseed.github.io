@@ -4,7 +4,7 @@ permalink: /meta/stats/
 sticky: true
 tags: [writing, data-visualisation, quantified-self]
 summary: 
-    Some charts and figures on the amount I'm writing and whether I'm doing so consistently. This is inspired by <a href='http://twitter.com/jamierubin'>@jamierubin</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 500+ day writing streak</a>!
+    Some charts and figures on the amount I'm writing and whether I'm doing so consistently. This is inspired by <a href='http://twitter.com/jamietr'>@jamietr</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 500+ day writing streak</a>!
 sidebar: 
     See <a href='/technology/jekyll-data-visualisation/''>this post</a> for more details.
 ---
