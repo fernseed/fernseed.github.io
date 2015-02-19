@@ -9,7 +9,7 @@
         <id>{{ site.url }}{{ post.url }}</id>
         <summary type="html">
             <![CDATA[
-                {% if post.summary %}{{ post.summary }}{% else %}{{ post.excerpt | strip_html | strip_newlines }}{% endif %}
+                {% if post.summary %}{{ post.summary  | strip_html | strip_newlines }}{% else %}{{ post.excerpt | strip_html | strip_newlines }}{% endif %}
             ]]>
         </summary>
     </entry>

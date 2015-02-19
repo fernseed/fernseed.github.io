@@ -49,7 +49,7 @@
       <h6 class="post-subtitle" />
 
       <h1 class="post-title" id="article-title">
-          <span itemprop="name">{% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}</span>
+          <span itemprop="name">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</span>
       </h1>
 
       {% assign words = page.content | number_of_words %}
@@ -94,7 +94,7 @@
           {% if page.tagline %} &middot; <a href="{{ page.url }}">{{ page.title }}</a>{% endif %}
         </h6>
       <h2 class="post-title">
-          <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}</a>
+          <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</a>
         </h2>
         <span class="post-date">
           {% include html/date.html %}
@@ -105,7 +105,7 @@
           <meta itemprop="wordCount" content="{{ page.content | number_of_words }}" />
           <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
           {% if page.summary %}
-          {{ page.summary }}
+          {{ page.summary | strip_html | strip_newlines }}
           {% else %}
           <blockquote>{{ page.excerpt | strip_html | strip_newlines }}</blockquote>
           {% endif %}
