@@ -4,9 +4,9 @@ permalink: /meta/stats/
 sticky: true
 tags: [writing, data-visualisation, quantified-self]
 summary: 
-    Some charts and figures on the amount I'm writing and whether I'm doing so consistently. This is inspired by <a href='http://twitter.com/jamietr'>@jamietr</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 500+ day writing streak</a>!
+    Some charts and figures on my writing progress and consistency. This is inspired by <a href='http://twitter.com/jamietr'>@jamietr</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 500+ day writing streak</a>!
 sidebar: 
-    See <a href='/technology/jekyll-data-visualisation/''>this post</a> for more details.
+    See <a href='/technology/jekyll-and-data-visualisation/'>this post</a> for more details.
 ---
 
 {% assign entryCount = site.data.progress | size %}
@@ -38,8 +38,8 @@ sidebar:
 
         var data = new google.visualization.DataTable();
         data.addColumn('date', 'Date');
-        data.addColumn('number', 'Word Count (Fiction)');
-        data.addColumn('number', 'Word Count (Non-Fiction)');
+        data.addColumn('number', 'Fiction');
+        data.addColumn('number', 'Non-Fiction');
         data.addColumn('number', 'Target');
         data.addColumn('number', 'Weekly Average');
 
