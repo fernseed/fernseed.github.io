@@ -1,11 +1,11 @@
 name,contact,url,type,quote,contact-url
 Source Sans Pro,@pauldhunt,https://github.com/adobe-fonts/source-sans-pro,asset,a set of OpenType fonts that have been designed to work well in user interface (UI) environments,http://twitter.com/pauldhunt
 Source Code Pro,@pauldhunt,https://github.com/adobe-fonts/source-code-pro,asset,a set of OpenType fonts that have been designed to work well in user interface (UI) environments,http://twitter.com/pauldhunt
-Calendas Plus,Atipo,http://calendasplus.com,asset,"a typeface with a classical air, great legibility and elegance, designed for work in small sizes. Its special characteristics derive from its calligraphic finishing",
+Calendas Plus,Atipo,http://calendasplus.com,asset,"a typeface with a classical air, great legibility and elegance, designed for work in small sizes. Its special characteristics derive from its calligraphic finishing",http://atipo.es
 Lanyon,@mdo,https://github.com/poole/lanyon,asset,"an unassuming Jekyll theme that places content first by tucking away navigation in a hidden drawer",http://twitter.com/mdo
 The Elements of Typographic Style,@clagnut,http://webtypography.net,design,"typographic style and its accompanying attention to detail have been overlooked by website designers ... in years gone by this could have been put down to the technology, but now the web has caught up",http://twitter.com/clagnut
 Sass,@sasscss,http://sass-lang.com/,project,"CSS with superpowers ... the most mature, stable, and powerful professional grade CSS extension language in the world",http://twitter.com/sasscss
-Infinite Jekyll,@tobiasahlin,https://github.com/tobiasahlin/infinite-jekyll,project,"Infinite scroll for Jekyll based blogs",
+Infinite Jekyll,@tobiasahlin,https://github.com/tobiasahlin/infinite-jekyll,project,"Infinite scroll for Jekyll based blogs",http://twitter.com/tobiasahlin
 GitHub Pages,@github,https://pages.github.com,project,"Websites for you and your projects. Hosted directly from your GitHub repository. Just edit, push, and your changes are live",http://twitter.com/github
 jQuery,@jeresig,http://jquery.com,project,"a fast, small, and feature-rich JavaScript library",http://twitter.com/jeresig
 kramdown,Thomas Leitner,http://kramdown.gettalong.org,project,"a free MIT-licensed Ruby library for parsing and converting a superset of Markdown ... probably the fastest pure-Ruby Markdown converter available",
