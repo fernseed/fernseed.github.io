@@ -6,11 +6,11 @@
  <div class="sidebar {% if page.categories %}{{ page.categories.first }}{% else %}base{% endif %}" id="sidebar">
   {% if page.type == "index" %}
     <div class="sidebar-item-header">
-      {% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}<br />
+      {% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}<br />
     </div>
   {% else %}
     <div class="sidebar-item-header">
-      {% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}<br />
+      {% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}<br />
       {% if page.date  %}
       {% include html/date.html %}
       {% endif %}
