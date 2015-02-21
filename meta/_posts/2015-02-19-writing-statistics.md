@@ -48,7 +48,7 @@ sidebar:
         {% assign counter = 1 %}
 
         data.addRows([
-            {% for entry in site.data.progress offset:period %}{% assign total = total | plus:entry.fiction | plus:entry.non-fiction %}{% assign 7dayTotal = 7dayTotal | plus:entry.fiction | plus:entry.non-fiction %}{% if counter > 7 %}{% assign 7dayMarker = forloop.index0 | plus:period | minus:7 %}{% assign 7dayTotal = 7dayTotal | minus:site.data.progress[7dayMarker].fiction | minus:site.data.progress[7dayMarker].non-fiction %}{% endif %}[ new Date({{ entry.date | date: "%Y" }}, {{ entry.date | date: "%m" | minus:1 }}, {{ entry.date | date: "%d" }}), {{ entry.fiction }}, {{ entry.non-fiction }}, {{ total | divided_by:forloop.index }}, {% if counter > 7 %}{{ 7dayTotal | divided_by:7 }}{% else %}0 {% endif %}],{% assign counter = counter | plus:1 %}{% endfor %}
+            {% for entry in site.data.progress offset:period %}{% assign total = total | plus:entry.fiction | plus:entry.non-fiction %}{% assign 7dayTotal = 7dayTotal | plus:entry.fiction | plus:entry.non-fiction %}{% if counter > 7 %}{% assign 7dayMarker = forloop.index0 | plus:period | minus:7 %}{% assign 7dayTotal = 7dayTotal | minus:site.data.progress[7dayMarker].fiction | minus:site.data.progress[7dayMarker].non-fiction %}{% endif %}[ new Date({{ entry.date | date: "%Y" }}, {{ entry.date | date: "%m" | minus:1 }}, {{ entry.date | date: "%d" }}), {{ entry.fiction }}, {{ entry.non-fiction }}, {{ total | append: '.0' | divided_by:forloop.index }}, {% if counter > 7 %}{{ 7dayTotal | append: '.0' | divided_by:7 }}{% else %}0 {% endif %}],{% assign counter = counter | plus:1 %}{% endfor %}
         ]);
 
         var options = {
@@ -59,6 +59,10 @@ sidebar:
             seriesType: "bars",
             series: {2: {type: "line"}, 3: {type: "line"}},
         };
+
+        var formatter = new google.visualization.NumberFormat( {fractionDigits:1 });
+        formatter.format(data, 3);
+        formatter.format(data, 4);
 
         var view = new google.visualization.DataView(data);
         var chart = new google.visualization.ComboChart( document.getElementById('365-day-progress-chart'));
