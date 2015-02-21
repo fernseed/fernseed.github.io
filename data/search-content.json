@@ -2,7 +2,7 @@
 layout: data
 ---
 [
-    {% for post in site.posts %}{
+    {% for post in site.posts %}{% unless post.no-index %}{
       "title"    : "{{ post.title }}",
       "tagline"  : "{{ post.tagline }}",
       "summary"  : "{{ post.summary }}",
@@ -11,5 +11,5 @@ layout: data
       "excerpt"  : "{{ post.excerpt | strip_html | strip_newlines }}",
       "date"     : "{{ post.date | date: "%F" }}"
     }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
+    {% endunless %}{% endfor %}
 ]

@@ -1,3 +1,4 @@
+{% unless post.no-index %}
     <entry>
         <title>{% if post.tagline %}{{ post.tagline }}{% else %}{{ post.title }}{% endif %}</title>
         <author>
@@ -13,3 +14,4 @@
             ]]>
         </summary>
     </entry>
+{% endunless %}

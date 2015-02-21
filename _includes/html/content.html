@@ -74,11 +74,12 @@
       {% capture published %}{% include html/date.html %}{% endcapture %}
       {% capture modified %}{% include html/date-modified.html %}{% endcapture %}
 
-      <hr />
-
-      <span class="post-date offset">
-        <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">{{ published }}</span>{% if page.modified %}{% if modified != published  %}<br /><small><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: {{ modified }}</small>{% endif %}{% endif %}
-      </span>
+      {% unless page.type == "special" %}
+        <hr />
+        <span class="post-date offset">
+          <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">{{ published }}</span>{% if page.modified %}{% if modified != published  %}<br /><small><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: {{ modified }}</small>{% endif %}{% endif %}
+        </span>
+      {% endunless %}
     {% endunless %}
 
   </div>
