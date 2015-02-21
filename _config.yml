@@ -6,6 +6,7 @@ history_url: 'https://github.com/fernseed/fernseed.github.io/commits/master/'
 permalink: /:categories/:title/
 description: 'Weird fiction, weird technology & weird thinking.'
 standards: 'HTML5, CSS3'
+reading_wpm: 180
 
 # Site contact information
 contact:
