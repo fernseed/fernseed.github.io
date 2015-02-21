@@ -9,14 +9,9 @@ Email: {{ site.contact.email }}
 Twitter: {{ site.contact.twitter }} 
 GitHub: {{ site.contact.github }} 
 							
-/* THANKS */
-{% for project in site.data.dependencies %}
-Project: {{ project.name }}
-By: {{ project.contact }}
-Site: {{ project.url }}
-{% endfor %}
 /* SITE */
-
+{% assign software_count = 0 %}{% assign component_count = 0 %}{% for project in site.data.dependencies %}{% if project.type == "software" %}{% assign software_count = software_count | plus:1 %}{% endif %}{% endfor %}{% assign component_count = site.data.dependencies.size | minus:software_count %}
 Updated: {{ site.time | date: '%F' }} 
 Standards: {{ site.standards }}
-Software: {% for project in site.data.dependencies %}{% if project.type == "software" %}{{ project.name }}{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %}
+Software: {% assign counter = 0 %}{% for project in site.data.dependencies %}{% if project.type == "software" %}{% assign counter = counter | plus:1 %}{{ project.name }}{% unless counter == software_count %}, {% endunless %}{% endif %}{% endfor %}
+Components: {% assign counter = 0 %}{% for project in site.data.dependencies %}{% if project.type != "software" %}{% assign counter = counter | plus:1 %}{{ project.name }}{% unless counter == component_count %}, {% endunless %}{% endif %}{% endfor %}
