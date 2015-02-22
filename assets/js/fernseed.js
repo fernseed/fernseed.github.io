@@ -1,6 +1,10 @@
 ---
 layout: compress
 ---
+/* Third Party Script */
+{% include js/infinite-scroll.js %}
+
+/* Local Script */
 {% include js/sidebar.js %}
 {% include js/images.js %}
 {% include js/responsive.js %}

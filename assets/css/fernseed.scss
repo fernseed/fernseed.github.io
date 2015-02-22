@@ -1,5 +1,11 @@
 ---
 ---
+{% include css/poole.css %}
+{% include css/lanyon.css %}
+{% include css/spinner.css %}
+{% include css/syntax.css %}
+{% include css/bigfoot-default.css %}
+
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400);
 
@@ -73,6 +79,7 @@ $technology: #355CBD;
 $fiction: #358766;
 $meta: #BD3C35;
 $base: #A4A4A4;
+$sidebar-colour: #FFFFFF;
 
 $body-font:     "calendas_plus", serif;
 $heading-font:  "Source Sans Pro", sans;
@@ -282,12 +289,10 @@ a:hover:before {
 }
 
 body {
+    text-align: left;
     font-family: $body-font;
     font-weight: normal;
     font-style: normal;
-    text-align: justify;
-    text-justify: inter-character;
-    word-break: break-word;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
@@ -301,6 +306,14 @@ body {
     -webkit-font-feature-settings: "kern", "liga";
     -o-font-feature-settings: "kern", "liga";
     font-feature-settings: "kern", "liga";
+}
+
+@media (min-width: 30em) {
+  body {
+      text-align: justify;
+      text-justify: inter-character;
+      word-break: break-word;
+  }
 }
 
 html {
@@ -386,6 +399,16 @@ p + p {
 .offset {
     padding: $normal-size;
     margin: $normal-size;
+}
+
+path.sidebar-image {
+  fill: $sidebar-colour;
+  fill-opacity: 0.6;
+}
+
+span.icons {
+  letter-spacing: normal;
+  word-spacing: normal;
 }
 
 span.base a:before,
@@ -555,7 +578,8 @@ ol li:before {
     content: "Note " counters(footnote-item, ".") ": "; counter-increment: footnote-item
 }
 
-.gist-meta { display:none; } and .gist .gist-file { border-bottom: 0px }
+.gist-meta { display:none; }
+.gist .gist-file { border-bottom: 0px }
 
 .gist {
   padding-top: $normal-size;

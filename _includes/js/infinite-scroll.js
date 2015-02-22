@@ -1,6 +1,3 @@
----
-layout: compress
----
 $(function() {
   
   var postURLs,
