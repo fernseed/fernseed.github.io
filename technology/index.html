@@ -1,0 +1,11 @@
+---
+layout: index
+title:  technology
+categories: [technology]
+permalink: /technology/
+---
+<div class="posts">
+  {% for post in site.categories.technology %}
+  {% include html/post-loop.html %}
+  {% endfor %}
+</div>

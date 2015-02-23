@@ -46,12 +46,14 @@
 
   <div class="container content post {{ page.categories.first }}" id="article" {% unless page.type == "index" %}itemscope itemtype="http://schema.org/Article"{% endunless %}>
     {% unless page.type == "index" %}
-      <h6 class="post-subtitle" />
+      <h6 class="post-subtitle">
+        {% if page.subtitle %}{{ page.subtitle | replace: ' and ', ' & ' }}{% endif %}
+      </h6>
 
       <h1 class="post-title" id="article-title">
           <span itemprop="name">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</span>
       </h1>
-
+      
       {% assign words = page.content | number_of_words %}
 
       <meta itemprop="wordCount" content="{{ words }}" />
@@ -61,10 +63,9 @@
       {% unless significant_wordcount contains "-" %}
         {% include html/reading-time.html %}
       {% endunless %}
-    {% endunless %}
 
-    {% unless page.type == "index" %}    
       <hr/>
+
       <article id="article-content" itemprop="articleBody">
     {% endunless %}
     {{ content }}

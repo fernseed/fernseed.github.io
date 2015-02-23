@@ -582,8 +582,13 @@ ol li:before {
 .gist .gist-file { border-bottom: 0px }
 
 .gist {
-  padding-top: $normal-size;
-  padding-bottom: $normal-size;
+  margin-top: $normal-size;
+  margin-bottom: $normal-size;
+}
+
+.post .gist .line-pre {
+  font-family: "Source Code Pro" !important;
+  font-size: $very-small-size !important;
 }
 
 .gist .line-number {
@@ -770,13 +775,24 @@ blockquote {
     }
 }
 
-.highlight pre {
+.highlight pre code {
   background-color: #002b36;
 }
 
-.highlight pre code {
-  background-color: #002b36;
+pre {
+  margin-top: $normal-size;
+  margin-bottom: $normal-size;
+}
+
+pre code {
   font-family: "Source Code Pro";
+  font-size: $very-small-size;
+  line-height: $small-size;
+}
+
+code {
+  font-family: "Source Code Pro";
+  font-size: $very-small-size;
 }
 
 .sidebar {
