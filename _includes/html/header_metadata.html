@@ -9,6 +9,9 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/assets/images/favicon/ms-icon-144x144.png">
 
+<link href="{{ site.feed_url }}?format=xml" type="application/atom+xml" rel="alternate" title="Site Feed" />
+{% if page.categories %}<link href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" type="application/atom+xml" rel="alternate" title="Category Feed: {{ page.categories.first }}" />{% endif %}
+
 <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicon/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicon/apple-icon-72x72.png">
