@@ -6,7 +6,7 @@ tags: [writing, data-visualisation, quantified-self]
 summary: 
     Some charts and figures on my writing progress and consistency. This is inspired by <a href='http://twitter.com/jamietr'>@jamietr</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 500+ day writing streak</a>!
 sidebar: 
-    See <a href='/technology/jekyll-and-data-visualisation/'>this post</a> for more details.
+    See <a href='/technology/static-generation/'>this post</a> for more details.
 ---
 
 {% assign entryCount = site.data.progress | size %}
