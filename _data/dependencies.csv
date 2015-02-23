@@ -1,19 +1,19 @@
 name,contact,url,type,quote,contact-url
+Sass,@sasscss,http://sass-lang.com/,software,"CSS with superpowers ... the most mature, stable, and powerful professional grade CSS extension language in the world",http://twitter.com/sasscss
+Jekyll,@mojombo,http://jekyllrb.com,software,"a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter ... and spits out a complete, ready-to-publish static website",http://twitter.com/mojombo
+DEVONthink,@devontech,http://www.devontechnologies.com/products/devonthink/overview.html,software,"saves all your documents, keeps them organized, and recalls them whenever you need them",http://twitter.com/devontech
+Git,+LinusTorvalds,http://git-scm.com,software,a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency,https://plus.google.com/+LinusTorvalds
+Scrivener,Keith Blount,http://www.literatureandlatte.com/scrivener.php,software,a powerful content-generation tool for writers that allows you to concentrate on composing and structuring long and difficult documents,
+Sublime Text,Jon Skinner,http://www.sublimetext.com,software,"a sophisticated text editor for code, markup and prose",
+Markdown,@gruber,http://daringfireball.net/projects/markdown/,software,"allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML",http://twitter.com/gruber
+Infinite Jekyll,@tobiasahlin,https://github.com/tobiasahlin/infinite-jekyll,project,Infinite scroll for Jekyll based blogs,http://twitter.com/tobiasahlin
+jQuery,@jeresig,http://jquery.com,project,"a fast, small, and feature-rich JavaScript library",http://twitter.com/jeresig
+kramdown,Thomas Leitner,http://kramdown.gettalong.org,project,a free MIT-licensed Ruby library for parsing and converting a superset of Markdown ... probably the fastest pure-Ruby Markdown converter available,
+Bigfoot,@pxldots,http://www.bigfootjs.com,project,a jQuery plugin for empowering footnotes,http://twitter.com/pxldots
+GitHub Pages,@github,https://pages.github.com,hosting,"Websites for you and your projects. Hosted directly from your GitHub repository. Just edit, push, and your changes are live",http://twitter.com/github
 Entypo+,Daniel Bruce,http://entypo.com,asset,each pictogram has been drawn for pixel perfection at a size of 20 x 20 pixels and with a very consistent style,https://twitter.com/danielbruce_
 Source Sans Pro,@pauldhunt,https://github.com/adobe-fonts/source-sans-pro,asset,a set of OpenType fonts that have been designed to work well in user interface (UI) environments,http://twitter.com/pauldhunt
 Source Code Pro,@pauldhunt,https://github.com/adobe-fonts/source-code-pro,asset,a set of OpenType fonts that have been designed to work well in user interface (UI) environments,http://twitter.com/pauldhunt
 Calendas Plus,Atipo,http://calendasplus.com,asset,"a typeface with a classical air, great legibility and elegance, designed for work in small sizes. Its special characteristics derive from its calligraphic finishing",http://atipo.es
-Lanyon,@mdo,https://github.com/poole/lanyon,asset,"an unassuming Jekyll theme that places content first by tucking away navigation in a hidden drawer",http://twitter.com/mdo
-The Elements of Typographic Style,@clagnut,http://webtypography.net,design,"typographic style and its accompanying attention to detail have been overlooked by website designers ... in years gone by this could have been put down to the technology, but now the web has caught up",http://twitter.com/clagnut
-Sass,@sasscss,http://sass-lang.com/,project,"CSS with superpowers ... the most mature, stable, and powerful professional grade CSS extension language in the world",http://twitter.com/sasscss
-Infinite Jekyll,@tobiasahlin,https://github.com/tobiasahlin/infinite-jekyll,project,"Infinite scroll for Jekyll based blogs",http://twitter.com/tobiasahlin
-GitHub Pages,@github,https://pages.github.com,project,"Websites for you and your projects. Hosted directly from your GitHub repository. Just edit, push, and your changes are live",http://twitter.com/github
-jQuery,@jeresig,http://jquery.com,project,"a fast, small, and feature-rich JavaScript library",http://twitter.com/jeresig
-kramdown,Thomas Leitner,http://kramdown.gettalong.org,project,"a free MIT-licensed Ruby library for parsing and converting a superset of Markdown ... probably the fastest pure-Ruby Markdown converter available",
-Bigfoot,@pxldots,http://www.bigfootjs.com,project,"a jQuery plugin for empowering footnotes",http://twitter.com/pxldots
-Jekyll,@mojombo,http://jekyllrb.com,project,"a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter ... and spits out a complete, ready-to-publish static website",http://twitter.com/mojombo
-DEVONthink,@devontech,http://www.devontechnologies.com/products/devonthink/overview.html,software,"saves all your documents, keeps them organized, and recalls them whenever you need them",http://twitter.com/devontech
-Git,+LinusTorvalds,http://git-scm.com,software,"a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency",https://plus.google.com/+LinusTorvalds
-Scrivener,Keith Blount,http://www.literatureandlatte.com/scrivener.php,software,"a powerful content-generation tool for writers that allows you to concentrate on composing and structuring long and difficult documents",
-Sublime Text,Jon Skinner,http://www.sublimetext.com,software,"a sophisticated text editor for code, markup and prose",
-Markdown,@gruber,http://daringfireball.net/projects/markdown/,software,"allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML",http://twitter.com/gruber
+Lanyon,@mdo,https://github.com/poole/lanyon,asset,an unassuming Jekyll theme that places content first by tucking away navigation in a hidden drawer,http://twitter.com/mdo
+The Elements of Typographic Style,@clagnut,http://webtypography.net,asset,"typographic style and its accompanying attention to detail have been overlooked by website designers ... in years gone by this could have been put down to the technology, but now the web has caught up",http://twitter.com/clagnut
