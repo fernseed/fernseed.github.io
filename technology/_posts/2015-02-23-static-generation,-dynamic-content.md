@@ -215,7 +215,7 @@ chart.draw(view, options);
 }
 </script>
 
-And here's its [permanent home](/meta/stats/) for future reference. Feel free to browse/borrow/tweak the finished source code for your own purposes, its available from the sidebar on that page.
+And here's its [permanent home](/meta/stats/) for future reference. Feel free to browse/borrow/tweak the finished source code for your own purposes, it's available from the sidebar on that page.
 
 [^fn1]: Static sites *can* be quicker for a browser to retrieve compared to dynamic since they're more easily cacheable by [CDN](http://en.wikipedia.org/wiki/Content_delivery_network)s by default. They certainly tend to have lower processing overhead for the servers which host them.
 
