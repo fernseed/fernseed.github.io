@@ -4,9 +4,10 @@ title: 'fernseed'
 url: 'http://fernseed.org'
 history_url: 'https://github.com/fernseed/fernseed.github.io/commits/master/'
 feed_url: 'http://feeds.feedburner.com/fernseed'
-permalink: /:categories/:title/
 description: 'Weird fiction, weird technology & weird thinking.'
 standards: 'HTML5, CSS3'
+timezone: 'Europe/Belfast'
+permalink: /:categories/:title/
 reading_wpm: 180
 
 # Site contact information
@@ -21,7 +22,6 @@ contact:
 environment: production
 markdown: kramdown
 highlighter: pygments
-future: false
 sass:
     sass_dir: _sass
     style: :compressed
