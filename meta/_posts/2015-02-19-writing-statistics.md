@@ -18,7 +18,7 @@ sidebar:
     <meta itemprop="name" content="{{ page.title }}" />
     <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}" />
 
-    <div id="365-day-progress-chart" class="progress-chart"><h5>Loading chart&hellip;</h5></div>
+    <div id="progress-chart" class="progress-chart"><h5>Loading chart&hellip;</h5></div>
 
     <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 
@@ -96,7 +96,7 @@ sidebar:
         formatter.format(data, 4);
 
         var view = new google.visualization.DataView(data);
-        var chart = new google.visualization.ComboChart( document.getElementById('365-day-progress-chart'));
+        var chart = new google.visualization.ComboChart( document.getElementById('progress-chart'));
 
         function drawChart() {
 
@@ -123,12 +123,12 @@ sidebar:
     {% assign prior_daily_total = most_recent.fiction | plus: most_recent.non-fiction %}
     {% assign break = false %}
 
-    {% for entry in site.data.progress reversed %}{% unless break %}{% assign daily_total = entry.fiction | plus:entry.non-fiction %}{% assign daily_total = prior_daily_total | minus: daily_total %}{% unless forloop.first %}{% if daily_total > 0 %}{% assign streak = streak | plus:1 %}{% else %}{% assign break = true%}{% endif %}{% endunless %}{% endunless %}{% assign prior_daily_total = entry.fiction | plus: entry.non-fiction %}{% endfor %}
+    {% for entry in site.data.progress reversed %}{% unless break %}{% assign daily_total = entry.fiction | plus:entry.non-fiction %}{% assign daily_total = prior_daily_total | minus: daily_total %}{% unless forloop.first %}{% if daily_total > 0 %}{% assign streak = streak | plus:1 %}{% else %}{% assign break = entry.date %}{% endif %}{% endunless %}{% endunless %}{% assign prior_daily_total = entry.fiction | plus: entry.non-fiction %}{% endfor %}
 
 
     <span class="post-date offset">
 
-        {{ streak }} consecutive days of writing<br/><small>as of {{ most_recent.date | date: "%A" }}, {% assign d = most_recent.date | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ most_recent.date | date: "%B" }}, {{ most_recent.date | date: "%Y" }}</small>
+        {{ streak }} consecutive day{% unless streak == 1 %}s{% endunless %} of writing<br/><small>which began {{ most_recent.date | date: "%A" }}, {% assign d = most_recent.date | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ most_recent.date | date: "%B" }}, {{ most_recent.date | date: "%Y" }}</small>
 
         {% comment - we can also add a word count %}
         <br/>{{ most_recent.fiction | plus: most_recent.non-fiction }} words written<br /><small>since {{ earliest.date | date: "%A" }}, {% assign d = earliest.date | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ earliest.date | date: "%B" }}, {{ earliest.date | date: "%Y" }}</small>
