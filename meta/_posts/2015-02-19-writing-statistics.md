@@ -41,7 +41,7 @@ sidebar:
         data.addColumn('number', 'Fiction');
         data.addColumn('number', 'Non-Fiction');
         data.addColumn('number', 'Target');
-        data.addColumn('number', 'Weekly Average');
+        data.addColumn('number', 'Average');
 
         {% assign total = 0 %}
         {% assign priorTotal = 0 %}
@@ -123,12 +123,14 @@ sidebar:
     {% assign prior_daily_total = most_recent.fiction | plus: most_recent.non-fiction %}
     {% assign break = false %}
 
-    {% for entry in site.data.progress reversed %}{% unless break %}{% assign daily_total = entry.fiction | plus:entry.non-fiction %}{% assign daily_total = prior_daily_total | minus: daily_total %}{% unless forloop.first %}{% if daily_total > 0 %}{% assign streak = streak | plus:1 %}{% else %}{% assign break = entry.date %}{% endif %}{% endunless %}{% endunless %}{% assign prior_daily_total = entry.fiction | plus: entry.non-fiction %}{% endfor %}
+    {% for entry in site.data.progress reversed %}{% assign daily_total = entry.fiction | plus:entry.non-fiction %}{% assign daily_total = prior_daily_total | minus: daily_total %}{% unless break %}{% unless forloop.first %}{% if daily_total > 0 %}{% assign streak = streak | plus:1 %}{% else %}{% assign break = true %}{% endif %}{% endunless %}{% endunless %}{% assign prior_daily_total = entry.fiction | plus: entry.non-fiction %}{% endfor %}
 
+    {% assign breakdate_index = entryCount | minus: streak %}
+    {% assign breakdate = site.data.progress[breakdate_index].date %}
 
     <span class="post-date offset">
 
-        {{ streak }} consecutive day{% unless streak == 1 %}s{% endunless %} of writing<br/><small>which began {{ most_recent.date | date: "%A" }}, {% assign d = most_recent.date | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ most_recent.date | date: "%B" }}, {{ most_recent.date | date: "%Y" }}</small>
+        {{ streak }} consecutive day{% unless streak == 1 %}s{% endunless %} of writing{% unless streak == 0 %}<br/><small>which began {{ breakdate | date: "%A" }}, {% assign d = breakdate | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ breakdate | date: "%B" }}, {{ breakdate | date: "%Y" }}</small>{% endunless %}
 
         {% comment - we can also add a word count %}
         <br/>{{ most_recent.fiction | plus: most_recent.non-fiction }} words written<br /><small>since {{ earliest.date | date: "%A" }}, {% assign d = earliest.date | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ earliest.date | date: "%B" }}, {{ earliest.date | date: "%Y" }}</small>
