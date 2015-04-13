@@ -1,0 +1,10 @@
+---
+title-prefix: <$createdDate>
+title: <$title>
+date: <$createdDate> <$mediumCreatedTime>
+tags: [<$keywords>]
+categories: <$label>
+modified: <$modifiedDate> <$mediumModifiedTime>
+summary:
+    <$synopsis>
+---

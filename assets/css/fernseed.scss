@@ -312,6 +312,7 @@ body {
   body {
       text-align: justify;
       text-justify: inter-character;
+      word-break: break-all; 
       word-break: break-word;
   }
 }
@@ -671,9 +672,6 @@ div .tag-entry {
 }
 
 img { 
-    max-height:50vh;
-    min-height:200px;
-    display: block;
     margin-left: auto;
     margin-right: auto;
     padding: $normal-size;
@@ -755,6 +753,8 @@ blockquote {
   color: #7a7a7a;
   border-left: .25rem solid #e5e5e5;
   text-align: justify;
+  text-justify: inter-character;
+  word-break: break-all; 
   word-break: break-word;
   }
 }
@@ -880,14 +880,6 @@ ol ol {
     padding: 0;
     margin: auto;
     text-align: center
-}
-
-p:first-of-type:first-line {
-   -moz-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
-    -ms-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
-    -webkit-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
-    -o-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
-    font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
 }
 
 .fancy {
