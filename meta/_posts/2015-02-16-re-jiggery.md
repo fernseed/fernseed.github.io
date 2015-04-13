@@ -1,7 +1,7 @@
 ---
 title: Re-jiggery
 tags: [workflow]
-modified: 2015-02-22
+modified: 2015-03-02
 summary:
     fernseed.org was always intended as a platform for experimentation. Originally that was limited to short pieces of prose fiction but I'm also interested in the mechanics of writing, especially from the perspective of a software developer.
 ---

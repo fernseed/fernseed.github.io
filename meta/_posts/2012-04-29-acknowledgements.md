@@ -1,12 +1,12 @@
 ---
 title: Acknowledgements
 tags: [introduction, thanks]
-modified: 2015-02-20
+modified: 2015-03-02
 sticky: true
 summary:
     The tools, projects and people which have contributed in some fashion to the construction of fernseed.org.
 sidebar:
-    There have undoubtedly been tips and tricks picked up from other random sources over time that I've forgotten to mention here. If I'm using something of yours without due credit, let me know (<a href="http://twitter.com/dmcgk">@dmcgk</a>).
+    There have undoubtedly been tips and tricks picked up from other random sources over time that I've forgotten to mention here. If I'm using something of yours without due credit, let me know (@dmcgk).
 ---
 
 Many thanks to the following people and projects for creating the tools which have helped create [fernseed.org](/):
