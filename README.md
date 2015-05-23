@@ -1,6 +1,6 @@
 ### Meta
 
-So, what on earth is going on?  This is an experiment in serialised prose fiction, more like an ongoing, open-ended and regularly-updated webcomic than a traditional serial with a predefined scope and conclusion.
+So, what on earth is going on?  This started as an experiment in serialised prose fiction, more like an ongoing, open-ended and regularly-updated webcomic than a traditional serial with a predefined scope and conclusion.
 
 The [story][archives] is a second-person mystery loosely falling within the [slipstream][genre] genre and updates are published weekly.
 
