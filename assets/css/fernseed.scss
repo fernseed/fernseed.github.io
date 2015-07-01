@@ -75,10 +75,17 @@
 }
 
 /* Define the base colours */
+
+// Solarized Set
+$solarized-base00: #657b83;
+$solarized-base01: #586e75;
+$solarized-base02: #073642;
+$solarized-base03: #002b36;
+
 $technology: #355CBD;
 $fiction: #358766;
 $meta: #BD3C35;
-$base: #A4A4A4;
+$base: black;
 $sidebar-colour: #FFFFFF;
 
 $body-font:     "calendas_plus", serif;
@@ -405,6 +412,11 @@ p + p {
 path.sidebar-image {
   fill: $sidebar-colour;
   fill-opacity: 0.6;
+}
+
+rect.sidebar-image {
+  stroke: $sidebar-colour;
+  stroke-opacity: 0.6;
 }
 
 span.icons {

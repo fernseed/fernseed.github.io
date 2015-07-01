@@ -2,8 +2,10 @@
  styles, `#sidebar-checkbox` for behavior. -->
  <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" />
 
+ {% assign pages_list = site.posts | sort:"url" %}
+
  <!-- Toggleable sidebar -->
- <div class="sidebar {% if page.categories %}{{ page.categories.first }}{% else %}base{% endif %}" id="sidebar">
+ <div class="sidebar {% if page.categories %}{{ page.categories.first }}{% else %}{{ pages_list.last.categories.first }}{% endif %}" id="sidebar">
   {% if page.type == "index" %}
     <div class="sidebar-item-header">
       {% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}<br />
@@ -15,10 +17,9 @@
       {% include html/date.html %}
       {% endif %}
     </div>
-  {% endif %}
+  {% endif %}  
   <nav class="sidebar-nav">
     <a class="sidebar-nav-item{% if page.url == "/" %} active{% endif %}" href="/">Home</a>
-    {% assign pages_list = site.posts | sort:"url" %}
     {% for node in pages_list %}
     {% if node.sticky != null %}
     <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
@@ -32,6 +33,9 @@
   {% else %}
   <div class="sidebar-item">
     {{ site.description }}
+  </div>
+  <div class="sidebar-item">
+    The most recent post is <a href="{{ pages_list.last.url }}">{{ pages_list.last.title }}</a> in the <a href="/{{ pages_list.last.categories.first }}/">{{ pages_list.last.categories.first }}</a> category.
   </div>
   {% endif %}
   {% if page.sidebar %}
@@ -86,18 +90,17 @@
   {% endif %}
   {% endcomment %} 
   <div class="sidebar-item-header">
-    <a href="https://raw.githubusercontent.com/fernseed/fernseed.github.io/master/{{ page.path }}">Source</a><br />
-        <span class="icons">
+    <span class="icons">
     <a href="{{ site.feed_url }}?format=xml" title="Site Feed">{% include images/rss.svg %}</a>&nbsp;
-    {% if page.categories %}<a href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" title="Category Feed: {{ page.categories.first }}">{% include images/category.svg %}</a>&nbsp;{% endif %}
-    <a href="http://github.com/dmcgk" title="GitHub">{% include images/github.svg %}</a>&nbsp;
-    <a href="http://twitter.com/dmcgk" title="Twitter">{% include images/twitter.svg %}</a>
-    </span><br />
+    {% if page.categories %}<a href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" title="Category Feed (#{{ page.categories.first }})">{% include images/category.svg %}</a>&nbsp;{% endif %}
+    <a href="http://twitter.com/dmcgk" title="Twitter (@dmcgk)">{% include images/twitter.svg %}</a>&nbsp;
+    <a href="http://github.com/dmcgk" title="GitHub (@dmcgk)">{% include images/github.svg %}</a>
+    </span>&nbsp;
+    <a href="https://raw.githubusercontent.com/fernseed/fernseed.github.io/master/{{ page.path }}" title="Page Markdown">{% include images/markdown.svg %}</a><br />
     <span>Copyright &copy; {{ site.time | date: '%Y' }}</span>
     <div id="search-input">
       <input id="search-box" type="text" placeholder="search" autocomplete="off" />
     </div>
-
   </div>
   <div id="search-output" class="sidebar-item">
     <span id="search-header"></span>
