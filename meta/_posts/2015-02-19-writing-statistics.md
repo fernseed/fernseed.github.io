@@ -30,13 +30,9 @@ sidebar:
         {% assign most_recent = site.data.progress | last %}
         {% assign earliest = site.data.progress | first %}
 
-        reportPeriod = 7;
-        var mostRecentEntry = "{{ most_recent.date }}".split("-");;
-        var earliestEntry = "{{ earliest.date }}".split("-");;
-        var reportView = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
-        var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
-
+        var reportPeriod = 7;
         var data = new google.visualization.DataTable();
+
         data.addColumn('date', 'Date');
         data.addColumn('number', 'Fiction');
         data.addColumn('number', 'Non-Fiction');
@@ -103,9 +99,14 @@ sidebar:
             $( ".selector").css('font-weight', 'normal');
             $( "#" + reportPeriod + "Selector" ).css('font-weight', 'bold');
 
-            var viewFilter = new Date();
+            var earliestEntry = "{{ earliest.date }}".split("-");
+            var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
+            var viewFilter;
+
             if (reportPeriod > 0) {
-                viewFilter.setDate(reportView.getDate()-reportPeriod);
+                var mostRecentEntry = "{{ most_recent.date }}".split("-");
+                viewFilter = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
+                viewFilter.setDate(viewFilter.getDate()-reportPeriod);
             } else {
                 viewFilter = earliestDate;
             }

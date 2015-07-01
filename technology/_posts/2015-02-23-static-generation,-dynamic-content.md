@@ -1,41 +1,49 @@
 ---
 title: Static Generation, Dynamic Content
 subtitle: Jekyll, Scrivener and Data Visualisation
-tags: [data-visualisation, quantified-self, jekyll, scrivener]
+tagline: 
 permalink: /technology/static-generation/
-modified: 2015-04-13
+date: 2015-02-23 
+modified: 2015-06-29
+sticky: 
+tags: [data-visualisation, quantified-self, jekyll, scrivener]
 gists: [dmcgk/bc743a73ae4640ced973]
+files: 
+redirect_from: 
 summary:
     You can do some interesting things with a 'static' website. Plugging data into JavaScript visualisation libraries, for starters.
+sidebar:
+    
 ---
 
 This is a [static](http://en.wikipedia.org/wiki/Static_web_page) website. That really just means that the content you're reading now is generated at one time only and for all users, unlike a dynamic website---the internet norm---which can generate content as it's requested, possibly on a targeted per-user basis and probably using a database or some server-side business logic[^fn1].
 
- Today, both static and dynamic websites generally use some kind of [CMS](http://en.wikipedia.org/wiki/Content_management_system) to create and organise content. The content of a page on a static website is *complete*[^fn2] and *universal* at the moment it is turned into HTML for publication---that particular set of generated code is all that any client browser ever sees[^fn3].
-This doesn't mean that a static site can't be interactive, it just means that any interactivity needs to be handled on the client-side, normally using some flavour of JavaScript[^fn4]. The 'static' element of a static website therefore refers purely to the server-side, the *generation* side[^fn5]. Even then, when using a generation tool such as [Jekyll](http://jekyllrb.com), that eventually-static content will be built dynamically from a set of templates and page-specific logic[^fn6]. In other words, the content that is actually served to your browser can still be different from that which I originally write.
-
-What on earth am I talking about? Let's take an example...
-
 1. Table of Contents
 {:toc}
 
+## Static vs Dynamic
+Today, both static and dynamic websites generally use some kind of [CMS](http://en.wikipedia.org/wiki/Content_management_system) to create and organise content. The content of a page on a static website is *complete*[^fn2] and *universal* at the moment it is turned into HTML for publication---that particular set of generated code is all that any client browser ever sees[^fn3].
+
+This doesn't mean that a static site can't be interactive, it just means that any interactivity needs to be handled on the client-side, normally using some flavour of JavaScript[^fn4]. The 'static' element of a static website therefore refers purely to the server-side, the *generation* side[^fn5]. Even then, when using a generation tool such as [Jekyll](http://jekyllrb.com), that eventually-static content will be built dynamically from a set of templates and page-specific logic[^fn6]. In other words, the content that is actually served to your browser can still be different from that which I originally write. 
+
+What on earth am I talking about? Let's take an example...
+
 ## The Experiment
-[Jamie Rubin](http://jamierubin.net) is a sci-fi author and programmer who, as part of a more wide-ranging personal project involving self-quantification, has spent some time gathering data about his writing habits and providing visualisations of that data for the benefit of his readers. He uses Google Docs for his writing and has created a set of scripts which will take metadata from those docs and use them as the basis for his visualisations---you can read about his process [here](http://www.jamierubin.net/2014/08/08/how-i-use-google-docs-for-writing/).
+[Jamie Rubin](http://jamierubin.net) is a sci-fi author and programmer who, as part of a more wide-ranging personal project involving self-quantification, has spent some time gathering data about his writing habits and providing visualisations of that data for the benefit of his readers. He uses Google Docs for his writing and has created a set of scripts which will take metadata from those docs and use them as the basis for his visualisations---you can read about his process [here](http://www.jamierubin.net/2014/08/08/how-i-use-google-docs-for-writing/). 
 
 What would it take to do something similar, without relying on Google Docs, but making use of only static-website technologies such as Jekyll[^fn7]? Well, our flow might look something like this:
 
 ![](/assets/images/2015-02-23-flat-file-to-jekyll.png)
 
-We could generate some writing statistics offline which we would store and keep updated in a suitable flat data file on the server; use Jekyll templates to interpolate any additional data required; then plug the output into a JavaScript visualisation library so that we can get some pretty and interactive charts.
+We could generate some writing statistics offline which we would store and keep updated in a suitable flat data file on the server; use Jekyll templates to interpolate any additional data required; then plug the output into a JavaScript visualisation library so that we can get some pretty and interactive charts. 
 
-For the writing-stats experiment the data we'll gather should be expressable in just a couple of simple columns in a CSV text file[^fn8]. We should then be able to use Jekyll's [Liquid-derived](http://jekyllrb.com/docs/templates/) template engine to work out any additional calculated data and relationships we need, such as full-period and floating 7-day averages to mimic Jamie's setup. [Google Charts](https://developers.google.com/chart/) should give us everything required to allow some basic interaction by the end user through JavaScript.
-
+For the writing-stats experiment the data we'll gather should be expressable in just a couple of simple columns in a CSV text file[^fn8]. We should then be able to use Jekyll's [Liquid-derived](http://jekyllrb.com/docs/templates/) template engine to work out any additional calculated data and relationships we need, such as full-period and floating 7-day averages to mimic Jamie's setup. [Google Charts](https://developers.google.com/chart/) should give us everything required to allow some basic interaction by the end user through JavaScript. 
 
 ### Structuring the Data
 We'll keep this as trivial as possible with a CSV structure of the following kind:
 
-    date, fiction, non-fiction
-    2015-02-20, 32073, 5700
+	date, fiction, non-fiction
+	2015-02-20, 32073, 5700
 
 The `fiction` and `non-fiction` columns will be a raw word count and we'll work out intervals such as daily increase in words written and our averages using Jekyll tag and filter logic.
 
@@ -56,7 +64,7 @@ Whereas with JavaScript we'll only need to:
 This keeps the division of labour biased pretty heavily toward the one-time generation step.
 
 ## Aside: Collecting the Data
-Since I use [Scrivener](http://www.literatureandlatte.com/scrivener.php) for any long-form writing I could just go to it directly for the statistics I'm looking for---it tracks those details in the Project Target metadata. Unlike Google Docs it does not expose that data in any API, but that doesn't stop us extracting it from the `.scriv` package ourselves using a script---note that the data we care about is held within the interior `.scrivx` file and relates only to the current session[^fn9], which means that it will be valid for a period from the last session reset up until the point that you've called your script.
+Since I use [Scrivener](http://www.literatureandlatte.com/scrivener.php) for any long-form writing I could just go to it directly for the statistics I'm looking for---it tracks those details in the Project Target metadata. Unlike Google Docs it does not expose that data in any API, but that doesn't stop us extracting it from the `.scriv` package ourselves using a script---note that the data we care about is held within the interior `.scrivx` file and relates only to the current session[^fn9], which means that it will be valid for a period from the last session reset up until the point that you've called your script. 
 
 So with a session that we know was last updated yesterday, we could write:
 
@@ -69,15 +77,15 @@ For the `PreviousSession` stats to be useful, the Project Target option to autom
 
 <img src="/assets/images/2015-02-23-scrivener-project-targets@2x.png" width="457" />
 
-    #!/bin/bash
-    yesterday=`date -v-1d "+%Y-%m-%d"`
-    total=`path_to_your/word_counting.script`
-    printf "$yesterday,$total\n" >> path_to_my.csv
+	#!/bin/bash
+	yesterday=`date -v-1d "+%Y-%m-%d"`
+	total=`path_to_your/word_counting.script`
+	printf "$yesterday,$total\n" >> path_to_my.csv
 
 There are a number of ways in which you could automate the running of your script, the simplest probably being an entry in your `cron`. On OS X the standard approach would be to use `launchd`, however I prefer to use `/etc/periodic/daily/`[^fn11] in an attempt to guarantee[^fn12] that the script should run once and once only, daily, when my MacBook is awake.
 
 ### Beyond Scrivener
-I prefixed all of that with a *we could*, but let's talk briefly about my own psychological tics...
+I prefixed all of that with a *we could*, but let's talk briefly about my own psychological tics... 
 
 Scrivener, like most OS X applications[^fn13], will automatically save changes after a few seconds anyway. The Snapshots feature allows you to roll back to earlier drafts even though the app [doesn't support](http://www.literatureandlatte.com/forum/viewtopic.php?f=4&t=78&p=123475&hilit=lion+autosave#p123475) the built-in [OS X system-level versioning/reverting](http://support.apple.com/kb/PH14378) mechanism for files, since your `.scriv` document isn't really a single file at all. This means that my multi-decade muscle memory to spam Command-S to save every once in a while is entirely redundant. So let's repurpose that muscle memory and re-bind the shortcut to 'Sync with External Folder Now'[^fn14]:
 
@@ -85,15 +93,15 @@ Scrivener, like most OS X applications[^fn13], will automatically save changes a
 
 Then we can pick up any plain text files stored in the 'Drafts' folder(s) in the sync target location and run them through `wc`[^fn15]:
 
-    #!/bin/bash
-    fiction=`find path_to_my_fiction_folder -type f -path '*/Draft/*.md' -print0 2>/dev/null | xargs -0 cat | wc -w | bc`
-    nonfiction=`find path_to_my_nonfiction_folder -type f -path '*/Draft/*.md' -print0 2>/dev/null | xargs -0 cat | wc -w | bc`
-    echo "$fiction,$nonfiction"
+	#!/bin/bash
+	fiction=`find path_to_my_fiction_folder -type f -path '*/Draft/*.md' -print0 2>/dev/null | xargs -0 cat | wc -w | bc`
+	nonfiction=`find path_to_my_nonfiction_folder -type f -path '*/Draft/*.md' -print0 2>/dev/null | xargs -0 cat | wc -w | bc`
+	echo "$fiction,$nonfiction"
 
 This has the side benefit of also accounting for words added to those files outside of Scrivener itself[^fn16].
 
 ### Making use of the Data
-Now that we have our source statistics, we need to set up the Jekyll-side to make use of them.
+Now that we have our source statistics, we need to set up the Jekyll-side to make use of them. 
 
 You can read more detail about the setup process for Jekyll data files [here](http://jekyllrb.com/docs/datafiles/). Jekyll markup isn't always the cleanest in the world, although the lack of any particularly complex syntax does mean that the logic reads much like pseudocode:
 
@@ -128,10 +136,6 @@ google.setOnLoadCallback(drawChart);
 {% assign earliest = site.data.progress | first %}
 
 reportPeriod = 30;
-var mostRecentEntry = "{{ most_recent.date }}".split("-");;
-var earliestEntry = "{{ earliest.date }}".split("-");;
-var reportView = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
-var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
 
 var data = new google.visualization.DataTable();
 data.addColumn('date', 'Date');
@@ -153,31 +157,25 @@ data.addRows([
 {% assign 7dayMarker = forloop.index0 | plus:period | minus:7 %}
 {% assign 7dayTotal = 7dayTotal | plus:entry.fiction | plus:entry.non-fiction | minus:site.data.progress[7dayMarker].fiction | minus:site.data.progress[7dayMarker].non-fiction | minus:prior7dayTotal %}
 {% endif %}
-[
-
-new Date({{ entry.date | date: "%Y" }}, {{ entry.date | date: "%m" | minus:1 }}, {{ entry.date | date: "%d" }}),
-
+[ 
+new Date({{ entry.date | date: "%Y" }}, {{ entry.date | date: "%m" | minus:1 }}, {{ entry.date | date: "%d" }}), 
 {% assign priorEntry = forloop.index0 | plus:period | minus:1 %}
 {% if counter > 1 %}
 {{ entry.fiction | minus: site.data.progress[priorEntry].fiction }}
 {% else %}
 {{ entry.fiction }}
-{% endif %},
-
+{% endif %}, 
 {% if counter > 1 %}
 {{ entry.non-fiction | minus: site.data.progress[priorEntry].non-fiction }}
 {% else %}
 {{ entry.non-fiction }}
-{% endif %},
-
-{{ total | append: '.0' | divided_by:forloop.index }},
-
+{% endif %}, 
+{{ total | append: '.0' | divided_by:forloop.index }}, 
 {% if counter > 7 %}
 {{ 7dayTotal | append: '.0' | divided_by:7 }}
 {% assign prior7dayTotal = 7dayTotal %}
 {% else %}
-0
-
+0 
 {% endif %}
 ],
 {% assign counter = counter | plus:1 %}
@@ -202,9 +200,13 @@ var view = new google.visualization.DataView(data);
 var chart = new google.visualization.ComboChart( document.getElementById('progress-chart'));
 
 function drawChart() {
-var viewFilter = new Date();
+var earliestEntry = "{{ earliest.date }}".split("-");
+var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
+var viewFilter;
 if (reportPeriod > 0) {
-viewFilter.setDate(reportView.getDate()-reportPeriod);
+var mostRecentEntry = "{{ most_recent.date }}".split("-");
+viewFilter = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
+viewFilter.setDate(viewFilter.getDate()-reportPeriod);
 } else {
 viewFilter = earliestDate;
 }
