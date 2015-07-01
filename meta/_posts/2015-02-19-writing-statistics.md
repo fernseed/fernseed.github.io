@@ -30,7 +30,7 @@ sidebar:
         {% assign most_recent = site.data.progress | last %}
         {% assign earliest = site.data.progress | first %}
 
-        var reportPeriod = 7;
+        var reportPeriod = 30;
         var data = new google.visualization.DataTable();
 
         data.addColumn('date', 'Date');
