@@ -1,27 +1,12 @@
-### Meta
+## Meta
+So, what on earth is going on? [fernseed.org](http://fernseed.org) began as a dumping ground; somewhere for me to practice the process of writing by web-publishing short stories. The URL would be known to no-one but myself and the domain name was [a bit of a pun](http://en.wikipedia.org/wiki/Fern#Folklore). 
 
-So, what on earth is going on?  This started as an experiment in serialised prose fiction, more like an ongoing, open-ended and regularly-updated webcomic than a traditional serial with a predefined scope and conclusion.
+It was eventually repurposed as a single ongoing experiment in serialised prose fiction with [*The Second Room*](https://github.com/fernseed/fernseed.github.io/tree/master/fiction/the-second-room/_posts), a semi-regularly updated second-person mystery in the [slipstream](http://en.wikipedia.org/wiki/Slipstream_(genre)) genre.
 
-The [story][archives] is a second-person mystery loosely falling within the [slipstream][genre] genre and updates are published weekly.
+More recently, the site has expanded to also encompass thoughts on technology, the process of writing and other randomness.
 
-### Technology
+## Technology
+Updates are written in *Scrivener* using the *Markdown* plain-text syntax and automatically converted to HTML by the *Jekyll* static-website generation tool. Since 2014 all content has been version controlled using *git* and hosted by *GitHub Pages*. This means that you'll be able to access the complete [source code](https://github.com/fernseed/fernseed.github.io) for the site along with its [change history](https://github.com/fernseed/fernseed.github.io/commits/master), if you so desire. See the [acknowledgements page](http://fernseed.org/meta/acknowledgements/) for a full list of the tools and technology in use. 
 
-Each [update][posts] is written in the [Markdown][markdown] plain text syntax, converted into HTML by [Jekyll][jekyll]. Hosting is by [GitHub Pages][github] which also provides access to the complete [source code][source] for the site along with its [update history][commits].
-
-Cookies are used for anonymous [analytics][google] purposes only and you may choose to [opt out][cookies] of their collection.
-
-### Contact
-
-You may harass the author about these or other matters via [Twitter][twitter].
-
-[archives]: http://fernseed.org/complete/
-[cookies]:  http://fernseed.org/do-not-track/
-[twitter]:  https://twitter.com/dmcgk
-[genre]:    http://en.wikipedia.org/wiki/Slipstream_(genre)
-[markdown]: http://daringfireball.net/projects/markdown/
-[jekyll]:   http://jekyllrb.com/docs/home/
-[github]:   https://pages.github.com
-[source]:   https://github.com/fernseed/fernseed.github.io
-[commits]:  https://github.com/fernseed/fernseed.github.io/commits/master
-[posts]:    https://github.com/fernseed/fernseed.github.io/tree/master/serials/the-second-room/_posts
-[google]:   https://www.google.com/analytics
+## Contact
+You may harass the author about these or other matters via [Twitter](https://twitter.com/dmcgk/).
