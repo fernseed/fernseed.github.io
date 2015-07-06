@@ -236,7 +236,7 @@ It's a fairly limited example, but hopefully it illustrates the point---any visi
 
 The only real limitation to this approach[^fn16] is that it relies on data captured locally being pushed to GitHub so that Jekyll can update the HTML which forms the data-set. This isn't really a limitation of static websites in this case though, since even a dynamic site would need its back-end database updated with the same data, possibly via similar means, and for the same reason.
 
-Here's the [permanent home](/meta/stats/) for the above for future reference. Feel free to browse/borrow/tweak the finished source code for your own purposes, it's available from the [sidebar][sidebar] of either page.
+Here's the [permanent home](/meta/stats/) for the above for future reference. Feel free to browse/borrow/tweak the finished source code for your own purposes, it's available from the sidebar of either page.
 
 [^fn1]: Static sites can be quicker for a browser to retrieve compared to 'dynamic' versions since they're more easily cacheable by [CDN](http://en.wikipedia.org/wiki/Content_delivery_network)s out-of the-box. They also tend to have lower processing overhead for the servers which host them.
 
