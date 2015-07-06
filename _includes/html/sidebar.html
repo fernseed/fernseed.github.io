@@ -2,10 +2,10 @@
  styles, `#sidebar-checkbox` for behavior. -->
  <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" />
 
- {% assign pages_list = site.posts | sort:"url" %}
+ {% assign pages_list = site.posts %}
 
  <!-- Toggleable sidebar -->
- <div class="sidebar {% if page.categories %}{{ page.categories.first }}{% else %}{{ pages_list.last.categories.first }}{% endif %}" id="sidebar">
+ <div class="sidebar {% if page.categories %}{{ page.categories.first }}{% else %}{{ pages_list.first.categories.first }}{% endif %}" id="sidebar">
   {% if page.type == "index" %}
     <div class="sidebar-item-header">
       {% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}<br />
@@ -20,7 +20,7 @@
   {% endif %}  
   <nav class="sidebar-nav">
     <a class="sidebar-nav-item{% if page.url == "/" %} active{% endif %}" href="/">Home</a>
-    {% for node in pages_list %}
+    {% for node in pages_list reversed %}
     {% if node.sticky != null %}
     <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
     {% endif %}
@@ -34,9 +34,17 @@
   <div class="sidebar-item">
     {{ site.description }}
   </div>
-  <div class="sidebar-item">
-    The most recent post is <a href="{{ pages_list.last.url }}">{{ pages_list.last.title }}</a> in the <a href="/{{ pages_list.last.categories.first }}/">{{ pages_list.last.categories.first }}</a> category.
-  </div>
+  {% endif %}
+  {% if page.type == "index" %}
+    {% if page.categories %}
+    <div class="sidebar-item">
+      The most recent post in the <strong>#{{ page.categories.first }}</strong> category is: <a href="{{ site.categories[page.categories.first].first.url }}">{% if site.categories[page.categories.first].first.tagline %}{{ site.categories[page.categories.first].first.tagline }}{% else %}{% if site.categories[page.categories.first].first.subtitle %}{{ site.categories[page.categories.first].first.subtitle }}&mdash;{% endif %}{{ site.categories[page.categories.first].first.title }}{% endif %}</a>.
+    </div>
+    {% else %}
+    <div class="sidebar-item">
+      The most recent post is <a href="{{ pages_list.first.url }}">{{ pages_list.first.title }}</a> in the <a href="/{{ pages_list.first.categories.first }}/">#{{ pages_list.first.categories.first }}</a> category.
+    </div>
+    {% endif %}
   {% endif %}
   {% if page.sidebar %}
   <div class="sidebar-item">  
@@ -59,7 +67,7 @@
   {% endif %}
   {% if page.gists %}
   <div class="sidebar-item">
-  Gists:
+  Sample Code:
   <ul>
     {% for gist in page.gists %}
       <li><a href="https://gist.github.com/{{ gist }}">{{ gist }}</a></li>
