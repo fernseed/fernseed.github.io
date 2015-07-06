@@ -110,6 +110,7 @@ $small-size:      ms(-1);
 $normal-size:     ms(0);
 $large-size:      ms(2);
 $very-large-size: ms(4);
+$dropcap-size:    ms(6);
 
 $small-line-height:  ms(1);
 $normal-line-height: ms(2);
@@ -684,9 +685,11 @@ div .tag-entry {
 }
 
 img { 
-    margin-left: auto;
-    margin-right: auto;
-    padding: $normal-size;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    padding-top: $very-large-size;
+    padding-bottom: $very-large-size;
 }
 
 .featured-image {
@@ -884,6 +887,14 @@ ol ol {
     height: 35px;
     width: 200px;
     text-align: center
+}
+
+#article-1-content p:first-child:first-letter {
+  float: left; 
+  color: $fiction;
+  font-size: $dropcap-size; 
+  line-height: $dropcap-size;
+  margin-right: $small-size; 
 }
 
 .tag-cloud ul {
