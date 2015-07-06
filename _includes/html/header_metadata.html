@@ -2,34 +2,40 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta property="og:url" content="{{ site.url }}{% unless page.url == "/" %}{{ page.url }}{% endunless %}" />
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:description" content="{% if page.type == "index" %}{{ site.description }}{% else %}{% if page.summary %}{{ page.summary  | strip_html | strip_newlines }}{% else %}{{ page.excerpt | strip_html | strip_newlines }}{% endif %}{% endif %}">
+{% if page.image %}<meta property="og:image" content="{{ page.image }}" />{% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="{{ page.summary }}" />
-<meta name="keywords" content="{{ page.tags | join: ", " }}" />
+<meta name="description" content="{% if page.type == "index" %}{{ site.description }}{% else %}{{ page.summary }}{% endif %}" />
+<meta name="keywords" content="{% if page.type == "index" %}index{% else %}{{ page.tags | join: ", " }}{% endif %}" />
 <meta name="theme-color" content="#ffffff">
+<meta name="twitter:card" content="{% if page.type == "index" %}{{ site.description }}{% else %}{{ page.summary }}{% endif %}" />
+<meta name="twitter:creator" content="{{ site.contact.twitter }}" />
+
+{% capture cache_buster %}{{ site.version }}.{{ site.time | date: "%F.%H-%M" }}{% endcapture %}
+
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/assets/images/favicon/ms-icon-144x144.png">
+<meta name="msapplication-TileImage" content="/assets/images/favicon/144x144.png?{{ cache_buster }}">
 
-<link href="{{ site.feed_url }}?format=xml" type="application/atom+xml" rel="alternate" title="Site Feed" />
-{% if page.categories %}<link href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" type="application/atom+xml" rel="alternate" title="Category Feed: {{ page.categories.first }}" />{% endif %}
-
-<link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/images/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/images/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/images/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/images/favicon-16x16.png">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/images/favicon/57x57.png?{{ cache_buster }}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicon/72x72.png?{{ cache_buster }}">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/favicon/120x120.png?{{ cache_buster }}">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/favicon/152x152.png?{{ cache_buster }}">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/16x16.png?{{ cache_buster }}">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/32x32.png?{{ cache_buster }}">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon/48x48.png?{{ cache_buster }}">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon/64x64.png?{{ cache_buster }}">
+<link rel="icon" type="image/png" sizes="144x144" href="/assets/images/favicon/144x144.png?{{ cache_buster }}">
+<link rel="icon" type="image/png" sizes="195x195" href="/assets/images/favicon/195x195.png?{{ cache_buster }}">
+<link rel="icon" type="image/png" sizes="228x228" href="/assets/images/favicon/228x228.png?{{ cache_buster }}">
 
 <link rel="author" type="text/plain" href="/humans.txt" />
 
-<link rel="stylesheet" type="text/css" href="/assets/css/fernseed.css?{{ site.version }}.{{ site.time | date: "%F.%H-%M" }}">
+<link rel="stylesheet" type="text/css" href="/assets/css/fernseed.css?{{ cache_buster }}">
 {% if site.environment == "development" %}<link rel="stylesheet" href="http://basehold.it/20">{% endif %}
+<link href="{{ site.feed_url }}?format=xml" type="application/atom+xml" rel="alternate" title="Site Feed" />
+{% if page.categories %}<link href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" type="application/atom+xml" rel="alternate" title="Category Feed: {{ page.categories.first }}" />{% endif %}
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/assets/js/bigfoot.min.js"></script>  
