@@ -11,7 +11,7 @@ gists: [dmcgk/bc743a73ae4640ced973]
 files: 
 redirect_from: 
 summary:
-    You can do some interesting things with a 'static' website. Plugging data into JavaScript visualisation libraries, for starters.
+    You can still do some interesting and interactive things with data when using a statically-generated website.
 sidebar:
     
 ---
