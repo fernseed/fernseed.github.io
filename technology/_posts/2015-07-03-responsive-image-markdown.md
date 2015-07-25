@@ -25,7 +25,7 @@ Markdown has a short 'inline link' syntax which can be used to specify images, m
 
 There are ways to deal with this using scripting if your approach to each asset is broadly similar. For instance, when I deal with images I will always be dealing with a set of three variations on the same base image, with consistently named extensions (in this case, 2x and 3x for the higher DPI versions). 
 
-Using [kramdown][#kramdown]'s [IAL extensions for blocks](http://kramdown.gettalong.org/syntax.html#block-ials) and a Scrivener regex lets us produce arbitrarily verbose output from a relatively clean input. Note that this particular inline extension markup is only currently available in the kramdown Markdown flavour; other Markdown compilers do offer extended image attributes, but I don't believe any currently offer srcset directly, although some do support arbitrary attributes in similar ways to kramdown.
+Using [kramdown][#kramdown]'s IAL [extensions for blocks](http://kramdown.gettalong.org/syntax.html#block-ials) and a Scrivener regex lets us produce arbitrarily verbose output from a relatively clean input. Note that this particular inline extension markup is only currently available in the kramdown Markdown flavour; other Markdown compilers do offer extended image attributes, but I don't believe any currently offer srcset directly, although some do support arbitrary attributes in similar ways to kramdown.
 
 Say I'm writing a thing in Markdown, and I want to keep the plain text version of a file reasonably clean, but I want to specify more than one dpi-version of an image...
 
@@ -83,7 +83,7 @@ And this is its final HTML after the Jekyll conversion step[^fn4]:
 
 	<a href="/assets/images/logo@3x.png"><img srcset="/assets/images/logo@2x.png 2x, /assets/images/logo@3x.png 3x" src="/assets/images/logo.png" alt="A lovely fleuron" title="A lovely fleuron"></a>
 
-Now that GitHub Pages has moved to version 1.7 of kramdown, the prior post [Static Generation, Dynamic Content]() will also correctly render its images at the appropriate resolution for your device.
+With this change in place, [prior articles on the site](/technology/static-generation/) will also now correctly render their images at the appropriate resolution for your device.
 
 [^fn1]: Assuming we're working with bitmaps, since not every type of image will be available as a vector.
 
