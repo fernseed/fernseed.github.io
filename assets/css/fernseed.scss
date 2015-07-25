@@ -10,7 +10,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400);
 
 @font-face {
-    font-family: 'calendas_plus';
+    font-family: 'Calendas Plus';
     src: url('/assets/fonts/calendas_plus-webfont.eot');
     src: url('/assets/fonts/calendas_plus-webfont.eot?#iefix') format('embedded-opentype'),
          url('/assets/fonts/calendas_plus-webfont.woff2') format('woff2'),
@@ -22,7 +22,7 @@
 }
 
 @font-face {
-    font-family: 'calendas_plus';
+    font-family: 'Calendas Plus';
     src: url('/assets/fonts/calendas_plus_italic-webfont.eot');
     src: url('/assets/fonts/calendas_plus_italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('/assets/fonts/calendas_plus_italic-webfont.woff2') format('woff2'),
@@ -34,7 +34,7 @@
 }
 
 @font-face {
-    font-family: 'calendas_plus';
+    font-family: 'Calendas Plus';
     src: url('/assets/fonts/calendas_plus_bold-webfont.eot');
     src: url('/assets/fonts/calendas_plus_bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('/assets/fonts/calendas_plus_bold-webfont.woff2') format('woff2'),
@@ -82,13 +82,14 @@ $solarized-base01: #586e75;
 $solarized-base02: #073642;
 $solarized-base03: #002b36;
 
+// Fernseed Set
 $technology: #355CBD;
 $fiction: #358766;
 $meta: #BD3C35;
 $base: black;
 $sidebar-colour: #FFFFFF;
 
-$body-font:     "calendas_plus", serif;
+$body-font:     "Calendas Plus", serif;
 $heading-font:  "Source Sans Pro", sans;
 $monspace-font: "Source Code Pro", monspace;
 $sidebar-font:  $heading-font;
@@ -155,6 +156,10 @@ h1, .post-title        { font-size: $large-size;      line-height: $normal-line-
   .masthead-title        { font-size: $normal-size;     line-height: $normal-line-height; }
   @include sub-headings(){ font-size: $normal-size;     line-height: $large-line-height; }
   h1, .post-title        { font-size: $very-large-size; line-height: $large-line-height;  padding-top: 0; }
+}
+
+:target {
+   background: yellow;
 }
 
 .tag-cloud li {
@@ -274,7 +279,7 @@ a:before {
   height: 2px;
   bottom: 0;
   left: 0;
-    background-color: white;
+  background-color: white;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
