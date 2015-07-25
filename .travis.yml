@@ -1,0 +1,14 @@
+source "https://rubygems.org"
+
+gem "jekyll"
+gem "html-proofer"
+
+language: ruby
+rvm:
+- 2.1
+
+script: jekyll build && htmlproof --href-ignore='#' ./_site
+
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
