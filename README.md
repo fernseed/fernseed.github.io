@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fernseed/fernseed.github.io.svg?branch=master)](https://travis-ci.org/fernseed/fernseed.github.io)
+
 ## Meta
 So, what on earth is going on? [fernseed.org](http://fernseed.org) began as a dumping ground; somewhere for me to practice the process of writing by web-publishing short stories. The URL would be known to no-one but myself and the domain name was [a bit of a pun](http://en.wikipedia.org/wiki/Fern#Folklore). 
 
