@@ -4,7 +4,7 @@ subtitle: Using Advanced kramdown Features via Scrivener
 tagline: 
 permalink: 
 date: 2015-07-03 16:00:00
-modified: 23/07/2015
+modified: 25/07/2015
 sticky: 
 tags: [scrivener, jekyll, markdown, kramdown, responsive design, images]
 gists: 
@@ -17,9 +17,11 @@ sidebar:
 ---
 {% include markdown/global-references.md %}
 
-One of the main reasons I use [Markdown][#markdown] is so that I can ignore issues of layout until after any actual content is written. Unfortunately, with posts to this site I do occasionally have to think about issues such as extended attributes for images and attachments which give me greater control over how those assets are presented. Markdown will let me specify those attributes, but the more I use the more the complexity of the plain text is increased, the less readable it becomes, and the more I find myself focusing on issues of layout after all.
+One of the main reasons to use [Markdown][#markdown] is so that issues of layout and rendering can be easily ignored until long after the actual content is written. Unfortunately, when writing for the web, you do occasionally have to think about issues such as how the content will display on different categories of devices. Markdown does allow the specification of those attributes, but the more those features are used, the more the complexity of the plain text is increased, the less readable it becomes, and the more issues of layout need to be focused on after all.
 
-For instance: I want to use the short 'inline link' Markdown syntax to specify images when working in Markdown in Scrivener, but I also want to provide a set of multiple images for different screen DPI[^fn1]. 
+## An Example
+
+Markdown has a short 'inline link' syntax which can be used to specify images, my preferred method when working in Markdown in Scrivener, but I to also want to provide a set of alternative assets for different screen DPI if the post in question contains images[^fn1].
 
 There are ways to deal with this using scripting if your approach to each asset is broadly similar. For instance, when I deal with images I will always be dealing with a set of three variations on the same base image, with consistently named extensions (in this case, 2x and 3x for the higher DPI versions). 
 
