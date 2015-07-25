@@ -10,4 +10,4 @@ gem 'jekyll-feed'
 gem 'jekyll-assets'
 
 # Build Tools
-gem "html-proofer"
+gem 'html-proofer'
