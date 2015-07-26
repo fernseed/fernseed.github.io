@@ -1,5 +1,9 @@
+# [fernseed.org](http://fernseed.org/)
+
+[![Build Status](https://travis-ci.org/fernseed/fernseed.github.io.svg?branch=master)](https://travis-ci.org/fernseed/fernseed.github.io)
+
 ## Meta
-So, what on earth is going on? [fernseed.org](http://fernseed.org) began as a dumping ground; somewhere for me to practice the process of writing by web-publishing short stories. The URL would be known to no-one but myself and the domain name was [a bit of a pun](http://en.wikipedia.org/wiki/Fern#Folklore). 
+This repository contains the Jekyll source for [fernseed.org](http://fernseed.org). The site began as a dumping ground; somewhere for me to practice the process of writing by web-publishing short stories. The URL would be known to no-one but myself and the domain name was [a bit of a pun](http://en.wikipedia.org/wiki/Fern#Folklore). 
 
 It was eventually repurposed as a single ongoing experiment in serialised prose fiction with [*The Second Room*](https://github.com/fernseed/fernseed.github.io/tree/master/fiction/the-second-room/_posts), a semi-regularly updated second-person mystery in the [slipstream](http://en.wikipedia.org/wiki/Slipstream_(genre)) genre.
 

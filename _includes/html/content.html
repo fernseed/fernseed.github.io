@@ -44,14 +44,14 @@
 
   {% endif %}
 
-  <div class="container content post {{ page.categories.first }}" id="article" {% unless page.type == "index" %}itemscope itemtype="http://schema.org/Article"{% endunless %}>
+  <div class="container content post {{ page.categories.first }}" {% unless page.type == "index" %}id="article" itemscope itemtype="http://schema.org/Article"{% endunless %}>
     {% unless page.type == "index" %}
       <h6 class="post-subtitle">
-        {% if page.subtitle %}{{ page.subtitle | replace: ' and ', ' & ' }}{% endif %}
+        {% if page.subtitle %}{{ page.subtitle | replace: ' and ', ' &amp; ' }}{% endif %}
       </h6>
 
       <h1 class="post-title" id="article-title">
-          <span itemprop="name">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</span>
+          <span itemprop="name">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</span>
       </h1>
       
       {% assign words = page.content | number_of_words %}
@@ -96,7 +96,7 @@
           {% if page.tagline %} &middot; <a href="{{ page.url }}">{{ page.title }}</a>{% endif %}
         </h6>
       <h2 class="post-title">
-          <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</a>
+          <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</a>
         </h2>
         <span class="post-date">
           {% include html/date.html %}
