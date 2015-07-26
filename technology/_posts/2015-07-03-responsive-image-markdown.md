@@ -4,7 +4,7 @@ subtitle: Using Advanced kramdown Features via Scrivener
 tagline: 
 permalink: 
 date: 2015-07-03 16:00:00
-modified: 25/07/2015
+modified: 26/07/2015
 sticky: 
 tags: [scrivener, jekyll, markdown, kramdown, responsive design, images]
 gists: 
@@ -42,7 +42,7 @@ But I can specify additional html block-level attributes with this kind of notat
 
 Rather than my having to type all that boilerplate in each time, I would want to write the smaller initial syntax and have it replaced with the second block above with the additional block level attribute. Optionally I would also like to link to the largest asset available from the image so that visitors can choose to 'embiggen' it on their device.
 
-I'd need to capture the value of http://my-image-location so I can use it in two places in the replacement, the second time with a 2x suffix.
+I'd need to capture the value of `http://my-image-location` so I can use it in two places in the replacement, the second time with a 2x suffix.
 
 Matching regex:
 
@@ -56,7 +56,7 @@ Substitution regex[^fn2]:
 
 You can test these visually at the really exceptionally useful http://regexr.com 
 
-So now I have a 'clean' set of Markdown which will also happily display images correctly when previewed in something like [Marked]()[^fn3].
+So now I have a 'clean' set of Markdown which will also happily display images correctly when previewed in something like [Marked][#Marked][^fn3].
 
 If you're using GitHub Pages to host, kramdown 1.5 is still in use, with the IAL block level support only appearing in 1.6. 1.7 with support for block-level IALs for images currently has an open pull request. As soon as it is merged you'll get this behaviour 'out of the box' for standard GitHub Pages hosted sites.
 

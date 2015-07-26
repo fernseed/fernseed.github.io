@@ -100,14 +100,14 @@ There are a number of ways in which you could automate the running of your scrip
 
 Going after Scrivener data is one approach, but it's a little messy and not generally applicable. So let's talk briefly about my own psychological tics... 
 
-Scrivener, like most OS X applications[^fn12], will automatically save any changes made to a project every few seconds---the Snapshots feature even allows you to roll back to earlier auto-saved drafts (even though the app [doesn't support](http://www.literatureandlatte.com/forum/viewtopic.php?f=4&t=78&p=123475&hilit=lion+autosave#p123475) the built-in [OS X system-level versioning/reverting](http://support.apple.com/kb/PH14378) mechanism for files, since your `.scriv` document isn't really a single file at all). This means that my multi-decade muscle memory to spam Command-S to save every once in a while to make sure I don't lose anything is entirely redundant. So let's repurpose otherwise wasted muscle memory and bind that shortcut to 'Sync with External Folder Now' instead[^fn13]:
+Scrivener, like most OS X applications, will automatically save any changes made to a project every few seconds---the Snapshots feature even allows you to roll back to earlier auto-saved drafts (even though the app [doesn't support](http://www.literatureandlatte.com/forum/viewtopic.php?f=4&t=78&p=123475&hilit=lion+autosave#p123475) the built-in [OS X system-level versioning/reverting](http://support.apple.com/kb/PH14378) mechanism for files, since your `.scriv` document isn't really a single file at all). This means that my multi-decade muscle memory to spam Command-S to save every once in a while to make sure I don't lose anything is entirely redundant. So let's repurpose otherwise wasted muscle memory and bind that shortcut to 'Sync with External Folder Now' instead[^fn12]:
 
 [![Scrivener's 'Sync Now' menu option][]](/assets/images/software-scrivener-sync-now-menu@3x.png)
 
 [Scrivener's 'Sync Now' menu option]: /assets/images/software-scrivener-sync-now-menu.png "Scrivener's 'Sync Now' menu option"
 {: srcset="/assets/images/software-scrivener-sync-now-menu@2x.png 2x, /assets/images/software-scrivener-sync-now-menu@3x.png 3x"} 
 
-At this point we can pick up any plain text files stored in the 'Drafts' folder(s) in the sync target location and run them through `wc`[^fn14]:
+At this point we can pick up any plain text files stored in the 'Drafts' folder(s) in the sync target location and run them through `wc`[^fn13]:
 
 	#!/bin/bash
 	fiction=`find path_to_my_fiction_folder -type f -path '*/Draft/*.md' -print0 2>/dev/null | xargs -0 cat | wc -w | bc`
@@ -223,7 +223,7 @@ It's a fairly limited example, but hopefully it illustrates the main points:
 - I don't need to manually update the page content to reflect any new data which is added over time.
 - The graph and its buttons will behave as though they're being updated in a more traditional fashion from a database. 
 
-The only real limitation to this approach[^fn15] is that it relies on data captured locally being pushed to GitHub so that Jekyll can update the HTML which forms the data-set. This isn't really a limitation of static websites in this case though, since even a dynamic site would need its back-end database updated, possibly via similar means, and for the same reason.
+The only real limitation to this approach[^fn14] is that it relies on data captured locally being pushed to GitHub so that Jekyll can update the HTML which forms the data-set. This isn't really a limitation of static websites in this case though, since even a dynamic site would need its back-end database updated, possibly via similar means, and for the same reason.
 
 Here's the [permanent home](/meta/stats/) for the above for future reference. Feel free to browse/borrow/tweak the finished source code for your own purposes, it's available from the [sidebar][sidebar] of either page.
 
@@ -249,10 +249,8 @@ Here's the [permanent home](/meta/stats/) for the above for future reference. Fe
 
 [^fn11]: There is [no real guarantee](http://www.thexlab.com/faqs/maintscripts.html#Anchor-How-35882)...
 
-[^fn12]: Although Scrivener [got there first](TODO).
+[^fn12]: If you're not on OS X, or just prefer having that keymap unchanged, you can choose a different keybinding of your choice. This is all about reducing friction for me, so I won't be trying to memorise a new keybinding when an old one is both redundant and semantically correct for this new role.
 
-[^fn13]: If you're not on OS X, or just prefer having that keymap unchanged, you can choose a different keybinding of your choice. This is all about reducing friction for me, so I won't be trying to memorise a new keybinding when an old one is both redundant and semantically correct for this new role.
+[^fn13]: I'm also running them through `bc` in the below to ensure that we have only numbers in the output.
 
-[^fn14]: I'm also running them through `bc` in the below to ensure that we have only numbers in the output.
-
-[^fn15]: Leaving aside your thoughts on how robust all that Jekyll tags logic and shell scripting might be...
+[^fn14]: Leaving aside your thoughts on how robust all that Jekyll tags logic and shell scripting might be...
