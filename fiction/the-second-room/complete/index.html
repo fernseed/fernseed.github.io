@@ -35,7 +35,7 @@ permalink: /fiction/the-second-room/complete/
         </div>
         <div class="footnotes">
             <li class="footnote" id="fn:second-room-{{forloop.index}}">
-                <p><em><a class="fiction" href="{{post.url}}">Part {{forloop.index}}: {{post.tagline}}</em></a>&mdash;
+                <p><em><a class="fiction" href="{{post.url}}">Part {{forloop.index}}: {{post.tagline}}</a></em>&mdash;
                     {{ post.date | date: "%A" }},
                     {% assign d = post.date | date: "%-d" %}
                     {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} 

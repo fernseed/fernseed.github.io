@@ -4,7 +4,7 @@ title: 'fernseed'
 url: 'http://fernseed.org'
 history_url: 'https://github.com/fernseed/fernseed.github.io/commits/master/'
 feed_url: 'http://feeds.feedburner.com/fernseed'
-description: 'Weird fiction, weird technology & weird thinking.'
+description: 'Weird fiction, weird technology &amp; weird thinking.'
 standards: 'HTML5, CSS3'
 timezone: 'Europe/Belfast'
 permalink: /:categories/:title/
