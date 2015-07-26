@@ -23,7 +23,9 @@ One of the main reasons to use [Markdown][#markdown] is so that issues of layout
 
 Markdown has a short 'inline link' syntax which can be used to specify images, my preferred method when working in Markdown in Scrivener, but I to also want to provide a set of alternative assets for different screen DPI if the post in question contains images[^fn1].
 
-There are ways to deal with this using scripting if your approach to each asset is broadly similar. For instance, when I deal with images I will always be dealing with a set of three variations on the same base image, with consistently named extensions (in this case, 2x and 3x for the higher DPI versions). 
+If you just want 2x images to be used in general and scaled, then all you need to care about is making sure that your actual image asset is of the appropriate quality and that the `img` tag has its `width` attribute set to exactly half of the true width. The major downside is the full-sized image attribute still needs to be retrieved in each case which is not ideal if you're trying to limit mobile bandwidth impact.
+
+There are ways to deal with this 'properly'[^fn2] and in an automated fashion, *if* your approach to naming and otherwise dealing each asset can be kept broadly similar. For instance, when I deal with images here I will always be dealing with a set of three variations on the same base image, with consistently named extensions (in this case, 2x and 3x for the higher DPI versions). 
 
 Using [kramdown][#kramdown]'s IAL [extensions for blocks](http://kramdown.gettalong.org/syntax.html#block-ials) and a Scrivener regex lets us produce arbitrarily verbose output from a relatively clean input. Note that this particular inline extension markup is only currently available in the kramdown Markdown flavour; other Markdown compilers do offer extended image attributes, but I don't believe any currently offer srcset directly, although some do support arbitrary attributes in similar ways to kramdown.
 
@@ -48,7 +50,7 @@ Matching regex:
 
 	^!(\[.+\])\((.+)\.(.+)\)
 
-Substitution regex[^fn2]:
+Substitution regex[^fn3]:
 
 	![$1][]
 	[$1]: /assets/images/$2.$3 "$1"
@@ -56,7 +58,7 @@ Substitution regex[^fn2]:
 
 You can test these visually at the really exceptionally useful http://regexr.com 
 
-So now I have a 'clean' set of Markdown which will also happily display images correctly when previewed in something like [Marked][#Marked][^fn3].
+So now I have a 'clean' set of Markdown which will also happily display images correctly when previewed in something like [Marked][#Marked][^fn4].
 
 If you're using GitHub Pages to host, kramdown 1.5 is still in use, with the IAL block level support only appearing in 1.6. 1.7 with support for block-level IALs for images currently has an open pull request. As soon as it is merged you'll get this behaviour 'out of the box' for standard GitHub Pages hosted sites.
 
@@ -79,7 +81,7 @@ This is the Markdown in the file created by the Scrivener compilation step:
 	[A lovely fleuron]: /assets/images/logo.png "A lovely fleuron"
 	{: srcset="/assets/images/logo@2x.png 2x, /assets/images/logo@3x.png 3x"}
 
-And this is its final HTML after the Jekyll conversion step[^fn4]:
+And this is its final HTML after the Jekyll conversion step[^fn5]:
 
 	<a href="/assets/images/logo@3x.png"><img srcset="/assets/images/logo@2x.png 2x, /assets/images/logo@3x.png 3x" src="/assets/images/logo.png" alt="A lovely fleuron" title="A lovely fleuron"></a>
 
@@ -87,8 +89,10 @@ With this change in place, [prior articles on the site](/technology/static-gener
 
 [^fn1]: Assuming we're working with bitmaps, since not every type of image will be available as a vector.
 
-[^fn2]: Note that for some reason the Scrivener regex does not accept `\n` as a new line character, so you'll need to option-enter any line breaks.
+[^fn2]: Although there really isn't an official way to handle this yet, just a series of workarounds and draft proposals.
 
-[^fn3]: Assuming the image assets are in the same folder as the Scrivener project.
+[^fn3]: Note that for some reason the Scrivener regex does not accept `\n` as a new line character, so you'll need to option-enter any line breaks.
 
-[^fn4]: Ironically enough, the raw HTML is *less* verbose than the fully-specified Markdown version...
+[^fn4]: Assuming the image assets are in the same folder as the Scrivener project.
+
+[^fn5]: Ironically enough, the raw HTML is *less* verbose than the fully-specified Markdown version...
