@@ -8,7 +8,7 @@ Lanyon,@mdo,https://github.com/poole/lanyon,asset,"an unassuming Jekyll theme th
 The Elements of Typographic Style,@clagnut,http://webtypography.net,design,"typographic style and its accompanying attention to detail have been overlooked by website designers ... in years gone by this could have been put down to the technology, but now the web has caught up",http://twitter.com/clagnut
 Sass,@sasscss,http://sass-lang.com/,project,"CSS with superpowers ... the most mature, stable, and powerful professional grade CSS extension language in the world",http://twitter.com/sasscss
 Infinite Jekyll,@tobiasahlin,https://github.com/tobiasahlin/infinite-jekyll,project,"Infinite scroll for Jekyll based blogs",http://twitter.com/tobiasahlin
-GitHub Pages,@github,https://pages.github.com,project,"Websites for you and your projects. Hosted directly from your GitHub repository. Just edit, push, and your changes are live",http://twitter.com/github
+GitHub Pages,@github,https://pages.github.com,hosting,"Websites for you and your projects. Hosted directly from your GitHub repository. Just edit, push, and your changes are live",http://twitter.com/github
 jQuery,@jeresig,http://jquery.com,project,"a fast, small, and feature-rich JavaScript library",http://twitter.com/jeresig
 kramdown,@_gettalong,http://kramdown.gettalong.org,project,"a free MIT-licensed Ruby library for parsing and converting a superset of Markdown ... probably the fastest pure-Ruby Markdown converter available",https://twitter.com/_gettalong
 Bigfoot,Chris Suavé,http://www.bigfootjs.com,project,"a jQuery plugin for empowering footnotes",http://cmsauve.com/projects/
@@ -18,3 +18,6 @@ Git,+LinusTorvalds,http://git-scm.com,software,"a free and open source distribut
 Scrivener,Keith Blount,http://www.literatureandlatte.com/scrivener.php,software,"a powerful content-generation tool for writers that allows you to concentrate on composing and structuring long and difficult documents",
 Sublime Text,Jon Skinner,http://www.sublimetext.com,software,"a sophisticated text editor for code, markup and prose",
 Markdown,@gruber,http://daringfireball.net/projects/markdown/,software,"allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML",http://twitter.com/gruber
+Marked,@ttscoff,http://marked2app.com,software,"a previewer for Markdown files. Use it with your favorite text editor and it updates every time you save. With robust features for previewing, reviewing and exporting beautiful documents, you can work in plain text while reveling in rich formatting",https://twitter.com/ttscoff
+Travis CI,@travisci,https://travis-ci.org,project,"a hosted continuous integration service for open source and private projects",https://twitter.com/travisci
+HTML-Proofer,@gjtorikian,https://github.com/gjtorikian/html-proofer,software,"a set of tests to validate your HTML output. These tests check if your image references are legitimate, if they have alt tags, if your internal links are working, and so on",https://twitter.com/gjtorikian

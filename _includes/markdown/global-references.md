@@ -13,6 +13,7 @@
 [#jekyll]: /meta/acknowledgements/#Jekyll
 [#kramdown]: /meta/acknowledgements/#kramdown
 [#markdown]: /meta/acknowledgements/#Markdown
+[#Marked]: /meta/acknowledgements/#Marked
 <!-- Abbreviations -->
 *[IAL]: Inline Attribute Lists: a set of user-specified attributes which will apply to the containing HTML block
 

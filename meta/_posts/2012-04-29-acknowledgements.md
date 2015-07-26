@@ -4,7 +4,7 @@ subtitle:
 tagline: 
 permalink: 
 date: 2012-04-29 
-modified: 04/07/2015
+modified: 23/07/2015
 sticky: true
 tags: [introduction, thanks]
 gists: 
@@ -19,14 +19,11 @@ sidebar:
 
 Many thanks to the following people and projects for creating the tools which have helped create [fernseed.org][fernseed]:
 
-{% assign sorted_dependencies = site.data.dependencies | sort: 'name' %}
-
+{% assign sorted_dependencies = site.data.dependencies | sort: 'name'  %}
 {% for project in sorted_dependencies %}
-
+<a name="{{ project.name }}"></a>
 [*{{ project.name }}*]({{ project.url }}) by {% if project.contact-url %}[{{ project.contact }}]({{ project.contact-url }}){% else %}{{ project.contact }}{% endif %} <span class="project-type">{{ project.type }}</span>
-
 : > {{ project.quote }} 
-
 {% endfor %}
 
 
