@@ -1,13 +1,3 @@
-source "https://rubygems.org"
-
-gem 'jekyll'
-
-# Plugins
-gem 'jekyll-mentions'
-gem 'jekyll-redirect-from'
-gem 'jekyll-sitemap'
-gem 'jekyll-feed'
-gem 'jekyll-assets'
-
-# Build Tools
+source 'https://rubygems.org'
+gem 'github-pages'
 gem 'html-proofer'
