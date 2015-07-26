@@ -11,7 +11,7 @@ sidebar:
 
 {% assign entryCount = site.data.progress | size %}
 
-<h6 id="tag-subheader" class="post-subtitle"><span class="selector" id="7Selector" onclick='setPeriod(7)'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30)'>30 days</span>{% if entryCount > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365)'>1 year</span>{% endif %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0)'>All</span></h6>
+<h6 id="tag-subheader" class="post-subtitle"><span class="selector" id="7Selector" onclick='setPeriod(7)'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30)'>30 days</span>{% if entryCount > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365)'>1 year</span>{% else %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0)'>All</span>{% endif %}</h6>
 <h1 id="tag-header" class="post-title">{{ page.title }}</h1>
 
 <article itemscope itemtype="http://schema.org/Article">
@@ -81,7 +81,7 @@ sidebar:
         var options = {
             height: 400,
             hAxis: { title: 'Date' },
-            vAxis: { title: 'Word Count' },
+            vAxis: { viewWindow: { min: 0 }, title: 'Word Count' },
             isStacked: true,
             seriesType: "bars",
             series: {2: {type: "line"}, 3: {type: "line"}},
