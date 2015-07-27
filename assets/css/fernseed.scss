@@ -597,17 +597,36 @@ ol li:before {
     content: "Note " counters(footnote-item, ".") ": "; counter-increment: footnote-item
 }
 
-.gist-meta { display:none; }
-.gist .gist-file { border-bottom: 0px }
+.gist-meta, .gist-data .blob-interaction-bar { display:none; }
 
-.gist {
-  margin-top: $normal-size;
-  margin-bottom: $normal-size;
+.gist-file table {
+  border: 0px !important;
 }
 
-.post .gist .line-pre {
+.gist-file .gist-data {
+    border-bottom: 0px !important;
+}
+
+.gist-file {
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+  border-left: 0px !important;
+  border-right: 0px !important;
+}
+
+.gist {
+  padding-top: $very-large-size;
+  padding-bottom: $very-large-size;
+}
+
+.post .gist .line-pre, .gist .markdown-body {
   font-family: "Source Code Pro" !important;
   font-size: $very-small-size !important;
+  line-height: $small-size !important;
+}
+
+.gist .markdown-body {
+  padding: 0;
 }
 
 .gist .line-number {
