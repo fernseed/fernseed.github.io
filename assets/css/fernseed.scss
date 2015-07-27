@@ -143,6 +143,7 @@ $large-line-height:  ms(4);
 small                  { font-size: $very-small-size; }
 h6                     { font-size: $small-size;      }
 body                   { font-size: $small-size;      line-height: $small-line-height; }
+code                   { font-size: $very-small-size; line-height: $small-line-height; }
 .post-date             { font-size: $small-size;      line-height: $small-line-height; }
 .masthead-title        { font-size: $small-size;      line-height: $small-line-height; }
 @include sub-headings(){ font-size: $small-size;      line-height: $normal-line-height; }
@@ -152,6 +153,7 @@ h1, .post-title        { font-size: $large-size;      line-height: $normal-line-
   small                  { font-size: $very-small-size; }
   h6                     { font-size: $small-size;      }
   body                   { font-size: $normal-size;     line-height: $normal-line-height; }
+  code                   { font-size: $small-size;      line-height: $normal-line-height; }
   .post-date             { font-size: $normal-size;     line-height: $normal-line-height; }
   .masthead-title        { font-size: $normal-size;     line-height: $normal-line-height; }
   @include sub-headings(){ font-size: $normal-size;     line-height: $large-line-height; }
@@ -814,8 +816,10 @@ blockquote {
     }
 }
 
-.highlight pre code {
-  background-color: #002b36;
+code {
+  background-color: white;
+  padding: 0;
+  color: black;
 }
 
 pre {
@@ -831,7 +835,6 @@ pre code {
 
 code {
   font-family: "Source Code Pro";
-  font-size: $very-small-size;
 }
 
 .sidebar {
