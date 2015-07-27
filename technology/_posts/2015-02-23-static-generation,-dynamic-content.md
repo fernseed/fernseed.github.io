@@ -49,8 +49,7 @@ The data we'll gather should be as simple as possible, I'll try to keep it expre
 
 We'll keep our CSV layout as trivial as possible:
 
-	date, fiction, non-fiction
-	2015-02-20, 32073, 5700
+{% gist dmcgk/bc743a73ae4640ced973 sample.csv %}
 
 The `fiction` and `non-fiction` columns will be a raw word count and we'll work out intervals such as daily increase in words written and our averages using tag and filter logic.
 
@@ -89,10 +88,7 @@ For the `PreviousSession` stats to be useful, any Project Target option to autom
 
 The script itself might look something like this:
 
-	#!/bin/bash
-	yesterday=`date -v-1d "+%Y-%m-%d"`
-	total=`path_to_my/word_counting.script`
-	printf "$yesterday,$total\n" >> path_to_my.csv
+{% gist dmcgk/bc743a73ae4640ced973 add-data-to-csv.sh %}
 
 There are a number of ways in which you could automate the running of your script, the simplest probably being an entry in your `cron`. On OS X the standard approach would be to use `launchd`, however I prefer to use `/etc/periodic/daily/`[^fn10] in an attempt to guarantee[^fn11] that the script should run once and once only, daily, when my MacBook is awake.
 
@@ -109,10 +105,7 @@ Scrivener, like most OS X applications, will automatically save any changes made
 
 At this point we can pick up any plain text files stored in the 'Drafts' folder(s) in the sync target location and run them through `wc`[^fn13]:
 
-	#!/bin/bash
-	fiction=`find path_to_my_fiction_folder -type f -path '*/Draft/*.md' -print0 2>/dev/null | xargs -0 cat | wc -w | bc`
-	nonfiction=`find path_to_my_nonfiction_folder -type f -path '*/Draft/*.md' -print0 2>/dev/null | xargs -0 cat | wc -w | bc`
-	echo "$fiction,$nonfiction"
+{% gist dmcgk/bc743a73ae4640ced973 markdown-wordcount.sh %}
 
 This has the side benefit of also accounting for words added to those files outside of Scrivener itself, since the reason I sync to an external folder in the first place is to make use of cloud storage and have those files available on any of my devices.
   
@@ -133,7 +126,7 @@ You can read more about the Google Visualisation API on [Google's Developer page
 After following all of the above, the final interactive and dynamically updating chart will end up looking like this, tracking selectable periods of writing data which are updated on a daily basis:
   
 {% assign entryCount = site.data.progress | size %}
-<h6 id="tag-subheader"><span class="selector" id="7Selector" onclick='setPeriod(7)'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30)'>30 days</span>{% if entryCount > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365)'>1 year</span>{% endif %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0)'>All</span></h6>
+<h6 id="tag-subheader"><span class="selector" id="7Selector" onclick='setPeriod(7)'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30)'>30 days</span>{% if entryCount > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365)'>1 year</span>{% else %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0)'>All</span>{% endif %}</h6>
 <div id="progress-chart" class="progress-chart"><h5>Loading chart&hellip;</h5></div>
 <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 <script type="text/javascript">
