@@ -181,7 +181,7 @@ After following all of the above, the final interactive and dynamically updating
         var options = {
             height: 400,
             hAxis: { title: 'Date' },
-            vAxis: { title: 'Word Count' },
+            vAxis: { viewWindow: { min: 0 }, title: 'Word Count' },
             isStacked: true,
             seriesType: "bars",
             series: {2: {type: "line"}, 3: {type: "line"}},
