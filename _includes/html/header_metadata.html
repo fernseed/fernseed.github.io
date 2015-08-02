@@ -13,24 +13,24 @@
 <meta name="twitter:card" content="{% if page.type == "index" %}{{ site.description }}{% else %}{{ page.summary }}{% endif %}" />
 <meta name="twitter:creator" content="{{ site.contact.twitter }}" />
 
-{% capture cache_buster %}{{ site.version }}.{{ site.time | date: "%F.%H-%M" }}{% endcapture %}
-
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/assets/images/favicon/144x144.png?{{ cache_buster }}">
+<meta name="msapplication-TileImage" content="/assets/images/favicon/144x144.png">
 
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/images/favicon/57x57.png?{{ cache_buster }}">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicon/72x72.png?{{ cache_buster }}">
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/favicon/120x120.png?{{ cache_buster }}">
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/favicon/152x152.png?{{ cache_buster }}">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/16x16.png?{{ cache_buster }}">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/32x32.png?{{ cache_buster }}">
-<link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon/48x48.png?{{ cache_buster }}">
-<link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon/64x64.png?{{ cache_buster }}">
-<link rel="icon" type="image/png" sizes="144x144" href="/assets/images/favicon/144x144.png?{{ cache_buster }}">
-<link rel="icon" type="image/png" sizes="195x195" href="/assets/images/favicon/195x195.png?{{ cache_buster }}">
-<link rel="icon" type="image/png" sizes="228x228" href="/assets/images/favicon/228x228.png?{{ cache_buster }}">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/images/favicon/57x57.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicon/72x72.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/favicon/120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/favicon/152x152.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/32x32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon/48x48.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon/64x64.png">
+<link rel="icon" type="image/png" sizes="144x144" href="/assets/images/favicon/144x144.png">
+<link rel="icon" type="image/png" sizes="195x195" href="/assets/images/favicon/195x195.png">
+<link rel="icon" type="image/png" sizes="228x228" href="/assets/images/favicon/228x228.png">
 
 <link rel="author" type="text/plain" href="/humans.txt" />
+
+{% capture cache_buster %}{{ site.version }}.{{ site.time | date: "%F.%H-%M-%S" }}{% endcapture %}
 
 <link rel="stylesheet" type="text/css" href="/assets/css/fernseed.css?{{ cache_buster }}">
 {% if site.environment == "development" %}<link rel="stylesheet" href="http://basehold.it/20">{% endif %}
