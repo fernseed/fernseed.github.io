@@ -3,7 +3,7 @@ title: Responsive Image Markdown
 subtitle: Using Advanced kramdown Features via Scrivener
 tagline: 
 permalink: 
-date: 2015-09-14 11:00:00
+date: 2015-09-14 13:00:00
 modified: 14/09/2015
 sticky: 
 tags: [scrivener, jekyll, markdown, kramdown, responsive design, images]
@@ -50,7 +50,7 @@ Other Markdown compilers do sometimes offer alternative mechanisms extended imag
 
 ## Automatation & Scripting
 
-So Let's say I'm writing a thing in Markdown, and I want to keep the plain text version of a file reasonably clean, but I want to specify more than one dpi-version of an image *and* have the highest-resolution version of the image viewable via a click. Rather than my having to type all that boilerplate in each time, I would want to write the smaller initial syntax and have it replaced with the second block above with the additional block level attribute. Optionally I would also like to link to the largest asset available from the image so that visitors can choose to 'embiggen' it on their device.
+So Let's say I'm writing something in Markdown, and I want to keep the plain text version of a file reasonably clean, but I want to specify more than one DPI level of an image *and* have the highest-resolution version of the image viewable via a click. Rather than my having to type all that boilerplate in each time, I would want to write the smaller initial syntax and have it replaced with the second block above with the additional block level attribute. Optionally I would also like to link to the largest asset available from the image so that visitors can choose to *embiggen* it on their device if required.
 
 I'd need to capture the value of `http://my-image-location` so I can use it in two places in the replacement, the second time with a 2x suffix.
 
@@ -62,15 +62,15 @@ Substitution regex:[^fn4]
 
 {% gist dmcgk/3cb20fbd69ae773bb139 image-replacement-regex-markdown.txt %}
 
-You can test these visually at the really exceptionally useful [Regexr site](http://regexr.com) or using an app such as [Patterns]().
+You can test these visually at the really-very-useful-indeed [Regexr site](http://regexr.com) or using an app such as [Patterns](http://krillapps.com/patterns/).
 
 So now I have a 'clean' set of Markdown which will also happily display images correctly when previewed in something like [Marked][#Marked].[^fn5]
 
-If you're using GitHub Pages to host, `kramdown` 1.5 is still in use, with the IAL block level support only appearing in 1.6. Version 1.8 with support for block-level IALs for images currently has [an open pull request](https://github.com/github/pages-gem/pull/155). As soon as it's merged you'll get this behaviour 'out of the box' for standard GitHub Pages hosted sites.
+If you're using GitHub Pages to host your content then `kramdown` 1.5 is still in use, with the IAL block level support only appearing in 1.6. Version 1.8 with support for block-level IALs for images currently has [an open pull request](https://github.com/github/pages-gem/pull/155). As soon as it's merged you'll get this behaviour 'out of the box' for standard GitHub Pages hosted sites.
 
 ## Example
 
-The below image will be picked from [one](assets/images/logo.png) of [these](assets/images/logo@2x.png) [assets](assets/images/logo@3x.png) depending on whether your display is running at 1x 2x or 3x DPI.
+The below image will be picked from [one](/assets/images/logo.png) of [these](/assets/images/logo@2x.png) [assets](/assets/images/logo@3x.png) depending on whether your display is running at 1x 2x or 3x DPI.
 
 <a href="/assets/images/logo@3x.png"><img srcset="/assets/images/logo@2x.png 2x, /assets/images/logo@3x.png 3x" src="/assets/images/logo.png" alt="Click to enlarge" title="A lovely fleuron"></a>
 
