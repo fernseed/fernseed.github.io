@@ -96,7 +96,7 @@
           {% if page.tagline %} &middot; <a href="{{ page.url }}">{{ page.title }}</a>{% endif %}
         </h6>
       <h2 class="post-title">
-          <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</a>
+          <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</a>
         </h2>
         <span class="post-date">
           {% include html/date.html %}
