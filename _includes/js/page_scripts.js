@@ -2,9 +2,6 @@
 $.bigfoot();
 
 $(document).ready(function(){
-    /* Adjust font sizes and spacing for screen-size */
-    adjustBehaviourForScreenSize();
-    $(window).on('resize', adjustBehaviourForScreenSize);
 
     /* Build search database */
     results = [];
@@ -15,4 +12,10 @@ $(document).ready(function(){
         searchString = $(this).val().toLowerCase();
         searchFor(searchString);
     });
+});
+
+/* Adjust font sizes and spacing for screen-size */
+$(window).load(function() {
+    adjustBehaviourForScreenSize();
+    $(window).on('resize', adjustBehaviourForScreenSize);
 });
