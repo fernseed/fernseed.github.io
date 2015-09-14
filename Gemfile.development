@@ -20,13 +20,17 @@ gem 'jekyll-feed', '0.3.0'
 gem 'kramdown', '1.8.0'
 gem 'jekyll-assets'
 
-# Validation Tools
-gem 'html-proofer'
-gem 'deadweight'
-gem 'colored'
-
 # Build Tools
 gem 'guard'
 gem 'guard-jekyll-plus'
 gem 'guard-livereload'
 gem 'thin'
+
+# Tests
+group :test do
+  gem 'ra11y'
+  gem 'deadweight'
+  gem 'colored'
+  gem 'html-proofer'
+  gem 'rake'
+end

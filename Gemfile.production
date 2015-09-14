@@ -4,5 +4,17 @@ source 'https://rubygems.org'
 gem 'github-pages'
 gem 'jekyll-assets'
 
-# Validation Tools
-gem 'html-proofer'
+# Build Tools
+gem 'guard'
+gem 'guard-jekyll-plus'
+gem 'guard-livereload'
+gem 'thin'
+
+# Tests
+group :test do
+  gem 'ra11y'
+  gem 'deadweight'
+  gem 'colored'
+  gem 'html-proofer'
+  gem 'rake'
+end
