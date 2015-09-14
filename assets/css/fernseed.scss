@@ -7,7 +7,7 @@
 {% include css/bigfoot-default.css %}
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
 
 @font-face {
     font-family: 'Calendas Plus';
@@ -212,6 +212,12 @@ $logo-margin: $normal-size;
 $article-width: 32rem;
 $max-width:     56rem;
 $max-content-width: $max-width - $sidebar-width - $logo-width - (2*$logo-margin);
+
+/*
+th {
+  background-color: #f9f9f9;
+}
+*/
 
 .sidebar {
   width: $sidebar-width;
@@ -686,7 +692,12 @@ div .tag-entry {
 }
 
 .post-date {
+    font-family: $heading-font;
     text-align: center;
+    text-transform: uppercase;
+      letter-spacing: 0.1em;
+  word-spacing: 0.125em;
+font-size: $small-size;
 }
 
 .post-title,
@@ -783,9 +794,10 @@ blockquote {
   border-left: .25rem solid #e5e5e5;
   text-align: left;
   word-break: normal;
+  font-style: italic;
 }
 
-@media (min-width: 56em) {
+@media (min-width: 30em) {
   blockquote {
   padding-left: $normal-size;
   padding-right: $normal-size;
@@ -797,6 +809,7 @@ blockquote {
   text-justify: inter-character;
   word-break: break-all; 
   word-break: break-word;
+  font-style: italic;
   }
 }
 
@@ -817,7 +830,7 @@ blockquote {
 }
 
 code {
-  background-color: white;
+  background-color: inherit;
   padding: 0;
   color: black;
 }
