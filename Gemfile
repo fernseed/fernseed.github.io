@@ -1,1 +1,1 @@
-Gemfile.development
+Gemfile.production
