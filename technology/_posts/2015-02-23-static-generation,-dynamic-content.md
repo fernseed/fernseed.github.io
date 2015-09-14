@@ -4,7 +4,7 @@ subtitle: Jekyll, Scrivener and Data Visualisation
 tagline: 
 permalink: /technology/static-generation/
 date: 2015-02-23 
-modified: 23/07/2015
+modified: 22/08/2015
 sticky: 
 tags: [data-visualisation, quantified-self, jekyll, scrivener]
 gists: [dmcgk/bc743a73ae4640ced973]
@@ -17,13 +17,13 @@ sidebar:
 ---
 {% include markdown/global-references.md %}
 
-This is a [static](http://en.wikipedia.org/wiki/Static_web_page) website---the content you're reading now is generated once, for all visitors, then presented in the same way each time to each browser request. That's slightly different from the current internet norm of generating content as it's requested, possibly on a targeted per-user basis, and probably using a database or some server-side business logic. Think of Wordpress and its plugins as examples of the latter, while [Pelican](http://blog.getpelican.com), [Jekyll][#jekyll], and [Octopress](http://octopress.org) would be examples of the former[^fn1].
+This is a [static](http://en.wikipedia.org/wiki/Static_web_page) website---the content you're reading now is generated once, for all visitors, then presented in the same way each time for each browser request. That's slightly different from the (current) internet norm of generating content as it's requested, possibly on a targeted per-user basis, and probably using a database or some server-side business logic. Think of Wordpress and its plugins as examples of the latter, while [Pelican](http://blog.getpelican.com), [Jekyll][#jekyll], and [Octopress](http://octopress.org) would be examples of the former[^fn1].
 
 Even though the back-end mechanics are very different, there's not as much variation in how the site content is written under either approach, since today's websites typically use some kind of [CMS](http://en.wikipedia.org/wiki/Content_management_system) or templating system to create and organise content. Just because a website is static it doesn't mean that you're constrained to writing everything in pure, flat HTML[^fn2], any more than a dynamic site would be written as a set of SQL queries.
   
 The basic goal of a static website is for its content to be *complete* and *universal* at the moment it is turned into HTML for publication---a single set of generated content is all that any client browser ever sees[^fn3].
 
-This doesn't mean that a *static* site can't be *interactive*, it just means that any interactivity needs to be handled on the client-side, normally using some flavour of JavaScript[^fn4] or similar techniques, based on user interaction. However, since client-side interactivity is a fairly standard approach to creating websites at the moment, you'll probably find that the same is true for non-statically generated sites too.)). The 'static' part of the name refers purely to the server-side, the *generation* side[^fn5], although even there any eventually-static content will be built dynamically from a set of templates and page-specific logic[^fn6]. In other words, the content that is actually served to your browser can still be different from that which I originally write. 
+This doesn't mean that a *static* site can't be *interactive*, it just means that any interactivity needs to be handled on the client-side, normally using some flavour of JavaScript[^fn4]. The 'static' part of the name refers purely to the server-side, the *generation* side[^fn5], although even there any eventually-static content will be built dynamically from a set of templates and page-specific logic[^fn6]. In other words, the content that is actually served to your browser can still be different from that which I originally write. 
 
 What on earth am I talking about? Let's take an example...
   
@@ -226,7 +226,7 @@ Here's the [permanent home](/meta/stats/) for the above for future reference. Fe
 
 [^fn3]: To complicate the distinction with dynamic sites, there are a variety of [caching plugins](https://wordpress.org/plugins/wp-super-cache/) for Wordpress that try to do the same thing.
 
-[^fn4]: This may actually lead to additional server round-trips as additional data is requested via [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming
+[^fn4]: This may actually lead to additional server round-trips as additional data is requested via [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming) or similar techniques, based on user interaction. However, since client-side interactivity is a fairly standard approach to creating websites at the moment, you'll probably find that the same is true for non-statically generated sites too.
 
 [^fn5]: 'Static' isn't a great description.
 
