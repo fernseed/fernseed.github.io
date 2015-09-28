@@ -53,7 +53,7 @@ jekyll-mentions:
 compress_html:
     clippings: all
     comments: ["<!-- ", " -->"]
-    endings: all
+    endings: none
 kramdown:
   auto_ids: true
   toc_levels: 1..6

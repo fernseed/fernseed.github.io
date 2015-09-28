@@ -15,7 +15,12 @@ summary:
 sidebar:
     
 ---
+
+<!-- Includes -->
+
 {% include markdown/global-references.md %}
+
+<!-- Content -->
 
 This is a [static](http://en.wikipedia.org/wiki/Static_web_page) website---the content you're reading now is generated once, for all visitors, then presented in the same way each time for each browser request. That's slightly different from the (current) internet norm of generating content as it's requested, possibly on a targeted per-user basis, and probably using a database or some server-side business logic. Think of Wordpress and its plugins as examples of the latter, while [Pelican](http://blog.getpelican.com), [Jekyll][#jekyll], and [Octopress](http://octopress.org) would be examples of the former.[^fn1]
 
@@ -90,7 +95,7 @@ There are a number of ways in which you could automate the running of your scrip
 
 Going after Scrivener data is one approach, but it's a little messy and not generally applicable. So let's talk briefly about my own psychological tics... 
 
-Scrivener, like most OS X applications, will automatically save any changes made to a project every few seconds---the Snapshots feature even allows you to roll back to earlier auto-saved drafts (even though the app [doesn't support](http://www.literatureandlatte.com/forum/viewtopic.php?f=4&t=78&p=123475&hilit=lion+autosave#p123475) the built-in [OS X system-level versioning/reverting](http://support.apple.com/kb/PH14378) mechanism for files, since your `.scriv` document isn't really a single file at all). This means that my multi-decade muscle memory to spam Command-S to save every once in a while to make sure I don't lose anything is entirely redundant. So let's repurpose otherwise wasted muscle memory and bind that shortcut to 'Sync with External Folder Now' instead:[^fn12]
+Scrivener, like most OS X applications, will automatically save any changes made to a project every few seconds---the Snapshots feature even allows you to roll back to earlier auto-saved drafts (even though the app [doesn't support](http://www.literatureandlatte.com/forum/viewtopic.php?f=4&t=78&p=123475&hilit=lion+autosave#p123475) the built-in [OS X system-level versioning/reverting](http://support.apple.com/kb/PH14378) mechanism for files, since your `.scriv` document isn't really a single file at all). This means that my multi-decade muscle memory to spam ⌘-S to save every once in a while to make sure I don't lose anything is entirely redundant. So let's repurpose otherwise wasted muscle memory and bind that shortcut to 'Sync with External Folder Now' instead:[^fn12]
 
 <a href="/assets/images/software-scrivener-sync-now-menu@3x.png"><img srcset="/assets/images/software-scrivener-sync-now-menu@2x.png 2x, /assets/images/software-scrivener-sync-now-menu@3x.png 3x" src="/assets/images/software-scrivener-sync-now-menu.png" alt="Click to enlarge" title="Scrivener's 'Sync Now' menu option"></a> 
 
@@ -210,6 +215,8 @@ It's a fairly limited example, but hopefully it illustrates the main points:
 The only real limitation to this approach[^fn14] is that it relies on data captured locally being pushed to GitHub so that Jekyll can update the HTML which forms the data-set. This isn't really a limitation of static websites in this case though, since even a dynamic site would need its back-end database updated, possibly via similar means, and for the same reason.
 
 Here's the [permanent home](/meta/stats/) for the above for future reference. Feel free to browse/borrow/tweak the finished source code for your own purposes, it's available from the [sidebar][sidebar] of either page.
+
+<!-- Notes -->
 
 [^fn1]: As to why: static sites can be quicker for a browser to retrieve compared to 'dynamic' versions since they're more easily cacheable by [CDN](http://en.wikipedia.org/wiki/Content_delivery_network)s out-of the-box. They also tend to have lower processing overhead for the servers which host them.
 

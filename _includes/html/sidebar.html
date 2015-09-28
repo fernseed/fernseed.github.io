@@ -38,7 +38,7 @@
   {% if page.type == "index" %}
     {% if page.categories %}
     <div class="sidebar-item">
-      The most recent post in the <strong>#{{ page.categories.first }}</strong> category is: <a href="{{ site.categories[page.categories.first].first.url }}">{% if site.categories[page.categories.first].first.tagline %}{{ site.categories[page.categories.first].first.tagline }}{% else %}{% if site.categories[page.categories.first].first.subtitle %}{{ site.categories[page.categories.first].first.subtitle }}&mdash;{% endif %}{{ site.categories[page.categories.first].first.title }}{% endif %}</a>.
+      The most recent post in this category is: <a href="{{ site.categories[page.categories.first].first.url }}">{% if site.categories[page.categories.first].first.tagline %}{{ site.categories[page.categories.first].first.tagline }}{% else %}{{ site.categories[page.categories.first].first.title }}{% endif %}</a>.
     </div>
     {% else %}
     <div class="sidebar-item">
