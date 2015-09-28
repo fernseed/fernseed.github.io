@@ -4,7 +4,7 @@ subtitle: Using Advanced kramdown Features via Scrivener
 tagline: 
 permalink: 
 date: 2015-09-14 13:00:00
-modified: 14/09/2015
+modified: 20/09/2015
 sticky: 
 tags: [scrivener, jekyll, markdown, kramdown, responsive design, images]
 gists: dmcgk/3cb20fbd69ae773bb139
@@ -15,7 +15,12 @@ summary:
 sidebar:
     
 ---
+
+<!-- Includes -->
+
 {% include markdown/global-references.md %}
+
+<!-- Content -->
 
 One of the main reasons to use [Markdown][#markdown] is to avoid any issues of layout, visual composition or rendering until after the actual content has been written. Unfortunately, when publishing something for the web, issues such as how content will display on different categories of devices do eventually need to be thought about. Image syntax in particular can be cumbersome in Markdown if you need to do something more complex than just specifying a single image and alt text.
 
@@ -91,6 +96,8 @@ Ironically enough, the raw HTML may be *less* verbose than the fully-specified `
 {% gist dmcgk/3cb20fbd69ae773bb139 image-replacement-regex-html.html %}
 
 With this change in place, [prior articles on the site](/technology/static-generation/) will also now correctly render their images at the appropriate resolution for your device.
+
+<!-- Notes -->
 
 [^fn1]: Assuming we're working with bitmaps, since not every type of image will be available as a vector.
 
