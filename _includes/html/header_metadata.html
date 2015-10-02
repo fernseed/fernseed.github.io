@@ -14,7 +14,7 @@
 <meta name="twitter:site" content="{{ site.contact.twitter }}" />
 <meta name="twitter:title" content="{{ page.title }}" />
 <meta name="twitter:description" content="{% if page.type == "index" %}{{ site.description }}{% else %}{% if page.summary %}{{ page.summary | strip_html | strip_newlines }}{% else %}{{ page.excerpt | strip_html | strip_newlines }}{% endif %}{% endif %}" />
-{% if page.preview-image %}<meta name="twitter:image" content="/assets/images/{{ page.preview-image }}" />{% endif %}
+{% if page.preview-image %}<meta name="twitter:image" content="{{ site.url }}/assets/images/{{ page.preview-image }}" />{% endif %}
 
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/assets/images/favicon/144x144.png">
