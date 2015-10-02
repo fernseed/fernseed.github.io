@@ -4,11 +4,12 @@ subtitle: Extending Applications With Applications
 tagline: 
 permalink: 
 date: 2015-09-28 19:30:00
-modified: 28/09/2015
+modified: 02/10/2015
 sticky: 
 tags: [livereload, jekyll, scrivener, hazel, osx, marked, markdown]
 gists: 
 files: 
+preview-image: software-scrivener-safari.png
 redirect_from: 
 summary:
     One of the more trivial-seeming changes to the upcoming OS X 10.11 release, but one that I've found most immediately useful, is the addition of a new split-screen mode for full-screen apps.
@@ -42,7 +43,7 @@ This is doubly-handy since the new version of Safari also has a [Google Chrome-l
 
 <a href="/assets/images/software-scrivener-safari-responsive@3x.png"><img srcset="/assets/images/software-scrivener-safari-responsive@2x.png 2x, /assets/images/software-scrivener-safari-responsive@3x.png 3x" src="/assets/images/software-scrivener-safari-responsive.png" alt="Click to enlarge" title="Responsive Design in Safari"></a>
 
-Or do you need a fully-rendered preview of the eBook you're writing but there's no in-app ability in your editor to do so? [Marked][#Marked] can be slotted in alongside it. [^marked] Combine it with the use of [Critic Markup](http://criticmarkup.com) syntax as revisions are made and you'll also get editing and proofing tools 'built into' your writing workflow, even if your primary writing application doesn't offer such a feature. Or keep your notes or mind maps alongside your text editor of choice but deal with them both in the same dedicated 'space'. 
+Or do you need a fully-rendered preview of the eBook you're writing but there's no in-app ability in your editor to provide it? [Marked][#Marked] can be slotted in alongside it. [^marked] Combine it with the use of [Critic Markup](http://criticmarkup.com) syntax as revisions are made and you'll also get editing and proofing tools 'built into' your writing workflow, even if your primary writing application doesn't offer such a feature. Or keep your notes or mind maps alongside your text editor of choice but deal with them both in the same dedicated 'space'. 
 
 This approach to purposefully-limited or targeted multitasking is one of the reasons I really like the idea of the [iPad Pro](https://www.apple.com/ipad-pro/) as a potential laptop replacement. [^viticci]
 

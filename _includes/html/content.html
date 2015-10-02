@@ -5,7 +5,7 @@
 
   {% assign index_category = page.title | replace:' ','-' %}
 
-  <div class="masthead{% if page.image %} site-header dark{% endif %}">
+  <div class="masthead{% if page.featured-image %} site-header dark{% endif %}">
     <div class="container">
       {% if page.url != "/" %}<h3 class="masthead-title">{% else %}<h1 class="masthead-title">{% endif %}<a href="/">{{ site.title }}</a>{% if page.url == "/" %}<span class="masthead-tagline">&mdash;{{ site.description }}</span>{% endif %}
         {% if page.url != "/" %}
@@ -37,10 +37,10 @@
     </div>
   </div>
 
-  {% if page.image %}
+  {% if page.featured-image %}
 
   <div class="overlay"></div>
-  <div class="featured-image" style="background-image: url({{ page.image }})"></div>
+  <div class="featured-image" style="background-image: url({{ page.featured-image }})"></div>
 
   {% endif %}
 

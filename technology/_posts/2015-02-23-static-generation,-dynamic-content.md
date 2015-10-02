@@ -4,11 +4,12 @@ subtitle: Jekyll, Scrivener and Data Visualisation
 tagline: 
 permalink: /technology/static-generation/
 date: 2015-02-23 
-modified: 14/09/2015
+modified: 02/10/2015
 sticky: 
 tags: [data-visualisation, quantified-self, jekyll, scrivener]
 gists: [dmcgk/bc743a73ae4640ced973]
 files: 
+preview-image: mindmap-flat-file-to-jekyll.png
 redirect_from: 
 summary:
     You can still do some interesting and interactive things with data when using a statically-generated website.
