@@ -144,7 +144,7 @@ small                  { font-size: $very-small-size; }
 h6                     { font-size: $small-size;      }
 body                   { font-size: $small-size;      line-height: $small-line-height; }
 code                   { font-size: $very-small-size; line-height: $small-line-height; }
-.post-date             { font-size: $small-size;      line-height: $small-line-height; }
+.post-data             { font-size: $small-size;      line-height: $small-line-height; }
 .masthead-title        { font-size: $small-size;      line-height: $small-line-height; }
 @include sub-headings(){ font-size: $small-size;      line-height: $normal-line-height; }
 h1, .post-title        { font-size: $large-size;      line-height: $normal-line-height;  padding-top: 0; }
@@ -154,7 +154,7 @@ h1, .post-title        { font-size: $large-size;      line-height: $normal-line-
   h6                     { font-size: $small-size;      }
   body                   { font-size: $normal-size;     line-height: $normal-line-height; }
   code                   { font-size: $small-size;      line-height: $normal-line-height; }
-  .post-date             { font-size: $normal-size;     line-height: $normal-line-height; }
+  .post-data             { font-size: $normal-size;     line-height: $normal-line-height; }
   .masthead-title        { font-size: $normal-size;     line-height: $normal-line-height; }
   @include sub-headings(){ font-size: $normal-size;     line-height: $large-line-height; }
   h1, .post-title        { font-size: $very-large-size; line-height: $large-line-height;  padding-top: 0; }
@@ -691,7 +691,7 @@ div .tag-entry {
   font-weight: normal;
 }
 
-.post-date {
+.post-data {
     font-family: $heading-font;
     text-align: center;
     text-transform: uppercase;

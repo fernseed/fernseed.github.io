@@ -7,7 +7,7 @@
         </dt>
         <dd>
             <span>
-                {% if post.summary %}{{ post.summary | strip_html | strip_newlines }}{% else %}<blockquote>{{ post.excerpt | strip_html | strip_newlines }}</blockquote>{% endif %}
+                {% if post.description %}{{ post.description | strip_html | strip_newlines }}{% else %}<blockquote>{{ post.excerpt | strip_html | strip_newlines }}</blockquote>{% endif %}
             </span>
             <span style="display: none;">
                 {{ post.tags | join:"," | replace:" ","-" }}

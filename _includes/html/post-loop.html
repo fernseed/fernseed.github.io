@@ -15,7 +15,7 @@
   <h2 class="post-title">
       <a href="{{ post.url }}">{% if post.tagline %}{{ post.tagline | replace: ' and ', ' & ' }}{% else %}{{ post.title | replace: ' and ', ' & ' }}{% endif %}</a>
   </h2>
-  <span class="post-date">
+  <span class="post-data">
     {{ post.date | date: "%A" }},
     {% assign d = post.date | date: "%-d" %}
     {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} 
@@ -27,8 +27,8 @@
     <meta itemprop="name" content="{% if post.tagline %}{{ post.tagline }}{% else %}{{ post.title }}{% endif %}" />
     <meta itemprop="wordCount" content="{{ post.content | number_of_words }}" />
     <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}" />
-    {% if post.summary %}
-    {{ post.summary  | strip_html | strip_newlines }}
+    {% if post.description %}
+    {{ post.description  | strip_html | strip_newlines }}
     {% else %}
     <blockquote>{{ post.excerpt | strip_html | strip_newlines }}</blockquote>
     {% endif %}

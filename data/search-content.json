@@ -5,7 +5,7 @@ layout: data
     {% for post in site.posts %}{% unless post.no-index %}{
       "title"    : "{{ post.title }}",
       "tagline"  : "{{ post.tagline }}",
-      "summary"  : "{{ post.summary }}",
+      "summary"  : "{{ post.description }}",
       "tags"     : "{{ post.tags | join: ", " }}",
       "url"      : "{{ post.url }}",
       "excerpt"  : "{{ post.excerpt | strip_html | strip_newlines }}",
