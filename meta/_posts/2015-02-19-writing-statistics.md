@@ -3,7 +3,8 @@ layout: index
 permalink: /meta/stats/
 sticky: true
 tags: [writing, data-visualisation, quantified-self]
-summary: 
+class: index
+description: 
     Some charts and figures on my writing progress and consistency. This is inspired by <a href='http://twitter.com/jamietr'>@jamietr</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 500+ day writing streak</a>!
 sidebar: 
     See <a href='/technology/static-generation/'>this post</a> for more details.
@@ -129,7 +130,7 @@ sidebar:
     {% assign breakdate_index = entryCount | minus: streak %}
     {% assign breakdate = site.data.progress[breakdate_index].date %}
 
-    <span class="post-date offset">
+    <span class="post-data offset">
 
         {{ streak }} consecutive day{% unless streak == 1 %}s{% endunless %} of writing{% unless streak == 0 %}<br/><small>which began {{ breakdate | date: "%A" }}, {% assign d = breakdate | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ breakdate | date: "%B" }}, {{ breakdate | date: "%Y" }}</small>{% endunless %}
 

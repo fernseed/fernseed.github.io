@@ -6,7 +6,7 @@ no-index: true
 permalink: /meta/do-not-track/
 redirect_from: /do-not-track/
 title: Analytics Exclusion
-summary:
+description:
     Opt-out of analytics-related tracking.
 ---
 

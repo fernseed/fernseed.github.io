@@ -4,14 +4,15 @@ subtitle: Extending Applications With Applications
 tagline: 
 permalink: 
 date: 2015-09-28 19:30:00
-modified: 02/10/2015
+modified: 13/01/2016
 sticky: 
 tags: [livereload, jekyll, scrivener, hazel, osx, marked, markdown]
+author: dmcgk
 gists: 
 files: 
-preview-image: software-scrivener-safari.png
+image: http://fernseed.org/assets/images/software-scrivener-safari.png
 redirect_from: 
-summary:
+description:
     One of the more trivial-seeming changes to the upcoming OS X 10.11 release, but one that I've found most immediately useful, is the addition of a new split-screen mode for full-screen apps.
 sidebar:
     <em>I cannot cognitively handle more than a couple of Safari windows</em>&mdash;<a href='https://overcast.fm/+CdRRhGxw/1:30:21'>Casey Liss, ATP 96</a>
@@ -23,7 +24,7 @@ sidebar:
 
 <!-- Content -->
 
-Not everyone makes use of the existing 'Lion-style' full-screen mode in OS X--- if you have a particularly large monitor, or just prefer having [multiple overlapping windows](https://overcast.fm/+CdRRhGxw/1:30:21) visible at the same time, then you may see it as a waste of screen real estate---yet the tech world has seen a real growth over the last few years in [applications](https://ia.net/writer/mac/) and [tools](http://selfcontrolapp.com) which are built with the goal of reducing distraction and increasing focus.
+Not everyone makes use of the existing 'Lion-style' full-screen mode in OS X---if you have a particularly large monitor, or just prefer having [multiple overlapping windows](https://overcast.fm/+CdRRhGxw/1:30:21) visible at the same time, then you may see it as a waste of screen real estate---yet the tech world has seen a real growth over the last few years in [applications](https://ia.net/writer/mac/) and [tools](http://selfcontrolapp.com) which are built with the goal of reducing distraction and increasing focus.
 
 For OS X users, dedicated Spaces for full-screen apps can be an easy, built-in solution to that same problem of keeping your attention on a single activity. The upcoming [Split View full-screen](http://www.apple.com/osx/elcapitan-preview/) mode under OS X 10.11 El Capitan [^release-date] has the potential to be a nice expansion of the same idea.
 
@@ -45,7 +46,7 @@ This is doubly-handy since the new version of Safari also has a [Google Chrome-l
 
 Or do you need a fully-rendered preview of the eBook you're writing but there's no in-app ability in your editor to provide it? [Marked][#Marked] can be slotted in alongside it. [^marked] Combine it with the use of [Critic Markup](http://criticmarkup.com) syntax as revisions are made and you'll also get editing and proofing tools 'built into' your writing workflow, even if your primary writing application doesn't offer such a feature. Or keep your notes or mind maps alongside your text editor of choice but deal with them both in the same dedicated 'space'. 
 
-This approach to purposefully-limited or targeted multitasking is one of the reasons I really like the idea of the [iPad Pro](https://www.apple.com/ipad-pro/) as a potential laptop replacement. [^viticci]
+This approach to purposefully-limited or targeted multitasking is one of the reasons I really like the idea of the [iPad Pro](https://www.apple.com/ipad-pro/) as a potential [^viticci] laptop replacement.
 
 <!-- Notes -->
 
@@ -59,4 +60,4 @@ This approach to purposefully-limited or targeted multitasking is one of the rea
 
 [^marked]: In the case of Scrivener, just open the `.scriv` file in Marked and it will auto update every time your Scrivener project auto-saves.
 
-[^viticci]: Using iPads for content creation is something that seems to [work very well already](https://www.macstories.net/stories/ios-9-review/).
+[^viticci]: There really isn't any reason anymore why tablets shouldn't be considered ['proper computers'](https://www.macstories.net/stories/ios-9-review/) for content creation.
