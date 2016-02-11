@@ -13,8 +13,8 @@ permalink: /fiction/the-second-room/complete/
 
 <section id="content">
     <div class="post fiction">
-    <div id="article" itemscope itemtype="http://schema.org/Article">
-    <meta itemprop="name" content="the story so far" />
+    <div id="article" itemscope itemtype="http://schema.org/NewsArticle">
+    <meta itemprop="headline" content="the story so far" />
     <h6 class="post-title"></h6>
     <h1 class="post-title">
         The Second Room
@@ -53,7 +53,7 @@ permalink: /fiction/the-second-room/complete/
 </div>
 </section>
 <hr />
-<span class="post-date offset">
+<span class="post-data offset">
     {{ published | date: "%A" }},
     {% assign d = published | date: "%-d" %}
     {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} 

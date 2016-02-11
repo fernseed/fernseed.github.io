@@ -4,14 +4,15 @@ subtitle: Using Advanced kramdown Features via Scrivener
 tagline: 
 permalink: 
 date: 2015-09-14 13:00:00
-modified: 02/10/2015
+modified: 13/01/2016
 sticky: 
 tags: [scrivener, jekyll, markdown, kramdown, responsive design, images]
+author: dmcgk
 gists: dmcgk/3cb20fbd69ae773bb139
 files: 
-preview-image: logo.png
+image: http://fernseed.org/assets/images/logo.png
 redirect_from: 
-summary:
+description:
     Automating the conversion of short 'inline link' Markdown syntax into something which can support the proposed HTML 5.1 srcset attribute, without changing the raw content markup.
 sidebar:
     

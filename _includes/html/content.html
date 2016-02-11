@@ -19,7 +19,7 @@
                 <a href="/{{ category_hierarchy }}">{{ category | replace:'-',' ' }}</a>
               {% endunless %}
             {% endfor %}
-              {% if page.type == "index" %}
+              {% if page.class == "index" %}
               {% if page.tagline %}
               &middot; 
               {{ page.title }}
@@ -44,14 +44,14 @@
 
   {% endif %}
 
-  <div class="container content post {{ page.categories.first }}" {% unless page.type == "index" %}id="article" itemscope itemtype="http://schema.org/Article"{% endunless %}>
-    {% unless page.type == "index" %}
+  <div class="container content post {{ page.categories.first }}" {% unless page.class == "index" %}id="article" itemscope itemtype="http://schema.org/NewsArticle"{% endunless %}>
+    {% unless page.class == "index" %}
       <h6 class="post-subtitle">
         {% if page.subtitle %}{{ page.subtitle | replace: ' and ', ' &amp; ' }}{% endif %}
       </h6>
 
       <h1 class="post-title" id="article-title">
-          <span itemprop="name">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</span>
+          <span itemprop="headline">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</span>
       </h1>
       
       {% assign words = page.content | number_of_words %}
@@ -69,15 +69,15 @@
       <article id="article-content" itemprop="articleBody">
     {% endunless %}
     {{ content }}
-    {% unless page.type == "index" %}
+    {% unless page.class == "index" %}
       </article>
       
       {% capture published %}{% include html/date.html %}{% endcapture %}
       {% capture modified %}{% include html/date-modified.html %}{% endcapture %}
 
-      {% unless page.type == "special" %}
+      {% unless page.class == "special" %}
         <hr />
-        <span class="post-date offset">
+        <span class="post-data offset">
           <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">{{ published }}</span>{% if page.modified %}{% if modified != published  %}<br /><small><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: {{ modified }}</small>{% endif %}{% endif %}
         </span>
       {% endunless %}
@@ -85,7 +85,7 @@
 
   </div>
 
-  {% unless page.type == "index" %}
+  {% unless page.class == "index" %}
     <div class="metadata">
       <div class="post excerpt {{ page.categories.first }}">
         <h6 class="post-subtitle">
@@ -98,16 +98,16 @@
       <h2 class="post-title">
           <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</a>
         </h2>
-        <span class="post-date">
+        <span class="post-data">
           {% include html/date.html %}
         </span>
-        <article itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/NewsArticle">
           <meta itemprop="url" content="{{ page.url }}" />
-          <meta itemprop="name" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}" />
+          <meta itemprop="headline" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}" />
           <meta itemprop="wordCount" content="{{ page.content | number_of_words }}" />
           <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
-          {% if page.summary %}
-          {{ page.summary | strip_html | strip_newlines }}
+          {% if page.description %}
+          {{ page.description | strip_html | strip_newlines }}
           {% else %}
           <blockquote>{{ page.excerpt | strip_html | strip_newlines }}</blockquote>
           {% endif %}
