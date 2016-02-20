@@ -15,10 +15,14 @@
           {% include html/date.html %}
         </span>
         <article itemscope itemtype="http://schema.org/NewsArticle">
+          {% if page.image %}
+          <meta itemprop="image" content="{{ page.image }}" />
+          {% endif %}
           <meta itemprop="url" content="{{ page.url }}" />
           <meta itemprop="headline" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}" />
           <meta itemprop="wordCount" content="{{ page.content | number_of_words }}" />
           <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
+          <meta itemprop="dateModified" content="{{ modified | date_to_xmlschema }}" />
           {% if page.description %}
           {{ page.description | strip_html | strip_newlines }}
           {% else %}

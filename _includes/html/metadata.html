@@ -1,9 +1,14 @@
 <footer id="article-meta">
-    <span id='date' itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">
+
+      {% capture published %}{% include html/date.html %}{% endcapture %}
+      {% capture modified %}{% include html/date-modified.html %}{% endcapture %}
+
+    <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">
         <a href="{{ page.url }}">
                 {{ page.date | date: "%A, %-d %B, %Y" }}
         </a>
     </span>
+    <span id='date' itemprop="dateModified" content="{{ modified | date_to_xmlschema }}" />
     <span id='taglist'>
         {% for tag in page.tags %}
             <a href="/tags/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}

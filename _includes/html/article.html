@@ -6,7 +6,13 @@
       <h1 class="post-title" id="article-title">
           <span itemprop="headline">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</span>
       </h1>
-      
+
+      {% if page.image %}
+        <meta itemprop="image" content="{{ page.image }}" />
+      {% endif %} 
+
+      <meta itemprop="mainEntityOfPage" content="{{ page.url }}" />
+
       {% assign words = page.content | number_of_words %}
 
       <meta itemprop="wordCount" content="{{ words }}" />
@@ -31,7 +37,7 @@
       {% unless page.class == "special" %}
         <hr />
         <span class="post-data offset">
-          <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">{{ published }}</span>{% if page.modified %}{% if modified != published  %}<br /><small><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: {{ modified }}</small>{% endif %}{% endif %}
+          <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">{{ published }}</span>{% if page.modified %}{% if modified != published  %}<br /><small><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: <span id='date' itemprop="dateModified" content="{{ modified | date_to_xmlschema }}">{{ modified }}</span></small>{% endif %}{% endif %}
         </span>
       {% endunless %}
     {% endunless %}
