@@ -9,6 +9,8 @@ standards: 'HTML5, CSS3'
 timezone: 'Europe/Belfast'
 permalink: /:categories/:title/
 reading_wpm: 180
+paginate: 10
+paginate_path: "/archive/:num/"
 
 # Site contact information
 twitter:
@@ -55,6 +57,7 @@ gems:
     - jekyll-sitemap
     - jekyll-seo-tag
     - jekyll-gist
+    - jekyll-paginate
 
 # Plugin settings
 jekyll-mentions:
@@ -62,7 +65,10 @@ jekyll-mentions:
 compress_html:
     clippings: all
     comments: ["<!-- ", " -->"]
-    endings: none
+    endings: all
+    blanklines: false
+    profile: false
+    startings: all
 kramdown:
-  auto_ids: true
-  toc_levels: 1..6
+    auto_ids: true
+    toc_levels: 1..6

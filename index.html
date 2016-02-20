@@ -1,12 +1,12 @@
 ---
 layout: index
 title: fernseed
-permalink: /
 ---
+
 <div class="posts">
-  {% for post in site.posts limit: 5 %}
-  {% include html/post-loop.html %}
+  {% for post in paginator.posts %}
+  	{% include html/post-loop.html %}
   {% endfor %}
 </div>
 
-<div class="infinite-spinner"></div>
+{% include html/pagination.html %}
