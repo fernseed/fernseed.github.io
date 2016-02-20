@@ -295,18 +295,40 @@ a:before {
   transition: all 0.1s ease-in-out 0s;
 }
 
+a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+.bigfoot-footnote__button {
+  font-size: $very-small-size;
+  font-weight: 700; 
+  color: white !important;
+  padding: 0.6em;
+  padding-bottom: 0.85em;
+  /*
+  font-variant-numeric: lining-nums;
+  -moz-font-feature-settings: "lnum";
+  -webkit-font-feature-settings: "lnum";
+  font-feature-settings: "lnum";
+  */
+}
+
+.bigfoot-footnote__container a:before {
+  visibility: hidden;
+}
+
+.bigfoot-footnote__container a:hover:before {
+  visibility: hidden;
+}
+
 .masthead-title a {
   color: $base;
 }
 
 .masthead-title > a:before {
     background-color: $base;
-}
-
-a:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
 }
 
 body {
