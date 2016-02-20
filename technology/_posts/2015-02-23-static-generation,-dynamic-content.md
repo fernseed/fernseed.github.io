@@ -24,13 +24,13 @@ sidebar:
 
 <!-- Content -->
 
-This is a [static](http://en.wikipedia.org/wiki/Static_web_page) website---the content you're reading now is generated once, for all visitors, then presented in the same way each time for each browser request. That's slightly different from the (current) internet norm of generating content as it's requested, possibly on a targeted per-user basis, and probably using a database or some server-side business logic. Think of Wordpress and its plugins as examples of the latter, while [Pelican](http://blog.getpelican.com), [Jekyll][#jekyll], and [Octopress](http://octopress.org) would be examples of the former.[^fn1]
+This is a [static](http://en.wikipedia.org/wiki/Static_web_page) website---the content you're reading now is generated once, for all visitors, then presented in the same way each time for each browser request. That's slightly different from the (current) internet norm of generating content as it's requested, possibly on a targeted per-user basis, and probably using a database or some server-side business logic. Think of Wordpress and its plugins as examples of the latter, while [Pelican](http://blog.getpelican.com), [Jekyll][#jekyll], and [Octopress](http://octopress.org) would be examples of the former. [^fn1]
 
-Even though the back-end mechanics are very different, there's not as much variation in how the site content is written under either approach, since today's websites typically use some kind of [CMS](http://en.wikipedia.org/wiki/Content_management_system) or templating system to create and organise content. Just because a website is static it doesn't mean that you're constrained to writing everything in pure, flat HTML,[^fn2] any more than a dynamic site would be written as a set of SQL queries.
+Even though the back-end mechanics are very different, there's not as much variation in how the site content is written under either approach, since today's websites typically use some kind of [CMS](http://en.wikipedia.org/wiki/Content_management_system) or templating system to create and organise content. Just because a website is static it doesn't mean that you're constrained to writing everything in pure, flat HTML, [^fn2] any more than a dynamic site would be written as a set of SQL queries.
   
-The basic goal of a static website is for its content to be *complete* and *universal* at the moment it is turned into HTML for publication---a single set of generated content is all that any client browser ever sees.[^fn3]
+The basic goal of a static website is for its content to be *complete* and *universal* at the moment it is turned into HTML for publication---a single set of generated content is all that any client browser ever sees. [^fn3]
 
-This doesn't mean that a *static* site can't be *interactive*, it just means that any interactivity needs to be handled on the client-side, normally using some flavour of JavaScript.[^fn4] The 'static' part of the name refers purely to the server-side, the *generation* side,[^fn5] although even there any eventually-static content will be built dynamically from a set of templates and page-specific logic.[^fn6] In other words, the content that is actually served to your browser can still be different from that which I originally write. 
+This doesn't mean that a *static* site can't be *interactive*, it just means that any interactivity needs to be handled on the client-side, normally using some flavour of JavaScript. [^fn4] The 'static' part of the name refers purely to the server-side, the *generation* side, [^fn5] although even there any eventually-static content will be built dynamically from a set of templates and page-specific logic. [^fn6] In other words, the content that is actually served to your browser can still be different from that which I originally write. 
 
 What on earth am I talking about? Let's take an example...
   
@@ -41,13 +41,13 @@ What on earth am I talking about? Let's take an example...
 
 [Jamie Rubin](http://jamierubin.net) is a sci-fi author and programmer who, as part of a more wide-ranging personal project involving self-quantification, has spent some time gathering data about his writing habits and providing visualisations of that data for the benefit of his readers. He uses Google Docs for his writing and has created a set of scripts which will take metadata from those docs and use them as the basis for his visualisations---you can read about that process [on his blog](http://www.jamierubin.net/2014/08/08/how-i-use-google-docs-for-writing/). 
 
-What would it take to do something similar, making use of only static-website technologies such as Jekyll?[^fn7] Our flow might look something like this:
+What would it take to do something similar, making use of only static-website technologies such as Jekyll? [^fn7] Our flow might look something like this:
 
 <a href="/assets/images/mindmap-flat-file-to-jekyll@3x.png"><img srcset="/assets/images/mindmap-flat-file-to-jekyll@2x.png 2x, /assets/images/mindmap-flat-file-to-jekyll@3x.png 3x" src="/assets/images/mindmap-flat-file-to-jekyll.png" alt="Click to enlarge" title="Mind-mapping the process"></a>
 
 We could generate some writing statistics offline which we would store and keep updated in a suitable flat data file on the server; use Jekyll templates to interpolate any additional data required; then plug the output into a JavaScript visualisation library so that we can get some pretty and interactive charts. 
 
-The data we'll gather should be as simple as possible, I'll try to keep it expressible in just a couple of columns in a CSV text file.[^fn8] We should then be able to use Jekyll's [Liquid-derived](http://jekyllrb.com/docs/templates/) templating engine to work out any additional calculated data and relationships we need, such as full-period and floating 7-day averages to mimic Jamie's setup. [Google Charts](https://developers.google.com/chart/) should give us everything required to allow some basic interaction by the end user through JavaScript. 
+The data we'll gather should be as simple as possible, I'll try to keep it expressible in just a couple of columns in a CSV text file. [^fn8] We should then be able to use Jekyll's [Liquid-derived](http://jekyllrb.com/docs/templates/) templating engine to work out any additional calculated data and relationships we need, such as full-period and floating 7-day averages to mimic Jamie's setup. [Google Charts](https://developers.google.com/chart/) should give us everything required to allow some basic interaction by the end user through JavaScript. 
 
 ### Data Structure
 
@@ -79,7 +79,7 @@ With a session that we know was last updated yesterday, we could write:
   
 {% gist dmcgk/bc743a73ae4640ced973 scrivener-wordcount.sh %}
   
-For the `PreviousSession` stats to be useful, any Project Target option to automatically reset the session count must be something sane---exactly what that means for you will depend on how often and how regularly you intend to run your script,[^fn9] eg.:
+For the `PreviousSession` stats to be useful, any Project Target option to automatically reset the session count must be something sane---exactly what that means for you will depend on how often and how regularly you intend to run your script, [^fn9] eg.:
 
 <a href="/assets/images/software-scrivener-project-targets-window@3x.png"><img srcset="/assets/images/software-scrivener-project-targets-window@2x.png 2x, /assets/images/software-scrivener-project-targets-window@3x.png 3x" src="/assets/images/software-scrivener-project-targets-window.png" alt="Click to enlarge" title="Scrivener's 'Project Targets' window"></a> 
 
@@ -91,17 +91,17 @@ The script itself might look something like this:
 
 {% gist dmcgk/bc743a73ae4640ced973 add-data-to-csv.sh %}
 
-There are a number of ways in which you could automate the running of your script, the simplest probably being an entry in your `cron`. On OS X the standard approach would be to use `launchd`, however I prefer to use `/etc/periodic/daily/`[^fn10] in an attempt to guarantee[^fn11] that the script should run once and once only, daily, when my MacBook is awake.
+There are a number of ways in which you could automate the running of your script, the simplest probably being an entry in your `cron`. On OS X the standard approach would be to use `launchd`, however I prefer to use `/etc/periodic/daily/` [^fn10] in an attempt to guarantee [^fn11] that the script should run once and once only, daily, when my MacBook is awake.
 
 ### Collecting Data from Markdown
 
 Going after Scrivener data is one approach, but it's a little messy and not generally applicable. So let's talk briefly about my own psychological tics... 
 
-Scrivener, like most OS X applications, will automatically save any changes made to a project every few seconds---the Snapshots feature even allows you to roll back to earlier auto-saved drafts (even though the app [doesn't support](http://www.literatureandlatte.com/forum/viewtopic.php?f=4&t=78&p=123475&hilit=lion+autosave#p123475) the built-in [OS X system-level versioning/reverting](http://support.apple.com/kb/PH14378) mechanism for files, since your `.scriv` document isn't really a single file at all). This means that my multi-decade muscle memory to spam ⌘-S to save every once in a while to make sure I don't lose anything is entirely redundant. So let's repurpose otherwise wasted muscle memory and bind that shortcut to 'Sync with External Folder Now' instead:[^fn12]
+Scrivener, like most OS X applications, will automatically save any changes made to a project every few seconds---the Snapshots feature even allows you to roll back to earlier auto-saved drafts (even though the app [doesn't support](http://www.literatureandlatte.com/forum/viewtopic.php?f=4&t=78&p=123475&hilit=lion+autosave#p123475) the built-in [OS X system-level versioning/reverting](http://support.apple.com/kb/PH14378) mechanism for files, since your `.scriv` document isn't really a single file at all). This means that my multi-decade muscle memory to spam ⌘-S to save every once in a while to make sure I don't lose anything is entirely redundant. So let's repurpose otherwise wasted muscle memory and bind that shortcut to 'Sync with External Folder Now' instead: [^fn12]
 
 <a href="/assets/images/software-scrivener-sync-now-menu@3x.png"><img srcset="/assets/images/software-scrivener-sync-now-menu@2x.png 2x, /assets/images/software-scrivener-sync-now-menu@3x.png 3x" src="/assets/images/software-scrivener-sync-now-menu.png" alt="Click to enlarge" title="Scrivener's 'Sync Now' menu option"></a> 
 
-At this point we can pick up any plain text files stored in the 'Drafts' folder(s) in the sync target location and run them through `wc`:[^fn13]
+At this point we can pick up any plain text files stored in the 'Drafts' folder(s) in the sync target location and run them through `wc`: [^fn13]
 
 {% gist dmcgk/bc743a73ae4640ced973 markdown-wordcount.sh %}
 
@@ -214,7 +214,7 @@ It's a fairly limited example, but hopefully it illustrates the main points:
 - I don't need to manually update the page content to reflect any new data which is added over time.
 - The graph and its buttons will behave as though they're being updated in a more traditional fashion from a database. 
 
-The only real limitation to this approach[^fn14] is that it relies on data captured locally being pushed to GitHub so that Jekyll can update the HTML which forms the data-set. This isn't really a limitation of static websites in this case though, since even a dynamic site would need its back-end database updated, possibly via similar means, and for the same reason.
+The only real limitation to this approach [^fn14] is that it relies on data captured locally being pushed to GitHub so that Jekyll can update the HTML which forms the data-set. This isn't really a limitation of static websites in this case though, since even a dynamic site would need its back-end database updated, possibly via similar means, and for the same reason.
 
 Here's the [permanent home](/meta/stats/) for the above for future reference. Feel free to browse/borrow/tweak the finished source code for your own purposes, it's available from the [sidebar][sidebar] of either page.
 

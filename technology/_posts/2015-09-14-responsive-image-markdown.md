@@ -33,7 +33,7 @@ There are multiple 'flavours' of Markdown, some of which allow a (limited) set o
 
 ## Inline Links
 
-Basic Markdown has a short 'inline link' syntax which can be used to define your images. This is my own preferred method when working in Markdown in Scrivener, but I to also want to provide a set of alternative assets for different screen DPI if the post in question contains images.[^fn1]
+Basic Markdown has a short 'inline link' syntax which can be used to define your images. This is my own preferred method when working in Markdown in Scrivener, but I to also want to provide a set of alternative assets for different screen DPI if the post in question contains images. [^fn1]
 
 If you just want '2x' images to be used in general and then scaled by the browser, then all you need to care about is making sure that your actual image asset is of the appropriate quality and that the image has its `width` attribute set to exactly half of the true width, all of which can be handled in something like the [MultiMarkdown](http://fletcherpenney.net/multimarkdown/) flavour of Markdown like this:
 
@@ -43,13 +43,13 @@ The major downside is the full-sized image attribute still needs to be retrieved
 
 ## Extended Image Attributes
 
-There are ways to deal with this 'properly'[^fn2] and in an automated fashion, *if* your approach to naming and otherwise dealing with each asset can be managed in a predictable manner as part of your workflow. 
+There are ways to deal with this 'properly' [^fn2] and in an automated fashion, *if* your approach to naming and otherwise dealing with each asset can be managed in a predictable manner as part of your workflow. 
 
 For instance, let's say that we will always be dealing with a set of three variations on the same base image, with consistently named extensions (in this case, 2x and 3x for the higher DPI versions). Using [`kramdown`][#kramdown]'s IAL [extensions for blocks](http://kramdown.gettalong.org/syntax.html#block-ials) and a Scrivener regex lets us produce arbitrarily verbose output from a relatively clean input. Note that this particular inline extension markup is only currently available in the `kramdown` Markdown flavour; so that I can specify additional HTML block-level attributes with this kind of notation:
 
 {% gist dmcgk/3cb20fbd69ae773bb139 kramdown-image-with-ial.txt %}
 
-`srcset` is an HTML 5.1 proposal for dealing with image sets and seems to have at least partial support [across a decent subset of modern browsers](http://caniuse.com/#search=srcset),[^fn3] at least enough to recognise the '*n*x' part of the syntax.
+`srcset` is an HTML 5.1 proposal for dealing with image sets and seems to have at least partial support [across a decent subset of modern browsers](http://caniuse.com/#search=srcset), [^fn3] at least enough to recognise the '*n*x' part of the syntax.
 
 Other Markdown compilers do sometimes offer alternative mechanisms extended image attributes, but unfortunately there's no single, common or widespread syntax. For those not using `kramdown`, or for those running Jekyll blogs on GitHub Pages which as of the date of this post does not support a version of `kramdown` with the block IAL support, using raw inline HTML may be the best option:
 
@@ -65,13 +65,13 @@ Matching regex:
 
 {% gist dmcgk/3cb20fbd69ae773bb139 image-matching-regex.txt %}
 
-Substitution regex:[^fn4]
+Substitution regex: [^fn4]
 
 {% gist dmcgk/3cb20fbd69ae773bb139 image-replacement-regex-markdown.txt %}
 
 You can test these visually at the really-very-useful-indeed [Regexr site](http://regexr.com) or using an app such as [Patterns](http://krillapps.com/patterns/).
 
-So now I have a 'clean' set of Markdown which will also happily display images correctly when previewed in something like [Marked][#Marked].[^fn5]
+So now I have a 'clean' set of Markdown which will also happily display images correctly when previewed in something like [Marked][#Marked]. [^fn5]
 
 If you're using GitHub Pages to host your content then `kramdown` 1.5 is still in use, with the IAL block level support only appearing in 1.6. Version 1.8 with support for block-level IALs for images currently has [an open pull request](https://github.com/github/pages-gem/pull/155). As soon as it's merged you'll get this behaviour 'out of the box' for standard GitHub Pages hosted sites.
 
