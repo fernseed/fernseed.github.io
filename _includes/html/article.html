@@ -11,7 +11,7 @@
         <meta itemprop="image" content="{{ page.image }}" />
       {% endif %} 
 
-      <meta itemprop="mainEntityOfPage" content="{{ page.url }}" />
+      <meta itemprop="mainEntityOfPage" content="{{ site.url }}{{ page.url }}" />
 
       {% assign words = page.content | number_of_words %}
 

@@ -18,7 +18,7 @@
           {% if page.image %}
           <meta itemprop="image" content="{{ page.image }}" />
           {% endif %}
-          <meta itemprop="url" content="{{ page.url }}" />
+          <meta itemprop="url" content="{{ site.url }}{{ page.url }}" />
           <meta itemprop="headline" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}" />
           <meta itemprop="wordCount" content="{{ page.content | number_of_words }}" />
           <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
