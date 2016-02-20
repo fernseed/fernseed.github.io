@@ -1,0 +1,36 @@
+  {% unless page.class == "index" %}
+    <div class="metadata">
+      <div class="post excerpt {{ page.categories.first }}">
+        <h6 class="post-subtitle">
+          {% for category in page.categories %}
+          {% capture category_hierarchy %}{% for i in (0..forloop.index0) %}{{ page.categories[i] }}/{% endfor %}{% endcapture %}
+          <a href="/{{ category_hierarchy }}">{{ category | replace:'-',' ' }}</a>{% unless forloop.last %} &middot; {% endunless %}
+          {% endfor %}
+          {% if page.tagline %} &middot; <a href="{{ page.url }}">{{ page.title }}</a>{% endif %}
+        </h6>
+      <h2 class="post-title">
+          <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</a>
+        </h2>
+        <span class="post-data">
+          {% include html/date.html %}
+        </span>
+        <article itemscope itemtype="http://schema.org/NewsArticle">
+          <meta itemprop="url" content="{{ page.url }}" />
+          <meta itemprop="headline" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}" />
+          <meta itemprop="wordCount" content="{{ page.content | number_of_words }}" />
+          <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
+          {% if page.description %}
+          {{ page.description | strip_html | strip_newlines }}
+          {% else %}
+          <blockquote>{{ page.excerpt | strip_html | strip_newlines }}</blockquote>
+          {% endif %}
+        </article>
+      </div>
+    </div>
+    <script>
+      if ($( "#markdown-toc" ) != null && $( "#markdown-toc" ).length != 0) {
+        $( "#sidebar-toc" ).html("Contents:");
+        $( "#markdown-toc" ).appendTo( "#sidebar-toc" );
+      }
+    </script>
+  {% endunless %}  

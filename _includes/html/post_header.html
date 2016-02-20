@@ -1,0 +1,34 @@
+  {% assign index_category = page.title | replace:' ','-' %}
+
+  <div class="masthead{% if page.featured-image %} site-header dark{% endif %}">
+    <div class="container">
+      {% if page.url != "/" %}<h3 class="masthead-title">{% else %}<h1 class="masthead-title">{% endif %}<a href="/">{{ site.title }}</a>{% if page.url == "/" %}<span class="masthead-tagline">&mdash;{{ site.description }}</span>{% endif %}
+        {% if page.url != "/" %}
+        <span class="masthead-tagline">
+          {% if page.categories or page.url contains "archive" %} &middot; {% endif %}
+          {% if page.url contains "archive" %}Archive{% endif %}
+          <span class="{{ page.categories | first }}">
+            {% for category in page.categories %}
+              {% unless forloop.first %}  &middot; {% endunless %}
+              {% capture category_hierarchy %}{% for i in (0..forloop.index0) %}{{ page.categories[i] }}/{% endfor %}{% endcapture %}
+              {% unless page.categories[i] == index_category %}
+                <a href="/{{ category_hierarchy }}">{{ category | replace:'-',' ' }}</a>
+              {% endunless %}
+            {% endfor %}
+              {% if page.class == "index" %}
+              {% if page.tagline %}
+              &middot; 
+              {{ page.title }}
+              {% endif %}
+            {% else %}
+              {% if page.tagline %}
+              &middot;  
+              {{ page.title }}
+              {% endif %}
+            {% endif %}
+          </span>
+        </span>
+        {% endif %}
+      {% if page.url != "/" %}</h3>{% else %}</h1>{% endif %}
+    </div>
+  </div>

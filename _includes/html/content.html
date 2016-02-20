@@ -3,124 +3,18 @@
  content to avoid any CSS collisions with our real content. -->
  <div class="wrap">
 
-  {% assign index_category = page.title | replace:' ','-' %}
+  {% include html/post_header.html %}
 
-  <div class="masthead{% if page.featured-image %} site-header dark{% endif %}">
-    <div class="container">
-      {% if page.url != "/" %}<h3 class="masthead-title">{% else %}<h1 class="masthead-title">{% endif %}<a href="/">{{ site.title }}</a>{% if page.url == "/" %}<span class="masthead-tagline">&mdash;{{ site.description }}</span>{% endif %}
-        {% if page.url != "/" %}
-        <span class="masthead-tagline">
-          {% if page.categories %} &middot; {% endif %}
-          <span class="{{ page.categories | first }}">
-            {% for category in page.categories %}
-              {% unless forloop.first %}  &middot; {% endunless %}
-              {% capture category_hierarchy %}{% for i in (0..forloop.index0) %}{{ page.categories[i] }}/{% endfor %}{% endcapture %}
-              {% unless page.categories[i] == index_category %}
-                <a href="/{{ category_hierarchy }}">{{ category | replace:'-',' ' }}</a>
-              {% endunless %}
-            {% endfor %}
-              {% if page.class == "index" %}
-              {% if page.tagline %}
-              &middot; 
-              {{ page.title }}
-              {% endif %}
-            {% else %}
-              {% if page.tagline %}
-              &middot;  
-              {{ page.title }}
-              {% endif %}
-            {% endif %}
-          </span>
-        </span>
-        {% endif %}
-      {% if page.url != "/" %}</h3>{% else %}</h1>{% endif %}
-    </div>
-  </div>
-
-  {% if page.featured-image %}
-
-  <div class="overlay"></div>
-  <div class="featured-image" style="background-image: url({{ page.featured-image }})"></div>
-
-  {% endif %}
+  {% include html/post_image.html %}
 
   <div class="container content post {{ page.categories.first }}" {% unless page.class == "index" %}id="article" itemscope itemtype="http://schema.org/NewsArticle"{% endunless %}>
-    {% unless page.class == "index" %}
-      <h6 class="post-subtitle">
-        {% if page.subtitle %}{{ page.subtitle | replace: ' and ', ' &amp; ' }}{% endif %}
-      </h6>
 
-      <h1 class="post-title" id="article-title">
-          <span itemprop="headline">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</span>
-      </h1>
-      
-      {% assign words = page.content | number_of_words %}
-
-      <meta itemprop="wordCount" content="{{ words }}" />
-
-      {% capture significant_wordcount %}{{ words | minus:360 }}{% endcapture %}
-
-      {% unless significant_wordcount contains "-" %}
-        {% include html/reading-time.html %}
-      {% endunless %}
-
-      <hr/>
-
-      <article id="article-content" itemprop="articleBody">
-    {% endunless %}
-    {{ content }}
-    {% unless page.class == "index" %}
-      </article>
-      
-      {% capture published %}{% include html/date.html %}{% endcapture %}
-      {% capture modified %}{% include html/date-modified.html %}{% endcapture %}
-
-      {% unless page.class == "special" %}
-        <hr />
-        <span class="post-data offset">
-          <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">{{ published }}</span>{% if page.modified %}{% if modified != published  %}<br /><small><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: {{ modified }}</small>{% endif %}{% endif %}
-        </span>
-      {% endunless %}
-    {% endunless %}
+    {% include html/article.html %}
 
   </div>
 
-  {% unless page.class == "index" %}
-    <div class="metadata">
-      <div class="post excerpt {{ page.categories.first }}">
-        <h6 class="post-subtitle">
-          {% for category in page.categories %}
-          {% capture category_hierarchy %}{% for i in (0..forloop.index0) %}{{ page.categories[i] }}/{% endfor %}{% endcapture %}
-          <a href="/{{ category_hierarchy }}">{{ category | replace:'-',' ' }}</a>{% unless forloop.last %} &middot; {% endunless %}
-          {% endfor %}
-          {% if page.tagline %} &middot; <a href="{{ page.url }}">{{ page.title }}</a>{% endif %}
-        </h6>
-      <h2 class="post-title">
-          <a href="{{ page.url }}">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' & ' }}{% else %}{{ page.title | replace: ' and ', ' & ' }}{% endif %}</a>
-        </h2>
-        <span class="post-data">
-          {% include html/date.html %}
-        </span>
-        <article itemscope itemtype="http://schema.org/NewsArticle">
-          <meta itemprop="url" content="{{ page.url }}" />
-          <meta itemprop="headline" content="{% if page.tagline %}{{ page.tagline }}{% else %}{{ page.title }}{% endif %}" />
-          <meta itemprop="wordCount" content="{{ page.content | number_of_words }}" />
-          <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
-          {% if page.description %}
-          {{ page.description | strip_html | strip_newlines }}
-          {% else %}
-          <blockquote>{{ page.excerpt | strip_html | strip_newlines }}</blockquote>
-          {% endif %}
-        </article>
-      </div>
-    </div>
-    <script>
-      if ($( "#markdown-toc" ) != null && $( "#markdown-toc" ).length != 0) {
-        $( "#sidebar-toc" ).html("Contents:");
-        $( "#markdown-toc" ).appendTo( "#sidebar-toc" );
-      }
-    </script>
-  {% endunless %}  
+  {% include html/post_metadata.html %}
+
 </div>
 
 <label for="sidebar-checkbox" class="sidebar-toggle">
