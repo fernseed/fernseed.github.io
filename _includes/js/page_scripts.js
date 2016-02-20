@@ -1,7 +1,18 @@
+/* Analytics */
+if (navigator.doNotTrack == 0) {
+    {% include js/analytics.js %}
+    ga('send', 'pageview');
+}
+
 /* Footnotes */
-$.bigfoot();
+$.bigfoot({
+        buttonMarkup: "<span class='bigfoot-footnote__container'> <a class=\"bigfoot-footnote__button\" id=\"\{\{SUP:data-footnote-backlink-ref\}\}\" data-footnote-number=\"\{\{FOOTNOTENUM\}\}\" data-footnote-identifier=\"\{\{FOOTNOTEID\}\}\" alt=\"See Footnote \{\{FOOTNOTENUM\}\}\" rel=\"footnote\" data-bigfoot-footnote=\"\{\{FOOTNOTECONTENT\}\}\"> \{\{FOOTNOTENUM\}\} </a></span>"
+});
 
 $(document).ready(function(){
+
+    /* Use spinner and autoloading if Javascript enabled, otherwise paginate */
+    $("#infinite-spinner").toggle();
 
     /* Build search database */
     results = [];

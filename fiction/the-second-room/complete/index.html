@@ -23,19 +23,14 @@ permalink: /fiction/the-second-room/complete/
     <hr />
     <article id="article-content" itemprop="articleBody">
         {% for post in site.categories.the-second-room reversed %}
-        <div id="article-{{forloop.index}}-content">
-            {{ post.content }}
-        </div>
         <div class="fleuron">
             <p>
-                <sup id="fnref:second-room-{{forloop.index}}">
-                    <a href="#fn:second-room-{{forloop.index}}" rel="footnote"></a>
-                </sup>
+                    <a id="fnref:second-room-{{forloop.index}}" href="#fn:second-room-{{forloop.index}}" rel="footnote"></a>
             </p>
         </div>
         <div class="footnotes">
             <li class="footnote" id="fn:second-room-{{forloop.index}}">
-                <p><em><a class="fiction" href="{{post.url}}">Part {{forloop.index}}: {{post.tagline}}</a></em>&mdash;
+                <p style="text-align: center;"><em><a class="fiction" href="{{post.url}}">Part {{forloop.index}}: {{post.tagline}}</a></em>&mdash;
                     {{ post.date | date: "%A" }},
                     {% assign d = post.date | date: "%-d" %}
                     {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} 
@@ -43,6 +38,9 @@ permalink: /fiction/the-second-room/complete/
                     {{ post.date | date: "%Y" }}
                 </p>
             </li>
+        </div>
+        <div style="padding-top: 1em; padding-bottom: 1em;" id="article-{{forloop.index}}-content">
+            {{ post.content }}
         </div>
         {%if forloop.last %}{% assign published = post.date %}{% endif %}
         {% endfor %}
