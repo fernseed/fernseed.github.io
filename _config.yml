@@ -17,16 +17,16 @@ twitter:
   username: 'dmcgk'
 
 contact:
-    name: 'Darren McGuicken'
-    twitter: '@dmcgk'
-    github: '@dmcgk'
-    email: 'feedback@fernseed.org'
-    location: 'Northern Ireland, UK'
+  name: 'Darren McGuicken'
+  twitter: '@dmcgk'
+  github: '@dmcgk'
+  email: 'feedback@fernseed.org'
+  location: 'Northern Ireland, UK'
 
 social:
-    type: 'person'
-    name: 'Darren McGuicken'
-    links: ["http://twitter.com/dmcgk"]
+  type: 'person'
+  name: 'Darren McGuicken'
+  links: ["http://twitter.com/dmcgk"]
 
 # Build settings
 environment: production
@@ -34,8 +34,8 @@ markdown: kramdown
 highlighter: rouge
 exclude: [vendor]
 sass:
-    sass_dir: _sass
-    style: :compressed
+  sass_dir: _sass
+  style: :compressed
 defaults:
   -
     scope:
@@ -52,23 +52,23 @@ defaults:
 # Plugins
 gems:
 ## GitHub Pages compatible
-    - jekyll-mentions
-    - jekyll-redirect-from
-    - jekyll-sitemap
-    - jekyll-seo-tag
-    - jekyll-gist
-    - jekyll-paginate
+  - jekyll-mentions
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-gist
+  - jekyll-paginate
 
 # Plugin settings
 jekyll-mentions:
-    base_url: 'https://twitter.com'
+  base_url: 'https://twitter.com'
 compress_html:
-    clippings: all
-    comments: ["<!-- ", " -->"]
-    endings: all
-    blanklines: false
-    profile: false
-    startings: all
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  blanklines: false
+  profile: false
+  startings: all
 kramdown:
-    auto_ids: true
-    toc_levels: 1..6
+  auto_ids: true
+  toc_levels: 1..6
