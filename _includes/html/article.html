@@ -1,43 +1,45 @@
-    {% unless page.class == "index" %}
-      <h6 class="post-subtitle">
-        {% if page.subtitle %}{{ page.subtitle | replace: ' and ', ' &amp; ' }}{% endif %}
-      </h6>
+{% unless page.class == "index" %}
+  <h6 class="post-subtitle">
+    {% if page.subtitle %}{{ page.subtitle | replace: ' and ', ' &amp; ' }}{% endif %}
+  </h6>
 
-      <h1 class="post-title" id="article-title">
-          <span itemprop="headline">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</span>
-      </h1>
+  <h1 class="post-title" id="article-title">
+      <span itemprop="headline">{% if page.tagline %}{{ page.tagline | replace: ' and ', ' &amp; ' }}{% else %}{{ page.title | replace: ' and ', ' &amp; ' }}{% endif %}</span>
+  </h1>
 
-      {% if page.image %}
-        <meta itemprop="image" content="{{ page.image }}" />
-      {% endif %} 
+  {% if page.image %}
+    <meta itemprop="image" content="{{ page.image }}" />
+  {% endif %} 
 
-      <meta itemprop="mainEntityOfPage" content="{{ site.url }}{{ page.url }}" />
+  <meta itemprop="mainEntityOfPage" content="{{ site.url }}{{ page.url }}" />
 
-      {% assign words = page.content | number_of_words %}
+  {% assign words = page.content | number_of_words %}
 
-      <meta itemprop="wordCount" content="{{ words }}" />
+  <meta itemprop="wordCount" content="{{ words }}" />
 
-      {% capture significant_wordcount %}{{ words | minus:360 }}{% endcapture %}
+  {% capture significant_wordcount %}{{ words | minus:360 }}{% endcapture %}
 
-      {% unless significant_wordcount contains "-" %}
-        {% include html/reading-time.html %}
-      {% endunless %}
+  {% unless significant_wordcount contains "-" %}
+    {% include html/reading-time.html %}
+  {% endunless %}
 
-      <hr/>
+  <hr/>
 
-      <article id="article-content" itemprop="articleBody">
-    {% endunless %}
-    {{ content }}
-    {% unless page.class == "index" %}
-      </article>
-      
-      {% capture published %}{% include html/date.html %}{% endcapture %}
-      {% capture modified %}{% include html/date-modified.html %}{% endcapture %}
+  <article id="article-content" itemprop="articleBody">
+{% endunless %}
 
-      {% unless page.class == "special" %}
-        <hr />
-        <span class="post-data offset">
-          <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">{{ published }}</span>{% if page.modified %}{% if modified != published  %}<br /><small><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: <span id='date' itemprop="dateModified" content="{{ modified | date_to_xmlschema }}">{{ modified }}</span></small>{% endif %}{% endif %}
-        </span>
-      {% endunless %}
-    {% endunless %}
+{{ content }}
+
+{% unless page.class == "index" %}
+  </article>
+
+  {% capture published %}{% include html/date.html %}{% endcapture %}
+  {% capture modified %}{% include html/date-modified.html %}{% endcapture %}
+
+  {% unless page.class == "special" %}
+    <hr />
+    <span class="post-data offset">
+      <span id='date' itemprop="datePublished" content="{{ published | date_to_xmlschema }}">{{ published }}</span>{% if page.modified %}{% if modified != published  %}<br /><small><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: <span id='date' itemprop="dateModified" content="{{ modified | date_to_xmlschema }}">{{ modified }}</span></small>{% endif %}{% endif %}
+    </span>
+  {% endunless %}
+{% endunless %}

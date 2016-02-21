@@ -1,22 +1,26 @@
 {% include html/sidebar.html %}
-<!-- Wrap is the content to shift when toggling the sidebar. We wrap the
- content to avoid any CSS collisions with our real content. -->
- <div class="wrap">
-
+<!-- Wrap is the content to shift when toggling the sidebar. We wrap the content to avoid any CSS collisions with our real content. -->
+<div class="wrap">
   {% include html/post_header.html %}
-
   {% include html/post_image.html %}
 
-  <div class="container content post {{ page.categories.first }}" {% unless page.class == "index" %}id="article" itemscope itemtype="http://schema.org/NewsArticle"{% endunless %}>
+  {% assign article_type = "http://schema.org/Article" %}
+  {% assign article_category = page.categories | first %}
+  {% case article_category %}
+  	{% when 'technology' %}
+  		{% assign article_type = "http://schema.org/TechArticle" %}
+  	{% when 'fiction' %}
+  		{% assign article_type = "http://schema.org/CreativeWork" %}
+  {% endcase %}
 
-    {% include html/article.html %}
+  <div class="container content post {{ page.categories.first }}" {% unless page.class == "index" %}id="article" itemscope itemtype="{{ article_type }}"{% endunless %}>
 
+  {% include html/article.html %}
+  
   </div>
-
   {% include html/post_metadata.html %}
-
 </div>
 
 <label for="sidebar-checkbox" class="sidebar-toggle">
- {% include images/logo.svg %}
+  {% include images/logo.svg %}
 </label>

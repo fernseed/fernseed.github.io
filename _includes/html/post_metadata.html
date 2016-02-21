@@ -14,7 +14,15 @@
         <span class="post-data">
           {% include html/date.html %}
         </span>
-        <article itemscope itemtype="http://schema.org/NewsArticle">
+          {% assign article_type = "http://schema.org/Article" %}
+          {% assign article_category = page.categories | first %}
+          {% case article_category %}
+            {% when 'technology' %}
+              {% assign article_type = "http://schema.org/TechArticle" %}
+            {% when 'fiction' %}
+              {% assign article_type = "http://schema.org/CreativeWork" %}
+          {% endcase %}
+        <article itemscope itemtype="{{ article_type }}">
           {% if page.image %}
           <meta itemprop="image" content="{{ page.image }}" />
           {% endif %}
