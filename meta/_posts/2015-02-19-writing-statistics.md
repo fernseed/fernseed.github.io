@@ -5,21 +5,23 @@ sticky: true
 tags: [writing, data-visualisation, quantified-self]
 class: index
 description: 
-    Some charts and figures on my writing progress and consistency. This is inspired by <a href='http://twitter.com/jamietr'>@jamietr</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 500+ day writing streak</a>!
+    Some charts and figures on my writing progress and consistency. This is inspired by <a href='http://twitter.com/jamietr'>@jamietr</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 800+ day writing streak</a>!
 sidebar: 
     See <a href='/technology/static-generation/'>this post</a> for more details.
 ---
 
-{% assign entryCount = site.data.progress | size %}
+{% assign entryCount  = site.data.progress | size %}
+{% assign most_recent = site.data.progress | last %}
+{% assign earliest    = site.data.progress | first %}
 
 <h6 id="tag-subheader" class="post-subtitle"><span class="selector" id="7Selector" onclick='setPeriod(7)'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30)'>30 days</span>{% if entryCount > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365)'>1 year</span>{% else %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0)'>All</span>{% endif %}</h6>
 <h1 id="tag-header" class="post-title">{{ page.title }}</h1>
 
-<article itemscope itemtype="http://schema.org/Article">
+<article itemscope itemtype="http://schema.org/Article" class="wide">
     <meta itemprop="name" content="{{ page.title }}" />
     <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}" />
 
-    <div id="progress-chart" class="progress-chart"><h5>Loading chart&hellip;</h5></div>
+    <div id="progress-chart" class="progress-chart js-only"><h5>Loading chart&hellip;</h5></div>
 
     <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 
@@ -28,92 +30,49 @@ sidebar:
         google.load('visualization', '1', {packages: ['corechart']});
         google.setOnLoadCallback(drawChart);
 
-        {% assign most_recent = site.data.progress | last %}
-        {% assign earliest = site.data.progress | first %}
-
         var reportPeriod = 30;
-        var data = new google.visualization.DataTable();
-
-        data.addColumn('date', 'Date');
-        data.addColumn('number', 'Fiction');
-        data.addColumn('number', 'Non-Fiction');
-        data.addColumn('number', 'Target');
-        data.addColumn('number', 'Average');
-
-        {% assign total = 0 %}
-        {% assign priorTotal = 0 %}
-        {% assign 7dayTotal = 0 %}
-        {% assign prior7dayTotal = 0 %}
-        {% assign counter = 1 %}
-
-        data.addRows([
-            {% for entry in site.data.progress offset:period %}
-                {% assign total = total | plus:entry.fiction | plus:entry.non-fiction | minus:priorTotal %}
-                {% if counter > 7 %}
-                    {% assign 7dayMarker = forloop.index0 | plus:period | minus:7 %}
-                    {% assign 7dayTotal = 7dayTotal | plus:entry.fiction | plus:entry.non-fiction | minus:site.data.progress[7dayMarker].fiction | minus:site.data.progress[7dayMarker].non-fiction | minus:prior7dayTotal %}
-                {% endif %}
-                [ 
-                    new Date({{ entry.date | date: "%Y" }}, {{ entry.date | date: "%m" | minus:1 }}, {{ entry.date | date: "%d" }}), 
-                    {% assign priorEntry = forloop.index0 | plus:period | minus:1 %}
-                    {% if counter > 1 %}
-                        {{ entry.fiction | minus: site.data.progress[priorEntry].fiction }}
-                    {% else %}
-                        {{ entry.fiction }}
-                    {% endif %}, 
-                    {% if counter > 1 %}
-                        {{ entry.non-fiction | minus: site.data.progress[priorEntry].non-fiction }}
-                    {% else %}
-                        {{ entry.non-fiction }}
-                    {% endif %}, 
-                    {{ total | append: '.0' | divided_by:forloop.index }}, 
-                    {% if counter > 7 %}
-                        {{ 7dayTotal | append: '.0' | divided_by:7 }}
-                        {% assign prior7dayTotal = 7dayTotal %}
-                    {% else %}
-                        0 
-                    {% endif %}
-                ],
-                {% assign counter = counter | plus:1 %}
-                {% assign priorTotal = total %}
-            {% endfor %}
-        ]);
+        var graphWidth = $( "article" ).width();
+        var graphHeight = graphWidth / 1.5;
 
         var options = {
-            height: 400,
+            legend: { position: 'bottom', maxLines: 3 },
+            height: graphHeight,
+            width:  graphWidth,
             hAxis: { title: 'Date' },
             vAxis: { viewWindow: { min: 0 }, title: 'Word Count' },
             isStacked: true,
             seriesType: "bars",
-            series: {2: {type: "line"}, 3: {type: "line"}},
+            series: {2: {type: "line"}, 3: {type: "line"}, 4: {type: "line", visibleInLegend: false}},
+            annotations: {style: 'line'}
         };
-
-        var formatter = new google.visualization.NumberFormat( {fractionDigits:1 });
-        formatter.format(data, 3);
-        formatter.format(data, 4);
-
-        var view = new google.visualization.DataView(data);
-        var chart = new google.visualization.ComboChart( document.getElementById('progress-chart'));
 
         function drawChart() {
 
-            $( ".selector").css('font-weight', 'normal');
-            $( "#" + reportPeriod + "Selector" ).css('font-weight', 'bold');
+            $.getJSON('/api/chart', function(json) {
+                var data = new google.visualization.DataTable(json);
 
-            var earliestEntry = "{{ earliest.date }}".split("-");
-            var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
-            var viewFilter;
+                var view = new google.visualization.DataView(data);
+                var chart = new google.visualization.ComboChart( document.getElementById('progress-chart'));
 
-            if (reportPeriod > 0) {
-                var mostRecentEntry = "{{ most_recent.date }}".split("-");
-                viewFilter = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
-                viewFilter.setDate(viewFilter.getDate()-reportPeriod);
-            } else {
-                viewFilter = earliestDate;
-            }
+                $( ".selector").css('font-weight', 'normal');
+                $( "#" + reportPeriod + "Selector" ).css('font-weight', 'bold');
 
-            view.setRows(data.getFilteredRows( [{column: 0, minValue: viewFilter}] ));
-            chart.draw(view, options);
+                var earliestEntry = "{{ earliest.date }}".split("-");
+                var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
+                var viewFilter;
+
+                if (reportPeriod > 0) {
+                    var mostRecentEntry = "{{ most_recent.date }}".split("-");
+                    viewFilter = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
+                    viewFilter.setDate(viewFilter.getDate()-reportPeriod);
+                } else {
+                    viewFilter = earliestDate;
+                }
+
+                view.setRows(data.getFilteredRows( [{column: 0, minValue: viewFilter}] ));
+                chart.draw(view, options);
+
+            });
         }
 
     </script>

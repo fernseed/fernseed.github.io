@@ -229,9 +229,21 @@ article {
   margin-right: auto;
 }
 
+article.wide {
+  width: 100% !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @media (min-width: 56em) {
   article {
     width: $article-width;
+  }
+
+  article.wide {
+    width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -581,7 +593,7 @@ dl {
 }
 
 .progress-chart {
-  max-width: $max-content-width;
+  max-width: 100%;
   margin: auto;
   margin-bottom: $very-large-size;
 }
