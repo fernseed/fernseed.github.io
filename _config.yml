@@ -12,7 +12,11 @@ reading_wpm: 180
 paginate: 10
 paginate_path: "/archive/:num/"
 
-# Site contact information
+# Writing stats
+writing:
+  goal: 500
+
+# Contact information
 twitter:
   username: 'dmcgk'
 
@@ -27,6 +31,10 @@ social:
   type: 'person'
   name: 'Darren McGuicken'
   links: ["http://twitter.com/dmcgk"]
+
+# Non-article collections
+collections:
+  - gallery
 
 # Build settings
 environment: production
