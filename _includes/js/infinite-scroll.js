@@ -1,15 +1,15 @@
 $(function() {
   
-  var postURLs,
+  var posts,
       isFetchingPosts = false,
       shouldFetchPosts = true,
       postsToLoad = $(".posts").children().length,
       loadNewPostsThreshold = 3000;
   
-  $.getJSON('/data/post-list.json', function(postData) {
-    postURLs = postData["posts"];
+  $.getJSON('/api/search', function(postData) {
+    posts = postData["posts"];
     
-    if (postURLs.length <= postsToLoad)
+    if (posts.length <= postsToLoad)
       disableFetching();
   });
   
@@ -30,7 +30,7 @@ $(function() {
   });
   
   function fetchPosts() {
-    if (!postURLs) return;
+    if (!posts) return;
     
     isFetchingPosts = true;
     
@@ -40,7 +40,7 @@ $(function() {
           loadedPosts++;
           var postIndex = postCount + loadedPosts;
           
-          if (postIndex > postURLs.length-1) {
+          if (postIndex > posts.length-1) {
             disableFetching();
             return;
           }
@@ -56,7 +56,7 @@ $(function() {
   }
   
   function fetchPostWithIndex(index, callback) {
-    var postURL = postURLs[index];
+    var postURL = posts[index].url;
     
     $.get(postURL, function(data) {
       $(data).find(".excerpt").appendTo(".posts");

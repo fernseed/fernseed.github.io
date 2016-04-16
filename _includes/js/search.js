@@ -1,6 +1,6 @@
 function getSearchableItems() {
-    $.getJSON('/data/search-content.json', function(searchData) {
-        searchableItemList = searchData;
+    $.getJSON('/api/search', function(searchData) {
+        posts = searchData.posts;
     });
 }
 
@@ -8,7 +8,7 @@ function searchFor(searchString) {
     results = [];
 
     if (searchString != "") {
-        $.each(searchableItemList, function(index, item) {
+        $.each(posts, function(index, item) {
             title   = item['title']  .toLowerCase();
             summary = item['summary'].toLowerCase();
             tags    = item['tags']   .toLowerCase();
