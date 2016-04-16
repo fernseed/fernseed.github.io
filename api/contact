@@ -1,0 +1,12 @@
+---
+layout: compress
+---
+{
+  "site" : {
+	"author"   : "{{ site.contact.name }}",
+	"location" : "{{ site.contact.location }}", 
+	"email"    : "{{ site.contact.email }}",             
+	"twitter"  : "{{ site.contact.twitter }}", 
+	"github"   : "{{ site.contact.github }}"
+	}
+}

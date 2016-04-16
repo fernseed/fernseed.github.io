@@ -1,0 +1,16 @@
+---
+layout: compress
+---
+{
+  "posts" : [
+      {% for post in site.posts %}{% unless post.no-index %}{
+        "title"    : "{{ post.title }}",
+        "tagline"  : "{{ post.tagline }}",
+        "summary"  : "{{ post.description }}",
+        "tags"     : "{{ post.tags | join: ", " }}",
+        "url"      : "{{ post.url }}",
+        "excerpt"  : "{{ post.excerpt | strip_html | strip_newlines }}",
+        "date"     : "{{ post.date | date: "%F" }}"
+      }{% unless forloop.last %},{% endunless %}{% endunless %}{% endfor %}
+  ]
+}

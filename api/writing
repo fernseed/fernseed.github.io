@@ -1,0 +1,134 @@
+---
+layout: compress
+---
+
+{
+  "summary" : {
+
+  {% assign today = site.data.progress | size | minus:1 %}
+  {% assign today_total = site.data.progress[today].fiction | plus: site.data.progress[today].non-fiction %}
+  {% assign yesterday = today | minus:1 %}
+  {% assign yesterday_total = site.data.progress[yesterday].fiction | plus:site.data.progress[yesterday].non-fiction %}
+
+  {% assign streak = 0 %}
+  {% assign daily_total = 0 %}
+  {% assign prior_daily_total = most_recent.fiction | plus: most_recent.non-fiction %}
+  {% assign break = false %}
+  {% assign breakdate = 0 %}
+  {% assign breakdate_index = 0 %}
+  {% assign streak_begin_total = 0 %}
+  {% assign highest_count_in_streak = 0 %}
+
+  {% for writing in site.data.progress reversed %}
+
+    {% assign daily_total = writing.fiction | plus:writing.non-fiction %}{% assign daily_total = prior_daily_total | minus: daily_total %}{% unless break %}{% unless forloop.first %}{% if daily_total > 0 %}{% assign streak = streak | plus:1 %}{% else %}{% assign break = true %}{% endif %}{% endunless %}{% endunless %}{% assign prior_daily_total = writing.fiction | plus: writing.non-fiction %}
+
+    {% if daily_total > highest_count_in_streak %}
+      {% assign highest_count_in_streak = daily_total %}
+    {% endif %}
+
+  {% endfor %}
+
+  {% assign breakdate_index = today | minus:streak %}
+  {% assign breakdate = site.data.progress[breakdate_index].date %}
+  {% assign streak_begin_total = site.data.progress[breakdate_index].fiction | plus:site.data.progress[breakdate_index].non-fiction %}
+  {% assign streak_total = today_total | minus:streak_begin_total %}
+
+    "day" : {
+      "date"  : "{{ site.data.progress[today].date }}",
+      "total" : "{{ today_total | minus:yesterday_total }}",
+      "goal"  : "{{ site.writing.goal }}"
+    },
+    "week" : {
+      "date"    : "",
+      "total"   : "",
+      "average" : "",
+      "highest" : ""
+    },
+    "year" : {
+      "date"    : "",
+      "total"   : "",
+      "average" : "",
+      "highest" : ""
+    },
+    "streak" : {
+      "date"     : "{{ breakdate }}",
+      "duration" : "{{ streak }}",
+      "total"    : "{{ streak_total }}",
+      "average"  : "{{ streak_total | divided_by:streak }}",
+      "highest"  : "{{ highest_count_in_streak }}"
+    }
+  },
+  "history" : [
+      {% assign priorFictionTotal = 0 %}
+      {% assign priorNonFictionTotal = 0 %}
+      {% for writing in site.data.progress %}{
+        {% assign fictionTotal = writing.fiction %}
+        {% assign nonFictionTotal = writing.non-fiction %}
+        {% assign fictionIncrement = fictionTotal | minus:priorFictionTotal %}
+        {% assign nonFictionIncrement = nonFictionTotal | minus:priorNonFictionTotal %}
+
+        {% assign 7dayTotal = 0 %}
+        {% assign prior7dayTotal = 0 %}
+        {% assign 30dayTotal = 0 %}
+        {% assign prior30dayTotal = 0 %}
+        {% assign 365dayTotal = 0 %}
+        {% assign prior365dayTotal = 0 %}
+
+        {% if forloop.index > 7 %}
+            {% assign 7dayMarker = forloop.index0 | minus:7 %}
+            {% assign 7dayTotal = 7dayTotal | plus:writing.fiction | plus:writing.non-fiction | minus:site.data.progress[7dayMarker].fiction | minus:site.data.progress[7dayMarker].non-fiction | minus:prior7dayTotal %}
+        {% endif %}
+
+        {% if forloop.index > 30 %}
+            {% assign 30dayMarker = forloop.index0 | minus:30 %}
+            {% assign 30dayTotal = 30dayTotal | plus:writing.fiction | plus:writing.non-fiction | minus:site.data.progress[30dayMarker].fiction | minus:site.data.progress[30dayMarker].non-fiction | minus:prior30dayTotal %}
+        {% endif %}
+
+        {% if forloop.index > 365 %}
+            {% assign 365dayMarker = forloop.index0 | minus:365 %}
+            {% assign 365dayTotal = 365dayTotal | plus:writing.fiction | plus:writing.non-fiction | minus:site.data.progress[365dayMarker].fiction | minus:site.data.progress[365dayMarker].non-fiction | minus:prior365dayTotal %}
+        {% endif %}
+
+        "date"        : "{{ writing.date }}",
+        "fiction"     : "{{ fictionIncrement }}",
+        "non-fiction" : "{{ nonFictionIncrement }}",
+        "total"       : "{{ fictionIncrement | plus:nonFictionIncrement }}",
+        "average" {
+          "weekly"   : 
+            {% if forloop.index > 7 %}
+              "{{ 7dayTotal | divided_by:7 }}",
+            {% else %}
+              "0",
+            {% endif %}
+          "monthly"  :
+            {% if forloop.index > 30 %}
+              "{{ 30dayTotal | divided_by:30 }}",
+            {% else %}
+              "0",
+            {% endif %}
+          "annually" :
+            {% if forloop.index > 365 %}
+              "{{ 365dayTotal | divided_by:365 }}",
+            {% else %}
+              "0",
+            {% endif %}
+          "all-time" : "{{ fictionTotal | plus:nonFictionTotal | divided_by: forloop.index }}"
+        }
+        {% assign priorFictionTotal = fictionTotal %}
+        {% assign priorNonFictionTotal = nonFictionTotal %}
+        {% assign prior7dayTotal = 7dayTotal %}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+  ],
+  "publications" : [
+      {% for publication in site.data.publications %}{
+        "sold"      : "{{ publication.sold }}",
+        "published" : "{{ publication.published }}",
+        "title"     : "{{ publication.title }}",
+        "market"    : "{{ publication.market }}",
+        "genre"     : "{{ publication.genre }}"
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+  ]
+}

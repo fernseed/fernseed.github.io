@@ -1,8 +1,0 @@
----
-layout: data
----
-{
-  "posts" : [
-    {% for post in site.posts %}{% unless post.no-index %}"{{ post.url }}"{% unless forloop.last %},{% endunless %}{% endunless %}{% endfor %}
-  ]
-}
