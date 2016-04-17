@@ -71,12 +71,7 @@ gems:
 jekyll-mentions:
   base_url: 'https://twitter.com'
 compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
-  endings: all
-  blanklines: false
-  profile: false
-  startings: all
+  comments: all
 kramdown:
   auto_ids: true
   toc_levels: 1..6
