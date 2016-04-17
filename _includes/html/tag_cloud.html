@@ -1,11 +1,4 @@
 <div class="tag-cloud offset">
-    <script>
-        var initialTag = getUrlParameter('tag');
-
-        if (initialTag) {
-            filterTags(initialTag);
-        }
-    </script>
     <ul>
     <span class="base">
     {% for tag in site.tags %}

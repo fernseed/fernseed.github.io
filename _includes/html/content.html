@@ -45,11 +45,15 @@
     $( "#markdown-toc" ).appendTo( "#sidebar-toc" );
   }
 
-  {% include js/infinite-scroll.js %}
-  {% include js/images.js %}
+  {% if page.class == "index" %}
+    {% include js/infinite-scroll.js %}
+  {% else %}
+    {% include js/images.js %}
+  {% endif %}
+
   {% include js/responsive.js %}
   {% include js/search.js %}
-  {% include js/tags.js %}
   {% include js/utilities.js %} 
+  {% include js/tags.js %}
   {% include js/page_scripts.js %}
 </script>

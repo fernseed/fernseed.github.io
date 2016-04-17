@@ -4,3 +4,9 @@ function filterTags(selectedTag) {
     $( ".tag-entry" )    .filter(":contains(" + selectedTag + ")").css( "display", "block" );
     $( ".tag-entry" )    .not   (":contains(" + selectedTag + ")").css( "display", "none" );
 }
+
+var initialTag = getUrlParameter('tag');
+
+if (initialTag) {
+    filterTags(initialTag);
+}
