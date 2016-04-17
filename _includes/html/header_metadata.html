@@ -21,15 +21,26 @@
 <link rel="icon" type="image/png" sizes="195x195" href="/assets/images/favicon/195x195.png">
 <link rel="icon" type="image/png" sizes="228x228" href="/assets/images/favicon/228x228.png">
 <link rel="author" type="text/plain" href="/humans.txt">
-{% capture cache_buster %}{{ site.version }}.{{ site.time | date: "%F.%H-%M-%S" }}{% endcapture %}
-<link rel="stylesheet" type="text/css" href="/assets/css/fernseed.css?{{ cache_buster }}">
-{% if site.environment == "development" %}<link rel="stylesheet" href="http://basehold.it/20">{% endif %}
+<style type="text/css">
+  {% capture include_to_scssify %}
+    {% include css/fernseed.scss %}
+  {% endcapture %}
+  {{ include_to_scssify | scssify }}
+</style>
 <link href="{{ site.feed_url }}?format=xml" type="application/atom+xml" rel="alternate" title="Site Feed" />
 {% if page.categories %}<link href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" type="application/atom+xml" rel="alternate" title="Category Feed: {{ page.categories.first }}" />{% endif %}
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/assets/js/bigfoot.min.js"></script>  
-<script type="text/javascript" src="/assets/js/fernseed.js"></script>
+<script type="text/javascript">
+	{% include js/infinite-scroll.js %}
+	{% include js/sidebar.js %}
+	{% include js/images.js %}
+	{% include js/responsive.js %}
+	{% include js/search.js %}
+	{% include js/tags.js %}
+	{% include js/utilities.js %}	
+</script>
 
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
