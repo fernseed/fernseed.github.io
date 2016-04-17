@@ -13,9 +13,9 @@
 
   <meta itemprop="mainEntityOfPage" content="{{ site.url }}{{ page.url }}" />
 
-  {% assign words = page.content | number_of_words %}
+  {% assign words = page.content | number_of_words | append:".0" %}
 
-  <meta itemprop="wordCount" content="{{ words }}" />
+  <meta itemprop="wordCount" content="{{ words | round }}" />
 
   {% capture significant_wordcount %}{{ words | minus:360 }}{% endcapture %}
 

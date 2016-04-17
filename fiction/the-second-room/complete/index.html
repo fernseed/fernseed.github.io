@@ -8,7 +8,7 @@ permalink: /fiction/the-second-room/complete/
 ---
 
 {% for post in site.categories.the-second-room %}
-{% capture words %}{{ post.content | number_of_words | plus: words }}{% endcapture %}
+{% capture words %}{{ post.content | number_of_words | plus: words | append:".0" }}{% endcapture %}
 {% endfor %}
 
 <section id="content">
@@ -46,7 +46,7 @@ permalink: /fiction/the-second-room/complete/
         {% endfor %}
     </article>
     </div>
-    <meta itemprop="wordCount" content="{{ words }}" />
+    <meta itemprop="wordCount" content="{{ words | round }}" />
     <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
 </div>
 </section>
