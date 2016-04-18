@@ -1,0 +1,118 @@
+---
+layout: index
+permalink: /meta/stats/
+sticky: true
+tags: [writing, data-visualisation, quantified-self]
+needs_javascript_early: true
+class: index
+description: 
+    Some charts and figures on my writing progress and consistency. This is inspired by <a href='http://twitter.com/jamietr'>@jamietr</a>'s quantified-self project&hellip; and his <a href='http://open.jamierubin.net/v7/writing.php'> 800+ day writing streak</a>!
+sidebar: 
+    See <a href='/technology/static-generation/'>this post</a> for more details.
+---
+
+{% assign entry_count  = site.data.progress | size %}
+{% assign most_recent  = site.data.progress | last %}
+{% assign earliest     = site.data.progress | first %}
+
+<h6 id="tag-subheader" class="post-subtitle js-only"><span class="selector" id="7Selector" onclick='setPeriod(7);'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30);'>30 days</span>{% if entry_count > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365);'>1 year</span>{% else %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0);'>All</span>{% endif %}</h6>
+<h1 id="tag-header" class="post-title">{{ page.title }}</h1>
+
+<article itemscope itemtype="http://schema.org/Article" class="wide">
+    <meta itemprop="name" content="{{ page.title }}" />
+    <meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}" />
+
+    <div id="progress-chart" class="progress-chart js-only"><h5>Loading chart&hellip;</h5></div>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
+
+    <script type="text/javascript">
+
+        var reportPeriod = 30;
+        var graphWidth = $( "article" ).width();
+        var graphHeight = graphWidth / 1.5;
+
+        var options = {
+            legend: { position: 'bottom', maxLines: 3 },
+            height: graphHeight,
+            width:  graphWidth,
+            hAxis: { title: 'Date' },
+            vAxis: { viewWindow: { min: 0 }, title: 'Word Count' },
+            isStacked: true,
+            seriesType: "bars",
+            series: {2: {type: "line"}, 3: {type: "line"}, 4: {type: "line", visibleInLegend: false}},
+            annotations: {style: 'line'}
+        };
+
+        var data;
+
+        $(document).ready(function() {  
+            $.getJSON('/api/chart', function(json) {
+                data = new google.visualization.DataTable ( json );
+                google.load('visualization', '1', {packages: ['corechart']});
+                google.setOnLoadCallback(drawChart);
+            });
+        }); 
+
+        function setPeriod(period) {
+            reportPeriod = period;
+            drawChart();
+        }
+
+        function highlightChosenReportPeriod() {
+            $( ".selector").css('font-weight', 'normal');
+            $( "#" + reportPeriod + "Selector" ).css('font-weight', 'bold');
+        }
+
+        function drawChart() {
+
+            highlightChosenReportPeriod();
+
+            var chart = new google.visualization.ComboChart( document.getElementById('progress-chart'));
+            var view = new google.visualization.DataView(data);
+            var reportStartDate;
+
+            if (reportPeriod > 0) {
+                var mostRecentEntry = "{{ most_recent.date }}".split("-");
+                var mostRecentDate = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
+                reportStartDate = mostRecentDate;
+                reportStartDate.setDate(reportStartDate.getDate()-reportPeriod);
+            } else {
+                var earliestEntry = "{{ earliest.date }}".split("-");
+                var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
+                reportStartDate = earliestDate;
+            }
+
+            view.setRows(data.getFilteredRows( [{column: 0, minValue: reportStartDate}] ));
+            chart.draw(view, options);
+        }
+
+    </script>
+
+    {% assign streak = 0 %}
+    {% assign daily_total = 0%}
+    {% assign prior_daily_total = most_recent.fiction | plus: most_recent.non-fiction %}
+    {% assign break = false %}
+
+    {% for entry in site.data.progress reversed %}{% assign daily_total = entry.fiction | plus:entry.non-fiction %}{% assign daily_total = prior_daily_total | minus: daily_total %}{% unless break %}{% unless forloop.first %}{% if daily_total > 0 %}{% assign streak = streak | plus:1 %}{% else %}{% assign break = true %}{% endif %}{% endunless %}{% endunless %}{% assign prior_daily_total = entry.fiction | plus: entry.non-fiction %}{% endfor %}
+
+    {% assign breakdate_index = entry_count | minus: streak %}
+    {% assign breakdate = site.data.progress[breakdate_index].date %}
+
+    {% if streak > 0 %}
+
+    <hr class="js-only" />
+
+    <span class="post-data offset">
+
+        <small>{{ most_recent.fiction | plus: most_recent.non-fiction | minus:site.data.progress[breakdate_index].fiction | minus:site.data.progress[breakdate_index].non-fiction }} words written during</small>
+
+        <br />
+
+        {{ streak }} consecutive day{% unless streak == 1 %}s{% endunless %} of writing{% unless streak == 0 %}<br/><small>which began {{ breakdate | date: "%A" }}, {% assign d = breakdate | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ breakdate | date: "%B" }}, {{ breakdate | date: "%Y" }}</small>{% endunless %}
+
+    </span>
+
+    {% endif %}
+
+</article>
