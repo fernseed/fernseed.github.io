@@ -189,6 +189,10 @@ After following all of the above, the final interactive and dynamically updating
         formatter.format(data, 4);
         var view = new google.visualization.DataView(data);
         var chart = new google.visualization.ComboChart( document.getElementById('progress-chart'));
+        function setPeriod(period) {
+            reportPeriod = period;
+            drawChart();
+        }
         function drawChart() {
             $( ".selector").css('font-weight', 'normal');
             $( "#" + reportPeriod + "Selector" ).css('font-weight', 'bold');
