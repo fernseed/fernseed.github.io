@@ -30,7 +30,39 @@
 <link href="{{ site.feed_url }}?format=xml" type="application/atom+xml" rel="alternate" title="Site Feed" />
 {% if page.categories %}<link href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" type="application/atom+xml" rel="alternate" title="Category Feed: {{ page.categories.first }}" />{% endif %}
 
+{% if page.needs_javascript_early %}
 
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js" />
+  <script type="text/javascript" src="/assets/js/bigfoot.min.js" />
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" />
+
+  <script type="text/javascript">
+
+    WebFont.load({
+        google: {
+          families: ['Source Code Pro', 'Source Sans Pro']
+      }
+    });
+
+    if ($( "#markdown-toc" ) != null && $( "#markdown-toc" ).length != 0) {
+      $( "#sidebar-toc" ).html("Contents:");
+      $( "#markdown-toc" ).appendTo( "#sidebar-toc" );
+    }
+
+    {% include js/images.js %}
+    {% include js/responsive.js %}
+    {% include js/search.js %}
+    {% include js/utilities.js %} 
+    {% include js/tags.js %}
+    {% include js/page_scripts.js %}
+
+    {% if page.class == "index" %}
+      {% include js/infinite-scroll.js %}
+    {% endif %}
+
+  </script>
+
+{% endif %}
 
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>

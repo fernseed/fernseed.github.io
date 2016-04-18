@@ -28,32 +28,36 @@
   {% include images/logo.svg %}
 </label>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js" />
-<script type="text/javascript" src="/assets/js/bigfoot.min.js" />
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" />
+{% unless page.needs_javascript_early %}
 
-<script type="text/javascript">
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js" />
+  <script type="text/javascript" src="/assets/js/bigfoot.min.js" />
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" />
 
-  WebFont.load({
-      google: {
-        families: ['Source Code Pro', 'Source Sans Pro']
+  <script type="text/javascript">
+
+    WebFont.load({
+        google: {
+          families: ['Source Code Pro', 'Source Sans Pro']
+      }
+    });
+
+    if ($( "#markdown-toc" ) != null && $( "#markdown-toc" ).length != 0) {
+      $( "#sidebar-toc" ).html("Contents:");
+      $( "#markdown-toc" ).appendTo( "#sidebar-toc" );
     }
-  });
 
-  if ($( "#markdown-toc" ) != null && $( "#markdown-toc" ).length != 0) {
-    $( "#sidebar-toc" ).html("Contents:");
-    $( "#markdown-toc" ).appendTo( "#sidebar-toc" );
-  }
-
-  {% if page.class == "index" %}
-    {% include js/infinite-scroll.js %}
-  {% else %}
     {% include js/images.js %}
-  {% endif %}
+    {% include js/responsive.js %}
+    {% include js/search.js %}
+    {% include js/utilities.js %} 
+    {% include js/tags.js %}
+    {% include js/page_scripts.js %}
 
-  {% include js/responsive.js %}
-  {% include js/search.js %}
-  {% include js/utilities.js %} 
-  {% include js/tags.js %}
-  {% include js/page_scripts.js %}
-</script>
+    {% if page.class == "index" %}
+      {% include js/infinite-scroll.js %}
+    {% endif %}
+
+  </script>
+
+{% endunless %}
