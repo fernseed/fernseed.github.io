@@ -15,7 +15,7 @@ sidebar:
 {% assign most_recent  = site.data.progress | last %}
 {% assign earliest     = site.data.progress | first %}
 
-<h6 id="tag-subheader" class="post-subtitle js-only"><span class="selector" id="7Selector" onclick='setPeriod(7);'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30);'>30 days</span>{% if entry_count > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365);'>1 year</span>{% else %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0);'>All</span>{% endif %}</h6>
+<h6 id="tag-subheader" class="post-subtitle js-only"><span class="selector" id="7Selector" onclick='setPeriod(7)'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30)'>30 days</span>{% if entry_count > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365)'>1 year</span>{% else %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0)'>All</span>{% endif %}</h6>
 <h1 id="tag-header" class="post-title">{{ page.title }}</h1>
 
 <article itemscope itemtype="http://schema.org/Article" class="wide">
@@ -27,6 +27,9 @@ sidebar:
     <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 
     <script type="text/javascript">
+
+        google.load('visualization', '1', {packages: ['corechart']});
+        google.setOnLoadCallback(drawChart);
 
         var reportPeriod = 30;
         var graphWidth = $( "article" ).width();
@@ -44,16 +47,6 @@ sidebar:
             annotations: {style: 'line'}
         };
 
-        var data;
-
-        $(document).ready(function() {  
-            $.getJSON('/api/chart', function(json) {
-                data = new google.visualization.DataTable ( json );
-                google.load('visualization', '1', {packages: ['corechart']});
-                google.setOnLoadCallback(drawChart);
-            });
-        }); 
-
         function setPeriod(period) {
             reportPeriod = period;
             drawChart();
@@ -66,25 +59,30 @@ sidebar:
 
         function drawChart() {
 
-            highlightChosenReportPeriod();
+            $.getJSON('/api/chart', function(json) {
 
-            var chart = new google.visualization.ComboChart( document.getElementById('progress-chart'));
-            var view = new google.visualization.DataView(data);
-            var reportStartDate;
+                highlightChosenReportPeriod();
 
-            if (reportPeriod > 0) {
-                var mostRecentEntry = "{{ most_recent.date }}".split("-");
-                var mostRecentDate = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
-                reportStartDate = mostRecentDate;
-                reportStartDate.setDate(reportStartDate.getDate()-reportPeriod);
-            } else {
-                var earliestEntry = "{{ earliest.date }}".split("-");
-                var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
-                reportStartDate = earliestDate;
-            }
+                var data = new google.visualization.DataTable ( json );
+                var chart = new google.visualization.ComboChart( document.getElementById('progress-chart'));
+                var view = new google.visualization.DataView(data);
+                var reportStartDate;
 
-            view.setRows(data.getFilteredRows( [{column: 0, minValue: reportStartDate}] ));
-            chart.draw(view, options);
+                if (reportPeriod > 0) {
+                    var mostRecentEntry = "{{ most_recent.date }}".split("-");
+                    var mostRecentDate = new Date(mostRecentEntry[0], mostRecentEntry[1]-1, mostRecentEntry[2]);
+                    reportStartDate = mostRecentDate;
+                    reportStartDate.setDate(reportStartDate.getDate()-reportPeriod);
+                } else {
+                    var earliestEntry = "{{ earliest.date }}".split("-");
+                    var earliestDate = new Date(earliestEntry[0], earliestEntry[1]-1, earliestEntry[2]);
+                    reportStartDate = earliestDate;
+                }
+
+                view.setRows(data.getFilteredRows( [{column: 0, minValue: reportStartDate}] ));
+                chart.draw(view, options);
+
+            });
         }
 
     </script>
