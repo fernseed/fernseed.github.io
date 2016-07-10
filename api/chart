@@ -1,0 +1,102 @@
+---
+layout: compress
+---
+{
+  "cols" : [{"id" : "date",        "label" :  "Date",             "type" : "date",   "role" : "domain"},
+            {"id" : "fiction",     "label" :  "Fiction",          "type" : "number", "role" : "data"},
+            {"id" : "nonfiction",  "label" :  "Non-Fiction",      "type" : "number", "role" : "data"},
+            {"id" : "average",     "label" :  "All Time Average", "type" : "number", "role" : "data"},
+            {"id" : "weekly",      "label" :  "Weekly Average",   "type" : "number", "role" : "data"},
+            {"id" : "event",       "label" :  "Publications",     "type" : "number", "role" : "data"},
+            {"id" : "blog",                                       "type" : "string", "role" : "annotation"},
+            {"id" : "blogtext",                                   "type" : "string", "role" : "annotationText"},
+            {"id" : "sale",                                       "type" : "string", "role" : "annotation"},
+            {"id" : "saletext",                                   "type" : "string", "role" : "annotationText"},
+            {"id" : "publication",                                "type" : "string", "role" : "annotation"},
+            {"id" : "publicationtext",                            "type" : "string", "role" : "annotationText"}
+  ],
+
+        {% assign total = 0 %}
+        {% assign priorTotal = 0 %}
+        {% assign 7dayTotal = 0 %}
+        {% assign prior7dayTotal = 0 %}
+        {% assign counter = 1 %}
+
+        "rows" : [
+          {% for entry in site.data.progress %}
+            {"c" :
+              {% assign total = total | plus:entry.fiction | plus:entry.non-fiction | minus:priorTotal %}
+              {% if counter > 7 %}
+                  {% assign 7dayMarker = forloop.index0 | plus:period | minus:7 %}
+                  {% assign 7dayTotal = 7dayTotal | plus:entry.fiction | plus:entry.non-fiction | minus:site.data.progress[7dayMarker].fiction | minus:site.data.progress[7dayMarker].non-fiction | minus:prior7dayTotal %}
+              {% endif %}
+              [
+                  {"v" : "Date({{ entry.date | date: "%Y" }},{{ entry.date | date: "%m" | minus:1 }},{{ entry.date | date: "%d" }})"},
+                  {% assign priorEntry = forloop.index0 | plus:period | minus:1 %}
+                  {"v" :
+                  {% if counter > 1 %}
+                      "{{ entry.fiction | minus: site.data.progress[priorEntry].fiction }}"
+                  {% else %}
+                      "{{ entry.fiction }}"
+                  {% endif %} },
+                  {"v" :
+                  {% if counter > 1 %}
+                      "{{ entry.non-fiction | minus: site.data.progress[priorEntry].non-fiction }}"
+                  {% else %}
+                      "{{ entry.non-fiction }}"
+                  {% endif %} },
+                  {"v" : "{{ total | divided_by:forloop.index }}"},
+                  {"v" :
+                  {% if counter > 7 %}
+                      "{{ 7dayTotal | divided_by:7 }}"
+                      {% assign prior7dayTotal = 7dayTotal %}
+                  {% else %}
+                      "0"
+                  {% endif %} },
+
+                  {% assign eventCounter = 0 %}
+
+                  {% assign publicationTitle = "" %}
+                  {% assign saleTitle = "" %}
+                  {% assign publicationDetails = "" %}
+
+                  {% assign postTitle = "" %}
+                  {% assign postDetails = "" %}
+
+                  {% for post in site.posts %}
+                    {% assign postDate = post.date | date_to_string %}
+                    {% assign entryDate = entry.date | date_to_string %}
+                    {% if postDate == entryDate %}
+                      {% assign postTitle = post.title %}
+                      {% assign postDetails = post.categories | join: ', ' %}
+                      {% assign eventCounter = eventCounter | plus:1 %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {% for publication in site.data.publications %}
+                    {% if publication.published == entry.date %}
+                      {% assign publicationTitle = publication.title %}
+                    {% endif %}
+                    {% if publication.sold == entry.date %}
+                      {% assign saleTitle = publication.title %}
+                    {% endif %}
+                    {% if publicationTitle || saleTitle %}
+                      {% assign publicationDetails = publication.market | append:", " | append:publication.issue | append:", " | append:publication.genre %}
+                      {% assign eventCounter = eventCounter | plus:1 %}
+                    {% endif %}
+                  {% endfor %}
+
+                  {"v" : "{{ eventCounter }}"},
+
+                  {"v" : "{% if postTitle != "" %}Posted: {{ postTitle }}{% endif %}"}, {"v" : "{% if postTitle != "" %}In: {{ postDetails }}{% endif %}" },
+
+                  {"v" : "{% if saleTitle != "" %}Sold: {{ saleTitle }}{% endif %}"}, {"v" : "{% if saleTitle != "" %}To: {{ publicationDetails }}{% endif %}" },
+
+                  {"v" : "{% if publicationTitle != "" %}Published: {{ publicationTitle }}{% endif %}"}, {"v" : "{% if publicationTitle != "" %}In: {{ publicationDetails }}{% endif %}" }
+
+              ]}{% unless forloop.last %},{% endunless %}
+              {% assign counter = counter | plus:1 %}
+              {% assign priorTotal = total %}
+          {% endfor %}
+      ]
+}
