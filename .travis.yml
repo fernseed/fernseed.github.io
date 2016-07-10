@@ -1,10 +1,10 @@
 language: ruby
 rvm:
-- 2.1
+- 2.2.3
 
 script:
 - rake test
-  
+
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
