@@ -3,7 +3,7 @@ title: Static Generation, Dynamic Content
 subtitle: Jekyll, Scrivener and Data Visualisation
 permalink: /technology/static-generation/
 date: 2015-02-23
-modified: 13/01/2016
+modified: 2016-07-10
 tags: [data-visualisation, quantified-self, jekyll, scrivener]
 needs_javascript_early: true
 gists: [dmcgk/bc743a73ae4640ced973]

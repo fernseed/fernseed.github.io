@@ -2,7 +2,7 @@
 title: Multi App Single Focus
 subtitle: Extending Applications With Applications
 date: 2015-09-28 19:30:00
-modified: 13/01/2016
+modified: 2016-07-10
 tags: [livereload, jekyll, scrivener, hazel, osx, marked, markdown]
 image: /assets/images/software-scrivener-safari.png
 description:

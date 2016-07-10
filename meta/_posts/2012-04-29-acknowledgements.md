@@ -1,7 +1,7 @@
 ---
 title: Acknowledgements
 date: 2012-04-29
-modified: 20/09/2015
+modified: 2016-07-10
 sticky: true
 description:
     The tools, projects and people which have contributed in some fashion to the construction of fernseed.org.

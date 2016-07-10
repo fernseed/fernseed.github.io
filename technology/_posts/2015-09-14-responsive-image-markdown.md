@@ -2,7 +2,7 @@
 title: Responsive Image Markdown
 subtitle: Using Advanced kramdown Features via Scrivener
 date: 2015-09-14 13:00:00
-modified: 13/01/2016
+modified: 2016-07-10
 tags: [scrivener, jekyll, markdown, kramdown, responsive design, images]
 gists: dmcgk/3cb20fbd69ae773bb139
 image: http://fernseed.org/assets/images/logo.png
