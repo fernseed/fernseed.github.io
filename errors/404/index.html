@@ -1,13 +1,20 @@
 ---
+layout: index
 title: '404'
-summary: Page not found
+summary: Page not found.
+needs_javascript_early: true
 permalink: /errors/404/
 redirect_from: /404.html
 ---
+
+<script>
+    {% include js/tags.js %}
+</script>
+
 <div class="tag-history">
-    <h6 id="tag-subheader" class="post-subtitle">Try searching again using the sidebar or tags</h6>
-    <h1 id="tag-header" class="post-title">Page not found</h1>
+    <h4 id="tag-subheader">Try searching again or using the tags below</h4>
+    <h1 id="tag-header">Page not found</h1>
     {% include html/tag_content.html %}
 </div>
-<hr />
+
 {% include html/tag_cloud.html %}

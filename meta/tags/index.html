@@ -4,11 +4,17 @@ title: Tags
 summary: Use the tag cloud to filter content.
 permalink: /meta/tags/
 redirect_from: /tags/
+needs_javascript_early: true
 ---
+
+<script>
+    {% include js/tags.js %}
+</script>
+
 <div class="tag-history">
-    <h6 id="tag-subheader" class="post-subtitle"></h6>
-    <h1 id="tag-header" class="post-title">Tag Cloud</h1>
+    <h4 id="tag-subheader"></h4>
+    <h1 id="tag-header">Tag Cloud</h1>
     {% include html/tag_content.html %}
 </div>
-<hr />
+
 {% include html/tag_cloud.html %}
