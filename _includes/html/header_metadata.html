@@ -1,83 +1,19 @@
-{% seo %}
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Character set -->
+<meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Site-secific metadata -->
 <meta name="keywords" content="{% if page.type == "index" %}index{% else %}{{ page.tags | join: ", " }}{% endif %}" />
-<meta name="theme-color" content="#ffffff">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/assets/images/favicon/144x144.png">
-
-<link rel="mask-icon" mask href="/assets/images/logo.svg" color="black">
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/images/favicon/57x57.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicon/72x72.png">
-<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/favicon/120x120.png">
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/favicon/152x152.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/32x32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/assets/images/favicon/48x48.png">
-<link rel="icon" type="image/png" sizes="64x64" href="/assets/images/favicon/64x64.png">
-<link rel="icon" type="image/png" sizes="144x144" href="/assets/images/favicon/144x144.png">
-<link rel="icon" type="image/png" sizes="195x195" href="/assets/images/favicon/195x195.png">
-<link rel="icon" type="image/png" sizes="228x228" href="/assets/images/favicon/228x228.png">
 <link rel="author" type="text/plain" href="/humans.txt">
-<style type="text/css">
-  {% capture include_to_scssify %}
-    {% include css/fernseed.scss %}
-  {% endcapture %}
-  {{ include_to_scssify | scssify }}
-</style>
-<link href="{{ site.feed_url }}?format=xml" type="application/atom+xml" rel="alternate" title="Site Feed" />
-{% if page.categories %}<link href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" type="application/atom+xml" rel="alternate" title="Category Feed: {{ page.categories.first }}" />{% endif %}
 
-{% if page.needs_javascript_early %}
-
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js" />
-  <script type="text/javascript" src="/assets/js/bigfoot.min.js" />
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" />
-
-  <script type="text/javascript">
-
-    WebFont.load({
-        google: {
-          families: ['Source Code Pro', 'Source Sans Pro']
-      }
-    });
-
-    if ($( "#markdown-toc" ) != null && $( "#markdown-toc" ).length != 0) {
-      $( "#sidebar-toc" ).html("Contents:");
-      $( "#markdown-toc" ).appendTo( "#sidebar-toc" );
-    }
-
-    {% include js/images.js %}
-    {% include js/responsive.js %}
-    {% include js/search.js %}
-    {% include js/utilities.js %} 
-    {% include js/tags.js %}
-    {% include js/page_scripts.js %}
-
-    {% if page.class == "index" %}
-      {% include js/infinite-scroll.js %}
-    {% endif %}
-
-  </script>
-
-{% endif %}
-
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-
-<noscript>
-    <style>
-    img { 
-	    margin-left: auto;
-	    margin-right: auto;
-	    max-width: 100%;
-	}
-
-	.js-only { 
-		display: none
-	}
-    </style>
-</noscript>
+<!-- Plugin auto-generated metadata -->
+{% assign article_type = "http://schema.org/Article" %}
+{% assign article_category = page.categories | first %}
+{% case article_category %}
+	{% when 'technology' %}
+		{% assign article_type = "http://schema.org/TechArticle" %}
+	{% when 'fiction' %}
+		{% assign article_type = "http://schema.org/CreativeWork" %}
+{% endcase %}
+{% assign seo.type = article_type %}
+{% seo %}

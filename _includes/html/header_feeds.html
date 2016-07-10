@@ -1,0 +1,5 @@
+<!-- Site feed -->
+<link href="{{ site.feed_url }}?format=xml" type="application/atom+xml" rel="alternate" title="Site Feed" />
+
+<!-- Primary category feed -->
+{% if page.categories %}<link href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" type="application/atom+xml" rel="alternate" title="Category Feed: {{ page.categories.first }}" />{% endif %}

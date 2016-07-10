@@ -1,0 +1,9 @@
+<!-- Show any sticky posts -->
+<h5>
+    {% for post in site.posts reversed %}
+      {% if post.sticky %}
+          {% unless forloop.first %} &middot; {% endunless %}
+          <span class="{{ post.categories | first }}"><a href="{{ post.url }}">{{ post.title }}</a></span>
+      {% endif %}
+    {% endfor %}
+</h5>

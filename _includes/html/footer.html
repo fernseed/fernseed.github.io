@@ -1,17 +1,17 @@
-<section id="navigation">
-<div id="search-output">
-    <ul id="search-results"></ul>
+<!-- Copyright disclaimer -->
+<h5>Copyright &copy; {{ site.time | date: '%Y' }}</h5>
+
+<!-- Search facility -->
+{% unless page.needs_javascript_early %}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js" />
+{% endunless %}
+
+<script>
+    {% include js/search.js %}
+</script>
+
+<div class="search">
+    <input id="search-input" type="text" placeholder="search" autocomplete="off" />
 </div>
-<nav>
-        <a href="http://twitter.com/dmcgk">&copy;2014 dmcgk</a>&nbsp;&middot;&nbsp;
-    {% for post in site.categories.meta %}
-        <a href="{{ post.url }}">{{ post.title }}</a>&nbsp;&middot;&nbsp;
-    {% endfor %}
-        <a href="http://feeds.feedburner.com/fernseed?format=xml">feed</a>&nbsp;&middot;&nbsp;
-        <a href="/tags/">tags</a>&nbsp;&middot;&nbsp;
-        <a href="/complete/">complete</a>
-</nav>
-<div id="search-input">
-    <input id="search-box" type="text" placeholder="search" autocomplete="off" />
-</div>
-</section>
+
+<div class="search" id="search-results"></div>

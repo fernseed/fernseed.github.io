@@ -1,3 +1,26 @@
 <head>
-    {% include html/header_metadata.html %}
+
+	<!-- Include site metadata -->
+	{% include html/header_metadata.html %}
+
+	<!-- Include browser appearance settings -->
+	{% include html/header_browsers.html %}
+
+	<!-- Include site icons -->
+	{% include html/header_icons.html %}
+
+	<!-- Include CSS -->
+	{% include html/header_styles.html %}
+
+	<!-- Include third-party-provided fonts -->
+	{% include html/header_fonts.html %}
+
+	<!-- Include atom feeds -->
+	{% include html/header_feeds.html %}
+
+	<!-- Include javascript dependencies, if needed at page level -->
+	{% if page.needs_javascript_early %}
+	  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js" />
+	{% endif %}
+
 </head>

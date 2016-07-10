@@ -1,0 +1,18 @@
+<!-- Article header -->
+{% if page.subtitle %}
+  <h5>
+    {{ page.subtitle | replace: ' and ', ' &amp; ' }}
+  </h5>
+{% endif %}
+
+<h1>
+    {{ page.title | replace: ' and ', ' &amp; ' }}
+</h1>
+
+<!-- Article metadata -->
+{% assign words = page.content | number_of_words | append:".0" %}
+{% capture significant_wordcount %}{{ words | minus:360 }}{% endcapture %}
+
+{% unless significant_wordcount contains "-" %}
+  {% include html/reading_time.html %}
+{% endunless %}

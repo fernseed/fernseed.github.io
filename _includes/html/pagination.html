@@ -1,20 +1,17 @@
-<noscript>
-  <hr />
-  <div class="post-data">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}" class="previous">Newer</a>
-  {% else %}
-    <span class="previous">Newer</span>
-  {% endif %}
-  &nbsp;&middot;&nbsp;
-  <span class="page_number ">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  &nbsp;&middot;&nbsp;
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}" class="next">Older</a>
-  {% else %}
-    <span class="next ">Older</span>
-  {% endif %}
-  </div>
-</noscript>
-
-<div class="infinite-spinner"></div>
+<section>
+  <h4>
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}">Newer</a>
+    {% else %}
+      <span class="disabled">Newer</span>
+    {% endif %}
+    &nbsp;&middot;&nbsp;
+    <span class="page_number ">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    &nbsp;&middot;&nbsp;
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}">Older</a>
+    {% else %}
+      <span class="disabled">Older</span>
+    {% endif %}
+  </h4>
+</section>

@@ -1,936 +1,345 @@
-{% include css/poole.css %}
-{% include css/lanyon.css %}
-{% include css/spinner.css %}
-{% include css/syntax.css %}
-{% include css/bigfoot-default.css %}
+/* Variables */
 
-@font-face {
-    font-family: 'Calendas Plus';
-    src: url('/assets/fonts/calendas_plus-webfont.eot');
-    src: url('/assets/fonts/calendas_plus-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/fonts/calendas_plus-webfont.woff2') format('woff2'),
-         url('/assets/fonts/calendas_plus-webfont.woff') format('woff'),
-         url('/assets/fonts/calendas_plus-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+{% assign modular_scale_base1  = "1.0" %}
+{% assign modular_scale_base2  = "1.5" %}
+{% assign modular_scale_upper  = "4" %}
+{% assign em_size              = "20" %}
+{% assign article_size_in_ems  = "32" %}
+{% assign aside_size_in_ems    = article_size_in_ems | divided_by:4 %}
+{% assign max_headings         = "6" %}
+{% assign monospace_size       = em_size | minus:3 %}
+{% assign break_point          = article_size_in_ems | times:em_size %}
+{% assign title_letter_spacing = modular_scale_base1 | divided_by:10 %}
+{% assign title_word_spacing   = modular_scale_base2 | divided_by:10 %}
 
-}
+/* Includes */
 
-@font-face {
-    font-family: 'Calendas Plus';
-    src: url('/assets/fonts/calendas_plus_italic-webfont.eot');
-    src: url('/assets/fonts/calendas_plus_italic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/fonts/calendas_plus_italic-webfont.woff2') format('woff2'),
-         url('/assets/fonts/calendas_plus_italic-webfont.woff') format('woff'),
-         url('/assets/fonts/calendas_plus_italic-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
+{% unless page.layout == "index" %}
+  {% include css/syntax.css %}
+{% endunless %}
 
-}
+/* Imports */
 
-@font-face {
-    font-family: 'Calendas Plus';
-    src: url('/assets/fonts/calendas_plus_bold-webfont.eot');
-    src: url('/assets/fonts/calendas_plus_bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/assets/fonts/calendas_plus_bold-webfont.woff2') format('woff2'),
-         url('/assets/fonts/calendas_plus_bold-webfont.woff') format('woff'),
-         url('/assets/fonts/calendas_plus_bold-webfont.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+@import 'bourbon/bourbon';
 
-}
+/* Mixins */
 
-.jiggly {
-    -webkit-animation: jiggle 0.3s 2;
-    -moz-animation-duration: 0.3s;
-    -moz-animation-name: jiggle;
-    -moz-animation-iteration-count: 2;
-}
-
-@-moz-keyframes jiggle {
-    25% {
-        -moz-transform: rotate(-5deg);
-}
-  75% {
-      -moz-transform: rotate(5deg);
+@mixin respond-to($breakpoint) {
+  @media only screen and (max-width: $breakpoint + px) {
+    @content;
   }
 }
 
-@-webkit-keyframes jiggle {
-    25% {
-        -webkit-transform: rotate(-5deg);
-}
-  75% {
-      -webkit-transform: rotate(5deg);
-  }
-}
-
-.masthead-tagline {
-  font-weight: normal;
-}
-
-/* Define the base colours */
-
-// Solarized Set
-$solarized-base00: #657b83;
-$solarized-base01: #586e75;
-$solarized-base02: #073642;
-$solarized-base03: #002b36;
-
-// Fernseed Set
-$technology: #355CBD;
-$fiction: #358766;
-$meta: #BD3C35;
-$base: black;
-$sidebar-colour: #FFFFFF;
-
-$body-font:     "Calendas Plus", serif;
-$heading-font:  "Source Sans Pro", sans-serif;
-$monspace-font: "Source Code Pro", monspace;
-$sidebar-font:  $heading-font;
-
-$break-small: 320px;
-$break-large: 1200px;
-
-/* Define the scale */
-
-html { font-size: 19px; }
-
-@import 'modular-scale';
-
-$ms-base: 1rem 1.25rem;
-$ms-ratio: $golden;
-
-$very-small-size: ms(-2);
-$small-size:      ms(-1);
-$normal-size:     ms(0);
-$large-size:      ms(2);
-$very-large-size: ms(4);
-$dropcap-size:    ms(6);
-
-$small-line-height:  ms(1);
-$normal-line-height: ms(2);
-$large-line-height:  ms(4);
-
-@mixin all-headings($from: 1, $to: 6){
-    @for $i from $from through $to{
-      h#{$i}{
-        @content
-      }
+@mixin get-headings-all($from: 1, $to: {{ max_headings }}) {
+  @for $i from $from through $to {
+    h#{$i}{
+      @content
     }
+  }
 }
 
-@mixin sub-headings($from: 2, $to: 5){
-    @for $i from $from through $to{
-      h#{$i}{
-        @content
-      }
+@mixin get-headings-sub($from: 2, $to: {{ max_headings }}) {
+  @for $i from $from through $to {
+    h#{$i}{
+      @content
     }
+  }
 }
 
-.selector {
-  cursor: pointer;
-  font-weight: normal;
+@mixin set-headings-sizes($from: 1, $to: {{ max_headings }}) {
+  @for $i from $from through $to {
+    $modular-scale-font-size: ( {{ modular_scale_upper }} - $i);
+    h#{$i} {
+      font-size: modular-scale($modular-scale-font-size);
+    }
+  }
 }
 
-/* Set up the basic font and line-sizes */
-
-small                  { font-size: $very-small-size; }
-h6                     { font-size: $small-size;      }
-body                   { font-size: $small-size;      line-height: $small-line-height; }
-code                   { font-size: $very-small-size; line-height: $small-line-height; }
-.post-data             { font-size: $small-size;      line-height: $small-line-height; }
-.masthead-title        { font-size: $small-size;      line-height: $small-line-height; }
-@include sub-headings(){ font-size: $small-size;      line-height: $normal-line-height; }
-h1, .post-title        { font-size: $large-size;      line-height: $normal-line-height;  padding-top: 0; }
-
-@media (min-width: 36em) {
-  small                  { font-size: $very-small-size; }
-  h6                     { font-size: $small-size;      }
-  body                   { font-size: $normal-size;     line-height: $normal-line-height; }
-  code                   { font-size: $small-size;      line-height: $normal-line-height; }
-  .post-data             { font-size: $normal-size;     line-height: $normal-line-height; }
-  .masthead-title        { font-size: $normal-size;     line-height: $normal-line-height; }
-  @include sub-headings(){ font-size: $normal-size;     line-height: $large-line-height; }
-  h1, .post-title        { font-size: $very-large-size; line-height: $large-line-height;  padding-top: 0; }
+@mixin set-article-width() {
+  width:     $width-article;
+  max-width: $width-article-max;
 }
 
-:target {
-   background: yellow;
+@mixin set-aside-width() {
+  width:     $width-aside;
+  max-width: $width-aside-max;
 }
 
-.tag-cloud li {
-  font-family: $heading-font;
-  font-style: normal;
-  font-weight: normal;
-  text-align: center;
+@mixin set-body-text {
+  @include hyphens(auto);
+  @include font-feature-settings("liga", "kern");
+  @include set-article-width();
+
+  hyphenate-limit-lines: 2;
+  -ms-hyphenate-limit-lines: 2;
+  -webkit-hyphenate-limit-lines: 2;
+
+  line-height: $size-medium;
+  text-align:  justify;
+}
+
+/* Fonts */
+
+@include font-face("Calendas Plus", "/assets/fonts/calendas_plus-webfont",        normal, normal, $file-formats: eot woff2 woff);
+@include font-face("Calendas Plus", "/assets/fonts/calendas_plus_italic-webfont", normal, italic, $file-formats: eot woff2 woff);
+@include font-face("Calendas Plus", "/assets/fonts/calendas_plus_bold-webfont",   bold,   normal, $file-formats: eot woff2 woff);
+
+$em-base:           {{ em_size }}px;
+$width-article:     {{ article_size_in_ems }}rem;
+$width-aside:       {{ aside_size_in_ems }}rem;
+$width-break-min:   {{ break_point }};
+
+$width-article-max: 90%;
+$width-aside-max:   90%;
+
+$modular-scale-ratio: $golden;
+$modular-scale-base: {{ modular_scale_base1 }}rem, {{ modular_scale_base2 }}rem;
+
+$font-serif:     "Calendas Plus",   serif;
+$font-sans:      "Source Sans Pro", sans-serif;
+$font-mono:      "Source Code Pro", monospace;
+$font-size-mono: {{ monospace_size }}px;
+
+$size-x-small: modular-scale( {{ modular_scale_upper | minus:6 }} );
+$size-small:   modular-scale( {{ modular_scale_upper | minus:4 }} );
+$size-medium:  modular-scale( {{ modular_scale_upper | minus:3 }} );
+$size-large:   modular-scale( {{ modular_scale_upper | minus:2 }} );
+$size-x-large: modular-scale( {{ modular_scale_upper | plus:2  }} );
+
+/* Base styles */
+
+@include get-headings-all(){
+  font-family:    $font-sans;
+  font-style:     normal;
+  font-weight:    normal;
+  text-align:     center;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  word-spacing: 0.125em;
-  line-height: $large-line-height;
-  display: inline-block;
+  letter-spacing: {{ title_letter_spacing }}rem;
+  word-spacing:   {{ title_word_spacing }}rem;
+  max-width:      $width-article-max;
+  margin:         0 auto;
+  padding:        0;
+
+  @extend %headings !optional;
 }
 
-@include all-headings(){
-  font-family: $heading-font;
-  font-style: normal;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  word-spacing: 0.125em;
-}
+@include set-headings-sizes();
 
-h1, .post-title {
-      font-weight: normal;
-}
-
-h2, h3, h4, h5, h6 {
-    padding-top: $large-size;
-}
-
-@media (min-width: 36em) {
-  h2, h3, h4, h5, h6 {
-      padding-top: $very-large-size;
-  }
-}
-
-strong {
-  color: inherit;
-  font-weight: bold;
-  font-style: normal;
-}
-
-$sidebar-width: 14rem;
-$logo-width: 2rem;
-$logo-margin: $normal-size;
-$article-width: 32rem;
-$max-width:     56rem;
-$max-content-width: $max-width - $sidebar-width - $logo-width - (2*$logo-margin);
-
-/*
-th {
-  background-color: #f9f9f9;
-}
-*/
-
-.sidebar {
-  width: $sidebar-width;
-}
-
-article {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-article.wide {
-  width: 100% !important;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-@media (min-width: 56em) {
-  article {
-    width: $article-width;
-  }
-
-  article.wide {
-    width: 100% !important;
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-.post-title,
-.post-subtitle {
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.masthead-title {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-@media (min-width: 56em) {
-  .post-title,
-  .post-subtitle,
-  .masthead-title {
-    width: $max-content-width;
-  }
-}
-
-hr {
-  width: $article-width;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.post-title > a,
-.post-subtitle > a {
-  display: inline-block;
-}
-
-a {
-  position: relative;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-a:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: white;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.1s ease-in-out 0s;
-  transition: all 0.1s ease-in-out 0s;
-}
-
-a:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-}
-
-.bigfoot-footnote__button {
-  font-size: $very-small-size;
-  font-weight: 700; 
-  color: white !important;
-  padding: 0.6em;
-  padding-bottom: 0.85em;
-  /*
-  font-variant-numeric: lining-nums;
-  -moz-font-feature-settings: "lnum";
-  -webkit-font-feature-settings: "lnum";
-  font-feature-settings: "lnum";
-  */
-}
-
-.bigfoot-footnote__container a:before {
-  visibility: hidden;
-}
-
-.bigfoot-footnote__container a:hover:before {
-  visibility: hidden;
-}
-
-.masthead-title a {
-  color: $base;
-}
-
-.masthead-title > a:before {
-    background-color: $base;
+html {
+  font-size: $em-base;
 }
 
 body {
-    text-align: left;
-    font-family: $body-font;
-    font-weight: normal;
-    font-style: normal;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -webkit-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
-    hyphenate-limit-lines: 2;
-    -ms-hyphenate-limit-lines: 2;
-    -webkit-hyphenate-limit-lines: 2;
-    -moz-font-feature-settings: "kern", "liga";
-    -ms-font-feature-settings: "kern", "liga";
-    -webkit-font-feature-settings: "kern", "liga";
-    -o-font-feature-settings: "kern", "liga";
-    font-feature-settings: "kern", "liga";
+  text-rendering: optimizeLegibility;
+  font-family:    $font-serif;
+  font-weight:    normal;
+  font-style:     normal;
+  margin:         0;
+  padding:        0;
+  min-height:     100vh;
 }
 
-@media (min-width: 30em) {
-  body {
-      text-align: justify;
-      text-justify: inter-character;
-      word-break: break-all; 
-      word-break: break-word;
-  }
+section {
+  {% if page.layout == "index" %}
+    margin-bottom: $size-x-large;
+  {% else %}
+    @include display(flex);
+    @include flex-direction(row);
+    @include justify-content(flex-start);
+  {% endif %}
+  max-width: 100vw;
 }
 
-html {
-    line-height: $normal-line-height;
+section p, section blockquote {
+  margin-top: $size-x-small;
 }
 
-.bigfoot-footnote__content p,
-.sidebar-item {
-    line-height: $small-line-height;
-    font-size: $small-size;
+header, footer {
+  text-align: center;
+  width: 100vw;
 }
 
-.sidebar-item {
-  text-align: left;
+footer {
+  margin-top: $size-x-large;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.sidebar-item-header,
-.no-breaks {
-  word-break: normal;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  -o-hyphens: none;
-  hyphens: none;
+article {
+  @include flex(2);
 }
 
-.light a:before {
-  background-color: black;
-}
-
-.dark a:before {
-  background-color: white;
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 0;
+blockquote, p, dl, ul, ol {
+  @include set-body-text();
+  margin-top: $size-large;
+  {% if page.aside %}
+  @include flex(2);
+  margin: 0 0 0 auto;
+  {% else %}
+  margin: 0 auto;
+  {% endif %}
 }
 
 p + p {
-  text-indent: $large-size;
-}
-
-.metadata {
-    display:none;
-}
-
-.container {
-    padding-left: 35px;
-    padding-right: 35px;
-    max-width: 100%;
-}
-
-@media (min-width: 30.1em) {
-  .container {
-    padding-left: 70px;
-    padding-right: 70px;
-  }
-
-  .sidebar-toggle {
-    position: fixed;
-    width: $logo-width;
-  }
-  .sidebar-toggle:before {
-    padding-bottom: $small-size;
-    border-top-width: .45rem;
-    border-bottom-width: .15rem;
-  }
-}
-
-@media (min-width: 56em) {
-  .container {
-    max-width: $max-width;
-  }
-}
-
-.offset {
-    padding: $normal-size;
-    margin: $normal-size;
-}
-
-path.sidebar-image {
-  fill: $sidebar-colour;
-  fill-opacity: 0.6;
-}
-
-rect.sidebar-image {
-  stroke: $sidebar-colour;
-  stroke-opacity: 0.6;
-}
-
-span.icons {
-  letter-spacing: normal;
-  word-spacing: normal;
-}
-
-span.base a:before,
-.post.base a:before,
-.sidebar.base{
-    background-color: $base;
-}
-
-span.base,
-span.base a,
-.post.base a,
-.post.base h1,
-.post.base h2,
-.post.base h3,
-.post.base h4,
-.post.base h5,
-.post.base h6 {
-    color: $base;
-}
-
-path.fiction {
-  fill: $fiction;
-}
-
-span.fiction,
-span.fiction a,
-.post.fiction a,
-.post.fiction h1,
-.post.fiction h2,
-.post.fiction h3,
-.post.fiction h4,
-.post.fiction h5,
-.post.fiction h6 {
-    color: $fiction;
-}
-
-span.fiction a:before,
-.post.fiction a:before,
-.sidebar.fiction {
-    background-color: $fiction;
-}
-
-path.base {
-  fill: $base;
-}
-
-path.technology {
-  fill: $technology;
-}
-
-span.technology,
-span.technology a,
-.post.technology a,
-.post.technology h1,
-.post.technology h2,
-.post.technology h3,
-.post.technology h4,
-.post.technology h5,
-.post.technology h6 {
-    color: $technology;
-}
-
-span.technology a:before,
-.post.technology a:before,
-.sidebar.technology{
-    background-color: $technology;
-}
-
-path.meta {
-  fill: $meta;
-}
-
-span.meta,
-span.meta a,
-.post.meta a,
-.post.meta h1,
-.post.meta h2,
-.post.meta h3,
-.post.meta h4,
-.post.meta h5,
-.post.meta h6 {
-    color: $meta;
-}
-
-span.meta a:before,
-.post.meta a:before,
-.sidebar.meta {
-    background-color: $meta;
-}
-
-ol,
-ul {
-    padding: $normal-size;
-    margin: 0;
+  margin-top:  0;
+  text-indent: $size-large;
 }
 
 dl {
-    padding: $normal-size;
-    padding-top: $very-large-size;
-    margin: 0;
-}
-
-.post ul,
-.post ol {
-  padding-top: $large-size;
-  padding-bottom: $large-size;
-  padding-left: $large-size;
-  padding-right: 0;
-    margin-left: $large-size;
-}
-
-.post ul ul,
-.post ol ol {
-  padding-top: 0;
-  padding-bottom: 0;
-    margin-left: $normal-size;
-}
-
-.sidebar-nav {
-  margin-bottom: $normal-size;
-}
-
-.progress-chart {
-  max-width: 100%;
-  margin: auto;
-  margin-bottom: $very-large-size;
-}
-
-
-
-.progress-chart text {
-    font-family: $heading-font;
-}
-
-.sidebar-item li {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.sidebar-item {
-  padding: $normal-size;
-}
-
-ol { 
-    counter-reset: item
-}
-
-ol li { 
-    display: block
-}
-
-ol li:before { 
-    content: counters(item, ".") ") "; counter-increment: item
-}
-
-.footnotes ol { 
-  counter-reset: footnote-item;
-}
-
-.footnotes ol li {
-  margin-bottom: $normal-size;
-}
-
-.footnotes ol li:before { 
-    font-weight: 700;
-    content: "Note " counters(footnote-item, ".") ": "; counter-increment: footnote-item
-}
-
-.gist-meta, .gist-data .blob-interaction-bar { display:none; }
-
-.gist-file table {
-  border: 0px !important;
-}
-
-.gist-file .gist-data {
-    border-bottom: 0px !important;
-}
-
-.gist-file {
-  border-top: 0px !important;
-  border-bottom: 0px !important;
-  border-left: 0px !important;
-  border-right: 0px !important;
-}
-
-.gist {
-  padding-top: $very-large-size;
-  padding-bottom: $very-large-size;
-}
-
-.post .gist .line-pre, .gist .markdown-body {
-  font-family: "Source Code Pro" !important;
-  font-size: $very-small-size !important;
-  line-height: $small-size !important;
-}
-
-.gist .markdown-body {
-  padding: 0;
-}
-
-.gist .line-number {
- width: 1rem;
-}
-
-.tex sub, .latex sub, .latex sup {
-  text-transform: uppercase;
-}
-
-.tex sub, .latex sub {
-  vertical-align: -0.5ex;
-  margin-left: -0.1667em;
-  margin-right: -0.125em;
-}
-
-
-.tex, .latex, .tex sub, .latex sub {
-  font-size: 1em;
-}
-
-
-.latex sup {
-  font-size: 0.85em;
-  vertical-align: 0.15em;
-  margin-left: -0.36em;
-  margin-right: -0.15em;
+  margin-bottom: $size-large;
 }
 
 dt {
-    font-weight: 400;
-}
-
-dd {
-    padding-left: $normal-size;
-    margin: 0;
-}
-
-div .tag-entry {
-  margin-top: $large-size;
-}
-
-.category-intro {
-    margin-bottom: $very-large-size;
-    font-style: italic;
-}
-
-.masthead {
-  border-bottom: 0px;
-}
-
-.masthead-title {
-  padding-top: $small-size;
-  font-weight: normal;
-}
-
-.post-data {
-    font-family: $heading-font;
-    text-align: center;
-    text-transform: uppercase;
-      letter-spacing: 0.1em;
-  word-spacing: 0.125em;
-font-size: $small-size;
-}
-
-.post-title,
-.post-subtitle {
-    content: "";
-}
-
-.post-more {
-    display: block;
-    text-align: center;    
-}
-
-.overlay {
-    vertical-align: middle;
-    height: 10vh;
-    max-height: 250px;
-    min-height: 150px;
-    width: 100%;
-    position: absolute;
-    z-index: 2;
-    background: rgba(0,0,0,1);
-}
-
-img { 
-    max-width: none;
-    margin: 0;
-    border-radius: 0;
-    padding-top: $very-large-size;
-    padding-bottom: $very-large-size;
-}
-
-.featured-image {
-
-    height: 10vh;
-    max-height: 250px;
-    min-height: 150px;
-    vertical-align: middle;
-    width: 100%;
-    background-position: center center;
-    background-size: cover;
-    vertical-align: middle;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    position: relative;
-    top: 0;
-    z-index: -1;
-    margin-bottom: $large-size;
-}
-
-.wrap {
-    float: none;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-.post {
-    display: block;
-    float: none;
-}
-
-.site-header, .sidebar-toggle {
-  z-index: 5000;
-}
-
-.site-header {
-  padding: $normal-size 0;
-  position: absolute;
-  width: 100%;
-}
-
-.light a {
-    color: black;
-}
-
-.dark a {
-    color: white;
-}
-
-.project-type {
-  float: right;
-  font-weight: normal;
-  font-variant: small-caps;
-  font-family: $heading-font;
-  letter-spacing: 0.1em;
+  margin: $size-small 0 0 0;
 }
 
 blockquote {
-  padding-left: $normal-size;
-  padding-right: 0;
-  margin-left: 0;
-  margin-right: 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
+  border-left: .25rem solid lightgrey;
+  color:       grey;
+  font-style:  italic;
+}
+
+article > p:first-of-type:first-letter {
+  float:       left;
+  font-size:   {{ em_size | times:4 }}px;
+  line-height: {{ em_size | times:3 }}px;
+  padding:     $size-x-small;
+  margin:      auto;
+}
+
+aside {
+  @include flex(1);
+  @include align-self(center);
+}
+
+aside p {
+  @include set-aside-width();
+  font-style: italic;
+  font-size:  $size-small;
   text-align: left;
-  word-break: normal;
+  margin:     0 auto 0 $size-small;
 }
 
-@media (min-width: 30em) {
-  blockquote {
-  padding-left: $normal-size;
-  padding-right: $normal-size;
-  margin-left: $large-size;
-  margin-right: $large-size;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
-  text-align: justify;
-  text-justify: inter-character;
-  word-break: break-all; 
-  word-break: break-word;
-  }
+em {
+  font-style: italic;
 }
 
-.highlight {
-    margin: 0;
-    margin-top: $large-size;
-    margin-bottom: $large-size;
-    border-radius:30px;
-    overflow-x: scroll;
+strong {
+  @include font-feature-settings("smcp");
+  font-weight: normal;
 }
 
-@media (min-width: 30em) {
-    .highlight {
-        margin: $large-size;
-        border-radius:30px;
-        overflow-x: scroll;
-    }
+p + :not(p), ul + :not(p), ol + :not(p) {
+  margin-top: $size-large;
 }
 
-code {
-  background-color: inherit;
-  padding: 0;
-  color: black;
+li p, li ol, li ul {
+  margin-top:  0;
+}
+
+ol {
+    counter-reset: item;
+}
+
+ol li {
+    display: block;
+}
+
+ol li:before {
+    content: counters(item, ".") ") "; counter-increment: item;
+}
+
+code, pre {
+  font-family: $font-mono;
+  font-size: $font-size-mono;
 }
 
 pre {
-  margin-top: $normal-size;
-  margin-bottom: $normal-size;
+  padding: $size-small;
+  max-width: 100vw;
+  overflow: auto;
+  {% if page.aside %}
+  @include flex(3);
+  {% endif %}
 }
 
-pre code {
-  font-family: "Source Code Pro";
-  font-size: $very-small-size;
-  line-height: $small-size;
-}
-
-code {
-  font-family: "Source Code Pro";
-}
-
-.sidebar {
-    font-family: "Source Sans Pro";
-}
-
-.sidebar-item-header {
-    text-transform: uppercase;
-    text-align: center;
-    padding: $normal-size;
-    padding-top: $large-size;
-    padding-bottom: $large-size;
-    margin: 0;
-
-    font-style: normal;
-
-    text-align: center;
-    text-transform: uppercase;
-  letter-spacing: 0.1em;
-  word-spacing: 0.125em;
-}
-
-.fleuron {
-    text-align: center
-}
-
-.sidebar-toggle:active, #sidebar-checkbox:checked ~ .sidebar-toggle {
-    background-color: white;
-}
-
-.sidebar-toggle {
-  top:  0;
-  left: 0;
-  padding: 0;
-  padding-top: $small-size;
-  margin: $logo-margin;
-  margin-top: $small-size;
-  border-radius: $logo-width;
-  width: $logo-width;
-}
-
-.sidebar-toggle:before {
-  padding: 0;
+hr {
+  margin: $size-large auto;
   border: 0;
-  margin: 0;
-  border-top: 0;
-  border-bottom: 0;
-  border-top-width: 0;
-  border-bottom-width: 0;
 }
 
-ul ul,
-ol ol {
-    padding: 0;
-    margin: 0;
-    margin-left: $large-size;
+a {
+  text-decoration: none;
+}
+
+figure {
+  padding: 0;
+  margin: $size-large 0;
+}
+
+img {
+  width:     100vw;
+  max-width: 100vw;
+}
+
+{% for colour in site.colours %}
+
+  $colour-{{ colour | first }}: {{ colour | last }};
+
+  .{{ colour | first }} a,
+  .{{ colour | first }} %headings,
+  .{{ colour | first }} aside {
+    color: {{ colour | last }};
+  }
+
+  .{{ colour }} path {
+    fill: {{ colour | last }};
+  }
+{% endfor %}
+
+a,
+%headings,
+aside {
+  color: {% if page.categories %}$colour-{{ page.categories | first }}{% else %}$colour-base{% endif %};
+}
+
+nav path {
+  fill:  {% if page.categories %}$colour-{{ page.categories | first }}{% else %}$colour-base{% endif %};
+}
+
+/* Class styles */
+
+.selected {
+  border-style: none none solid none;
+  border-width: 2px;
+}
+
+.selector {
+  border-style: none none solid none;
+  border-width: 0px;
+  cursor: pointer;
+}
+
+.masthead {
+  margin: $size-x-large;
+}
+
+.footnotes ol {
+  counter-reset: footnote-item;
+}
+
+.footnotes ol li:before {
+  font-style: italic;
+  content: "Note " counters(footnote-item, ".") ": "; counter-increment: footnote-item;
+}
+
+.search {
+  margin:         auto;
+  font-family:    $font-sans;
+  font-style:     normal;
+  font-weight:    normal;
+  text-align:     center;
+  text-transform: uppercase;
+  letter-spacing: {{ title_letter_spacing }}rem;
+  word-spacing:   {{ title_word_spacing }}rem;
 }
 
 .tag-history ul li:before {
@@ -941,29 +350,6 @@ ol ol {
     list-style-type: none;
 }
 
-#search-box {
-    border-radius: 20px;
-    text-align: center
-}
-
-#search-input {
-    margin-top: 0;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 0;
-    height: 35px;
-    width: 200px;
-    text-align: center
-}
-
-#article-1-content p:first-child:first-letter {
-  float: left; 
-  color: $fiction;
-  font-size: $dropcap-size; 
-  line-height: $dropcap-size;
-  margin-right: $small-size; 
-}
-
 .tag-cloud ul {
     list-style: none;
     width: 90%;
@@ -972,10 +358,57 @@ ol ol {
     text-align: center
 }
 
-.fancy {
-    -moz-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
-    -ms-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
-    -webkit-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
-    -o-font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
-    font-feature-settings: "kern", "liga", "dlig", "ss02", "swsh";
+.tag-cloud li {
+  font-family: $font-sans;
+  font-style: normal;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: {{ title_letter_spacing }}rem;
+  word-spacing:   {{ title_word_spacing }}rem;
+  display: inline-block;
+}
+
+.tag-entry, .tag-entry-tags {
+  display: none;
+}
+
+.disabled {
+  color: lightgrey;
+}
+
+/* ID styles */
+
+#search-input {
+    text-align: center;
+}
+
+#search-results {
+    margin-bottom: $size-x-large;
+}
+
+/* Responsive overrides */
+
+@include respond-to($width-break-min) {
+
+  h1, h2, h3 {
+    font-size: $size-medium;
+  }
+
+  h4, h5, h6 {
+    font-size: $size-x-small;
+  }
+
+  p, ul, ol, blockquote {
+    text-align: left;
+  }
+
+  section {
+    @include flex-direction(column);
+  }
+
+  .masthead {
+    margin: $size-small $size-small $size-x-large  $size-small;
+  }
+
 }

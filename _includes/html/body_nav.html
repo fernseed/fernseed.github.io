@@ -1,0 +1,47 @@
+<nav>
+
+  <!-- Icon set -->
+  <a href="{{ site.feed_url }}?format=xml" title="Site Feed">{% include svg/rss.svg %}</a>&nbsp;
+  {% if page.categories %}<a href="{{ site.feed_url }}/{{ page.categories.first }}?format=xml" title="Category Feed (#{{ page.categories.first }})">{% include svg/category.svg %}</a>&nbsp;{% endif %}
+  <a href="http://twitter.com/dmcgk" title="Twitter (@dmcgk)">{% include svg/twitter.svg %}</a>&nbsp;
+  <a href="http://github.com/dmcgk" title="GitHub (@dmcgk)">{% include svg/github.svg %}</a>&nbsp;
+  <a href="https://raw.githubusercontent.com/fernseed/fernseed.github.io/master/{{ page.path }}" title="Page Markdown">{% include svg/markdown.svg %}</a>
+
+  <!-- Publication dates -->
+  {% capture published %}{% include html/date.html %}{% endcapture %}
+  {% capture modified %}{% include html/date_modified.html %}{% endcapture %}
+
+  <h5 itemprop="datePublished">{{ published }}</h5>
+
+  {% if page.modified %}
+    {% if modified != published  %}
+      <h6><a href="{{ site.history_url }}{{ page.path }}">Updated</a>: {{ modified }}</h6>
+    {% endif %}
+  {% endif %}
+
+  <!-- Tag list -->
+  <h5>
+  {% if page.tags %}
+    {% for tag in page.tags %}
+    <a href="/meta/tags/?tag={{ tag | replace:" ","-" }}">{{ tag }}</a>{% unless forloop.last %} &middot; {% endunless %}
+    {% endfor %}
+  {% endif %}
+
+  <!-- Gists -->
+  {% if page.gists %}
+    {% if page.tags %} &middot; {% endif %}
+    {% for gist in page.gists %}
+      Gist: <a href="https://gist.github.com/{{ gist }}">{{ gist }}</a>{% unless forloop.last %} &middot; {% endunless %}
+    {% endfor %}
+  {% endif %}
+
+  <!-- Supporting files -->
+  {% if page.files %}
+    {% if page.tags || page.gists %} &middot; {% endif %}
+    {% for file in page.files %}
+      File: <a href="/assets/files/{{ file }}">{{ file }}</a>{% unless forloop.last %} &middot; {% endunless %}
+    {% endfor %}
+  {% endif %}
+  </h5>
+
+</nav>

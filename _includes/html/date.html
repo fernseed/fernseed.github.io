@@ -1,4 +1,6 @@
-{% if page.date %}
+{% if post.date %}
+{{ post.date | date: "%A" }}, {% assign d = post.date | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ post.date | date: "%B" }}, {{ post.date | date: "%Y" }}
+{% else if page.date %}
 {{ page.date | date: "%A" }}, {% assign d = page.date | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ page.date | date: "%B" }}, {{ page.date | date: "%Y" }}
 {% else %}
 {{ site.time | date: "%A" }}, {% assign d = site.time | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ site.time | date: "%B" }}, {{ site.time | date: "%Y" }}

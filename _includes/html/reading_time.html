@@ -1,4 +1,4 @@
-<span class="post-data">
+<h5>
 	{% capture use_hours %}{{ words | divided_by:site.reading_wpm | minus:60 }}{% endcapture %}
   ~{% if use_hours contains "-" %}{{ words | divided_by:site.reading_wpm | round }} minute {% else %}{{ words | divided_by:site.reading_wpm | divided_by:60 | round: 1 }} hour {% endif %} read
-</span>
+</h5>
