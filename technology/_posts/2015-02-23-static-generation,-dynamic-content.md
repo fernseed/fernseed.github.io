@@ -199,7 +199,7 @@ After following all of the above, the final interactive and dynamically updating
 
 <h5 class="js-only"><span class="selector" id="7Selector" onclick='setPeriod(7)'>7 days</span> &middot; <span class="selector" id="30Selector"  onclick='setPeriod(30)'>30 days</span>{% if entry_count > 365 %} &middot; <span class="selector" id="365Selector" onclick='setPeriod(365)'>1 year</span>{% else %} &middot; <span class="selector" id="0Selector" onclick='setPeriod(0)'>All</span>{% endif %}</h5>
 
-<div><h4>Loading chart&hellip;</h4></div>
+<div id="progress-chart" class="progress-chart js-only"><h4>Loading chart&hellip;</h4></div>
 
 <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 
