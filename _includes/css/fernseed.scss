@@ -395,7 +395,11 @@ nav path {
     font-size: $size-medium;
   }
 
-  h4, h5, h6 {
+  h4 {
+    font-size: $size-small;
+  }
+
+  h5, h6 {
     font-size: $size-x-small;
   }
 
