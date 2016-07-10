@@ -9,6 +9,6 @@ layout: data
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>{{ site.url }}/</id>
     <rights>Copyright {{ site.time | date: '%Y' }} Darren McGuicken</rights>
-{% for post in site.categories.technology %}{% include atom/post_list.atom %}
-{% endfor %}
+    {% for post in site.categories.technology | limit:site.paginate  %}{% include atom/post_list.atom %}
+    {% endfor %}
 </feed>

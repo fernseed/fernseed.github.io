@@ -1,7 +1,7 @@
 ---
 layout: data
 
-# We don't need this to be an archive, just a notification mechanism, 
+# We don't need this to be an archive, just a notification mechanism,
 # so limit the number of posts cycled through to just the most recent.
 ---
 <?xml version="1.0" encoding="utf-8"?>
@@ -12,5 +12,5 @@ layout: data
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>{{ site.url }}/</id>
     <rights>Copyright {{ site.time | date: '%Y' }} Darren McGuicken</rights>
-    {% for post in site.posts | limit:20 %}{% include atom/post_list.atom %}{% endfor %}
+    {% for post in site.posts | limit:site.paginate %}{% include atom/post_list.atom %}{% endfor %}
 </feed>
