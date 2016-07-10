@@ -8,6 +8,7 @@ layout: compress
         "tagline"  : "{{ post.tagline }}",
         "summary"  : "{{ post.description }}",
         "tags"     : "{{ post.tags | join: ", " }}",
+        "category" : "{{ post.categories | first }}",
         "url"      : "{{ post.url }}",
         "excerpt"  : "{{ post.excerpt | strip_html | strip_newlines }}",
         "date"     : "{{ post.date | date: "%F" }}"
