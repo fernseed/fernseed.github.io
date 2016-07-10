@@ -6,8 +6,6 @@ permalink: /technology/
 summary:
     The <strong>#technology</strong> category contains posts which are hardware and software focused.
 ---
-<div class="posts">
-  {% for post in site.categories.technology %}
-  {% include html/post-loop.html %}
-  {% endfor %}
-</div>
+{% for post in site.categories.technology %}
+  {% include html/post_loop.html %}
+{% endfor %}

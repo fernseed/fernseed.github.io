@@ -3,25 +3,16 @@ layout: index
 title:  the second room
 categories: [fiction, the-second-room]
 permalink: /fiction/the-second-room/
-summary: 
+summary:
     <strong>The Second Room</strong> is a work in progress, an experiment in serialised web fiction.
 ---
-<div class="posts">
-	<div class="post fiction">
-		<h6 class="post-subtitle">
-			<a href="complete/">The Story So Far</a>
-		</h6>
-		<h2 class="post-title">
-			<a href="complete/">The Second Room</a>
-		</h2>
-		<article>
-		<blockquote>
-			{{ site.categories.the-second-room.last.excerpt }}
-		</blockquote>
-		You can read the serial to date on a single page by following the link above or look for individual parts listed below.
-		</article>
-	</div>
-	{% for post in site.categories.the-second-room %}
-	{% include html/post-loop.html %}
-	{% endfor %}
-</div>
+<section>
+	<h4><a href="complete/">The Story So Far</a></h4>
+	<h1><a href="complete/">The Second Room</a></h1>
+	<blockquote>{{ site.categories.the-second-room.last.excerpt }}</blockquote>
+	<p>You can read the serial-to-date on a single page by following the link above or find the individual parts listed below.</p>
+</section>
+
+{% for post in site.categories.the-second-room %}
+	{% include html/post_loop.html %}
+{% endfor %}

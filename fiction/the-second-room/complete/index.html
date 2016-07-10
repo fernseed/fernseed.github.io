@@ -7,54 +7,33 @@ redirect_from: /complete/
 permalink: /fiction/the-second-room/complete/
 ---
 
+<!-- Total reading time -->
 {% for post in site.categories.the-second-room %}
 {% capture words %}{{ post.content | number_of_words | plus: words | append:".0" }}{% endcapture %}
 {% endfor %}
 
-<section id="content">
-    <div class="post fiction">
-    <div id="article" itemscope itemtype="http://schema.org/NewsArticle">
-    <meta itemprop="headline" content="the story so far" />
-    <h6 class="post-title"></h6>
-    <h1 class="post-title">
+<section class="fiction">
+    <h1>
         The Second Room
     </h1>
-    {% include html/reading-time.html %}
-    <hr />
-    <article id="article-content" itemprop="articleBody">
+    {% include html/reading_time.html %}
+
+    <article>
         {% for post in site.categories.the-second-room reversed %}
-        <div class="fleuron">
-            <p>
-                    <a id="fnref:second-room-{{forloop.index}}" href="#fn:second-room-{{forloop.index}}" rel="footnote"></a>
-            </p>
-        </div>
-        <div class="footnotes">
-            <li class="footnote" id="fn:second-room-{{forloop.index}}">
-                <p style="text-align: center;"><em><a class="fiction" href="{{post.url}}">Part {{forloop.index}}: {{post.tagline}}</a></em>&mdash;
-                    {{ post.date | date: "%A" }},
-                    {% assign d = post.date | date: "%-d" %}
-                    {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} 
-                    {{ post.date | date: "%B" }},
-                    {{ post.date | date: "%Y" }}
-                </p>
-            </li>
-        </div>
-        <div style="padding-top: 1em; padding-bottom: 1em;" id="article-{{forloop.index}}-content">
             {{ post.content }}
-        </div>
-        {%if forloop.last %}{% assign published = post.date %}{% endif %}
+            {%if forloop.last %}{% assign published = post.date %}{% else %}<hr />{% endif %}
         {% endfor %}
     </article>
-    </div>
-    <meta itemprop="wordCount" content="{{ words | round }}" />
-    <meta itemprop="datePublished" content="{{ published | date_to_xmlschema }}" />
-</div>
+
+    <h6>
+        Last updated
+    </h6>
+    <h4>
+        {{ published | date: "%A" }},
+        {% assign d = published | date: "%-d" %}
+        {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %}
+        {{ published | date: "%B" }},
+        {{ published | date: "%Y" }}
+    </h4>
+
 </section>
-<hr />
-<span class="post-data offset">
-    {{ published | date: "%A" }},
-    {% assign d = published | date: "%-d" %}
-    {% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} 
-    {{ published | date: "%B" }},
-    {{ published | date: "%Y" }}
-</span>

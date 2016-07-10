@@ -6,8 +6,6 @@ permalink: /meta/
 summary:
     The <strong>#meta</strong> category contains posts which are predominantly about the site itself or about its author.
 ---
-<div class="posts">
-  {% for post in site.categories.meta %}
-  {% include html/post-loop.html %}
-  {% endfor %}
-</div>
+{% for post in site.categories.meta %}
+  {% include html/post_loop.html %}
+{% endfor %}

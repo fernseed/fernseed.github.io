@@ -1,12 +1,10 @@
 ---
 layout: index
-title: fernseed
+title: Fernseed
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  	{% include html/post-loop.html %}
-  {% endfor %}
-</div>
+{% for post in paginator.posts %}
+	{% include html/post_loop.html %}
+{% endfor %}
 
 {% include html/pagination.html %}
