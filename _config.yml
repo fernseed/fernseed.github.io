@@ -1,7 +1,7 @@
 # Site settings
 version: 3.0
 title: 'Fernseed'
-url: 'https://fernseed.org'
+url: 'https://archive.fernseed.org'
 history_url: 'https://github.com/fernseed/fernseed.github.io/commits/master/'
 feed_url: 'http://feeds.feedburner.com/fernseed'
 description: 'Weird fiction, weird technology &amp; weird thinking.'
