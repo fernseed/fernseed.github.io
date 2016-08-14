@@ -100,6 +100,8 @@ $font-sans:      "Source Sans Pro", sans-serif;
 $font-mono:      "Source Code Pro", monospace;
 $font-size-mono: {{ monospace_size }}px;
 
+$transparency: 0.3;
+
 $size-x-small: modular-scale( {{ modular_scale_upper | minus:6 }} );
 $size-small:   modular-scale( {{ modular_scale_upper | minus:4 }} );
 $size-medium:  modular-scale( {{ modular_scale_upper | minus:3 }} );
@@ -197,6 +199,7 @@ blockquote {
   font-style:  italic;
 }
 
+/* TODO: Not entirely sure this is a good idea.
 article > p:first-of-type:first-letter {
   float:       left;
   font-weight: normal;
@@ -206,6 +209,7 @@ article > p:first-of-type:first-letter {
   padding:     $size-x-small;
   margin:      auto;
 }
+*/
 
 aside {
   @include flex(1);
@@ -284,17 +288,22 @@ img {
 
 {% for colour in site.colours %}
 
-  $colour-{{ colour | first }}: {{ colour | last }};
+  $colour-{{ colour | first }}: rgb({{ colour | last }});
 
   .{{ colour | first }} a,
   .{{ colour | first }} %headings,
   .{{ colour | first }} aside {
-    color: {{ colour | last }};
+    color: rgb({{ colour | last }});
   }
 
-  .{{ colour }} path {
-    fill: {{ colour | last }};
+  .{{ colour | first }} path {
+    fill: rgb({{ colour | last }});
   }
+
+  .{{ colour | first }} a.unselected  {
+    color: rgba({{ colour | last }}, $transparency);
+  }
+
 {% endfor %}
 
 a,

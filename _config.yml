@@ -10,13 +10,13 @@ timezone: 'Europe/Belfast'
 permalink: /:categories/:title/
 reading_wpm: 180
 paginate: 20
-paginate_path: "/archive/:num/"
+paginate_path: '/archive/:num/'
 
 colours:
-  technology: "#355CBD"
-  fiction: "#358766"
-  meta: "#BD3C35"
-  base: "black"
+  technology: '53, 92, 189'
+  fiction: '53, 135, 102'
+  meta: '189, 60, 53'
+  base: '0, 0, 0'
 
 # Writing stats
 writing:
@@ -36,7 +36,7 @@ contact:
 social:
   type: 'person'
   name: 'Darren McGuicken'
-  links: ["https://twitter.com/dmcgk"]
+  links: ['https://twitter.com/dmcgk']
 
 # Non-article collections
 collections:
@@ -53,14 +53,14 @@ sass:
 defaults:
   -
     scope:
-      path: ""
+      path: ''
     values:
-      layout: "default"
+      layout: 'default'
   -
     scope:
-      path: "errors"
+      path: 'errors'
     values:
-      layout: "index"
+      layout: 'index'
       sitemap: false
 
 # Plugins
