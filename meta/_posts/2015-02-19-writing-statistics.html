@@ -23,12 +23,13 @@ description:
 {% for entry in site.data.progress reversed %}{% assign daily_total = entry.fiction | plus:entry.non-fiction %}{% assign daily_total = prior_daily_total | minus: daily_total %}{% unless break %}{% unless forloop.first %}{% if daily_total > 0 %}{% assign streak = streak | plus:1 %}{% else %}{% assign break = true %}{% endif %}{% endunless %}{% endunless %}{% assign prior_daily_total = entry.fiction | plus: entry.non-fiction %}{% endfor %}
 
 {% assign breakdate_index = entry_count | minus: streak %}
+{% assign day_prior_to_breakdate_index = breakdate_index | minus: 1 %}
 {% assign breakdate = site.data.progress[breakdate_index].date %}
 
 {% if streak > 0 %}
 
 <h4>
-    <small>{{ most_recent.fiction | plus: most_recent.non-fiction | minus:site.data.progress[breakdate_index].fiction | minus:site.data.progress[breakdate_index].non-fiction }} words written during</small>
+    <small>{{ most_recent.fiction | plus: most_recent.non-fiction | minus:site.data.progress[day_prior_to_breakdate_index].fiction | minus:site.data.progress[day_prior_to_breakdate_index].non-fiction }} words written during</small>
     <br />
     {{ streak }} consecutive day{% unless streak == 1 %}s{% endunless %} of writing{% unless streak == 0 %}<br/><small>which began {{ breakdate | date: "%A" }}, {% assign d = breakdate | date: "%-d" %}{% case d %}{% when "1" or "21" or "31" %}{{ d }}st{% when "2" or "22" %}{{ d }}nd{% when "3" or "23" %}{{ d }}rd{% else %}{{ d }}th{% endcase %} {{ breakdate | date: "%B" }}, {{ breakdate | date: "%Y" }}</small>{% endunless %}
 </h4>
