@@ -1,7 +1,7 @@
 {% assign index_category = page.categories[0] %}
 
 <h4 class="masthead">
-  <span class="base"><a {% unless page.title == site.title %}class="unselected"{% endunless %} href="/">{{ site.title }}</a></span>
+  <span class="base"><a href="/">{{ site.title }}</a></span>
     {% for colour in site.colours %}
       {% unless colour[0] == "base" %}
         &middot;
