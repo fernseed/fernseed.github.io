@@ -199,18 +199,6 @@ blockquote {
   font-style:  italic;
 }
 
-/* TODO: Not entirely sure this is a good idea.
-article > p:first-of-type:first-letter {
-  float:       left;
-  font-weight: normal;
-  font-style:  normal;
-  font-size:   {{ em_size | times:4 }}px;
-  line-height: {{ em_size | times:3 }}px;
-  padding:     $size-x-small;
-  margin:      auto;
-}
-*/
-
 aside {
   @include flex(1);
   @include align-self(center);
@@ -286,6 +274,8 @@ img {
   max-width: 100vw;
 }
 
+/* Category-conditional styles */
+
 {% for colour in site.colours %}
 
   $colour-{{ colour | first }}: rgb({{ colour | last }});
@@ -306,15 +296,29 @@ img {
 
 {% endfor %}
 
+{% assign master_category = page.categories | first %}
+
 a,
 %headings,
 aside {
-  color: {% if page.categories %}$colour-{{ page.categories | first }}{% else %}$colour-base{% endif %};
+  color: {% if page.categories %}$colour-{{ master_category }}{% else %}$colour-base{% endif %};
 }
 
 nav path {
-  fill:  {% if page.categories %}$colour-{{ page.categories | first }}{% else %}$colour-base{% endif %};
+  fill:  {% if page.categories %}$colour-{{ master_category }}{% else %}$colour-base{% endif %};
 }
+
+{% if master_category == "fiction" %}
+article > p:first-of-type:first-letter {
+  float:       left;
+  font-weight: normal;
+  font-style:  normal;
+  font-size:   {{ em_size | times:4 }}px;
+  line-height: {{ em_size | times:3 }}px;
+  padding:     $size-x-small;
+  margin:      auto;
+}
+{% endif %}
 
 /* Class styles */
 
