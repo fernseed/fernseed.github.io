@@ -108,7 +108,7 @@ $size-medium:  modular-scale( {{ modular_scale_upper | minus:3 }} );
 $size-large:   modular-scale( {{ modular_scale_upper | minus:2 }} );
 $size-x-large: modular-scale( {{ modular_scale_upper | plus:2  }} );
 
-/* Base styles */
+/* Common base styles */
 
 @include get-headings-all(){
   font-family:    $font-sans;
@@ -141,6 +141,19 @@ body {
   min-height:     100vh;
 }
 
+header, footer {
+  text-align: center;
+  width: 100vw;
+}
+
+footer {
+  margin-top: $size-x-large;
+}
+
+a {
+  text-decoration: none;
+}
+
 section {
   {% if page.layout == "index" %}
     margin-bottom: $size-x-large;
@@ -156,19 +169,6 @@ section p, section blockquote {
   margin-top: $size-x-small;
 }
 
-header, footer {
-  text-align: center;
-  width: 100vw;
-}
-
-footer {
-  margin-top: $size-x-large;
-}
-
-article {
-  @include flex(2);
-}
-
 blockquote, p, dl, ul, ol {
   @include set-body-text();
   margin-top: $size-large;
@@ -178,11 +178,6 @@ blockquote, p, dl, ul, ol {
   {% else %}
   margin: 0 auto;
   {% endif %}
-}
-
-p + p {
-  margin-top:  0;
-  text-indent: $size-large;
 }
 
 dl {
@@ -199,6 +194,28 @@ blockquote {
   font-style:  italic;
 }
 
+em {
+  font-style: italic;
+}
+
+strong {
+  @include font-feature-settings("smcp");
+  font-weight: normal;
+}
+
+/* Article base styles */
+
+{% unless page.layout == "index" %}
+
+article {
+  @include flex(2);
+}
+
+p + p {
+  margin-top:  0;
+  text-indent: $size-large;
+}
+
 aside {
   @include flex(1);
   @include align-self(center);
@@ -210,15 +227,6 @@ aside p {
   font-size:  $size-small;
   text-align: left;
   margin:     0 auto 0 $size-small;
-}
-
-em {
-  font-style: italic;
-}
-
-strong {
-  @include font-feature-settings("smcp");
-  font-weight: normal;
 }
 
 p + :not(p), ul + :not(p), ol + :not(p) {
@@ -260,10 +268,6 @@ hr {
   border: 0;
 }
 
-a {
-  text-decoration: none;
-}
-
 figure {
   padding: 0;
   margin: $size-large 0;
@@ -273,6 +277,8 @@ img {
   width:     100vw;
   max-width: 100vw;
 }
+
+{% endunless %}
 
 /* Category-conditional styles */
 
