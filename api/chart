@@ -52,7 +52,7 @@ layout: compress
                       {% assign prior7dayTotal = 7dayTotal %}
                   {% else %}
                       "0"
-                  {% endif %} },
+                  {% endif %} }
 
                   {% assign eventCounter = 0 %}
 
@@ -86,6 +86,9 @@ layout: compress
                     {% endif %}
                   {% endfor %}
 
+                  {% unless postTitle == "" && saleTitle == "" && publicationTitle == ""%}
+                  ,
+
                   {"v" : "{{ eventCounter }}"},
 
                   {"v" : "{% if postTitle != "" %}Posted: {{ postTitle }}{% endif %}"}, {"v" : "{% if postTitle != "" %}In: {{ postDetails }}{% endif %}" },
@@ -93,6 +96,8 @@ layout: compress
                   {"v" : "{% if saleTitle != "" %}Sold: {{ saleTitle }}{% endif %}"}, {"v" : "{% if saleTitle != "" %}To: {{ publicationDetails }}{% endif %}" },
 
                   {"v" : "{% if publicationTitle != "" %}Published: {{ publicationTitle }}{% endif %}"}, {"v" : "{% if publicationTitle != "" %}In: {{ publicationDetails }}{% endif %}" }
+
+                  {% endunless %}
 
               ]}{% unless forloop.last %},{% endunless %}
               {% assign counter = counter | plus:1 %}
